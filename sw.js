@@ -1,8 +1,8 @@
-const CACHE_NAME = "acsis-clarity-v10";
+const CACHE_NAME = "acsis-clarity-v11";
 const APP_FILES = [
   "./",
   "./index.html",
-  "./styles.css?v=10",
+  "./styles.css?v=11",
   "./app.js?v=10",
   "./manifest.webmanifest",
   "./assets/favicon.svg",

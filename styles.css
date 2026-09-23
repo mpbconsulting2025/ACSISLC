@@ -2707,6 +2707,107 @@ body.reduce-motion *::after {
   }
 }
 
+@media (min-width: 761px) {
+  body.is-embedded .app-shell {
+    min-height: 0;
+  }
+
+  body.is-embedded .side-rail {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    min-height: 72px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 20px;
+    padding: 11px clamp(20px, 3vw, 42px);
+  }
+
+  body.is-embedded .brand-button {
+    width: auto;
+    display: flex;
+    gap: 10px;
+    padding: 0;
+  }
+
+  body.is-embedded .brand-button img {
+    width: 104px;
+  }
+
+  body.is-embedded .brand-button span {
+    padding-left: 10px;
+  }
+
+  body.is-embedded .primary-nav {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  body.is-embedded .nav-item {
+    min-height: 42px;
+    gap: 7px;
+    padding: 7px 10px;
+    font-size: 0.78rem;
+  }
+
+  body.is-embedded .nav-item svg,
+  body.is-embedded .icon-text-button svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  body.is-embedded .rail-footer {
+    margin: 0;
+  }
+
+  body.is-embedded .rail-footer .icon-text-button {
+    width: auto;
+    min-height: 42px;
+    padding: 7px 10px;
+    font-size: 0.78rem;
+  }
+
+  body.is-embedded .rail-footer p,
+  body.is-embedded .topbar {
+    display: none;
+  }
+
+  body.is-embedded main {
+    width: 100%;
+    min-height: 0;
+    margin-left: 0;
+    padding: 0 clamp(20px, 3vw, 48px) 38px;
+  }
+
+  body.is-embedded .view {
+    padding-top: clamp(30px, 4vw, 48px);
+    padding-bottom: 14px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+  body.is-embedded .side-rail {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 10px;
+    padding-inline: 16px;
+  }
+
+  body.is-embedded .brand-button img {
+    width: 82px;
+  }
+
+  body.is-embedded .brand-button span,
+  body.is-embedded .rail-footer .icon-text-button span {
+    display: none;
+  }
+
+  body.is-embedded .nav-item {
+    padding-inline: 8px;
+  }
+}
+
 @media print {
   .side-rail,
   .topbar,
