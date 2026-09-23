@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#172747">
+  <meta name="description" content="Free, private focus, breathing, meditation and soundscape tools from ACSIS Life Coaching.">
+  <title>ACSIS Clarity</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/acsis-mark.png">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <div class="app-shell">
+    <aside class="side-rail" aria-label="Primary navigation">
+      <button class="brand-button" type="button" data-route="home" aria-label="ACSIS Clarity home">
+        <img src="assets/acsis-logo.png" alt="ACSIS Life Coaching">
+        <span>Clarity</span>
+      </button>
+
+      <nav class="primary-nav">
+        <button class="nav-item is-active" type="button" data-route="home" aria-current="page">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+          <span>Today</span>
+        </button>
+        <button class="nav-item" type="button" data-route="focus">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg>
+          <span>Focus</span>
+        </button>
+        <button class="nav-item" type="button" data-route="breathe">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4c4 0 7 3.1 7 7s-3.1 7-7 7-7-3.1-7-7 3.1-7 7-7Z"/><path d="M12 1v3M12 18v5M1 12h4M19 12h4"/></svg>
+          <span>Breathe</span>
+        </button>
+        <button class="nav-item" type="button" data-route="meditate">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 15.8A8 8 0 0 1 8.2 6.4 8 8 0 1 0 17.6 15.8Z"/></svg>
+          <span>Meditate</span>
+        </button>
+        <button class="nav-item" type="button" data-route="soundscapes">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-4M8 18V6M12 21V3M16 17V7M20 14v-4"/></svg>
+          <span>Soundscapes</span>
+        </button>
+      </nav>
+
+      <div class="rail-footer">
+        <button class="icon-text-button" type="button" data-open-settings>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></svg>
+          <span>Comfort settings</span>
+        </button>
+        <p>Private by design<br><span>Saved on this device</span></p>
+      </div>
+    </aside>
+
+    <main id="main-content" tabindex="-1">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">ACSIS Clarity</p>
+          <p class="topbar-title" data-page-title>Choose what you need</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="quiet-button install-button" type="button" data-install hidden>Install app</button>
+          <button class="round-button" type="button" data-open-settings aria-label="Open comfort settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h2M10 17h10M14 4v6M6 14v6"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="status-region" role="status" aria-live="polite" aria-atomic="true" data-status></div>
+
+      <section class="view is-active" data-view="home" aria-labelledby="home-title">
+        <div class="home-intro">
+          <div>
+            <p class="eyebrow">A quieter place to begin</p>
+            <h1 id="home-title">What would help right now?</h1>
+            <p>Choose one small, useful step. There is nothing to complete and no streak to protect.</p>
+          </div>
+          <div class="privacy-pill">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg>
+            <span>Your entries stay in this browser</span>
+          </div>
+        </div>
+
+        <div class="quick-grid">
+          <button class="journey-card journey-focus" type="button" data-route="focus">
+            <span class="journey-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span>
+            <span class="journey-copy"><strong>Help me focus</strong><small>Choose one task and give it protected time.</small></span>
+            <span class="journey-arrow" aria-hidden="true">→</span>
+          </button>
+          <button class="journey-card journey-breathe" type="button" data-route="breathe">
+            <span class="journey-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></span>
+            <span class="journey-copy"><strong>Help me settle</strong><small>Follow a breathing pattern at your own pace.</small></span>
+            <span class="journey-arrow" aria-hidden="true">→</span>
+          </button>
+          <button class="journey-card journey-meditate" type="button" data-route="meditate">
+            <span class="journey-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 15.8A8 8 0 0 1 8.2 6.4 8 8 0 1 0 17.6 15.8Z"/></svg></span>
+            <span class="journey-copy"><strong>Give me quiet</strong><small>Set a meditation timer with gentle visual guidance.</small></span>
+            <span class="journey-arrow" aria-hidden="true">→</span>
+          </button>
+          <button class="journey-card journey-sound" type="button" data-route="soundscapes">
+            <span class="journey-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-4M8 18V6M12 21V3M16 17V7M20 14v-4"/></svg></span>
+            <span class="journey-copy"><strong>Play a soundscape</strong><small>Mix continuous sound for work, rest or reflection.</small></span>
+            <span class="journey-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <div class="home-lower-grid">
+          <article class="panel continue-panel">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Quick return</p>
+                <h2>Your usual starting point</h2>
+              </div>
+              <span class="soft-badge" data-usual-badge>Not set yet</span>
+            </div>
+            <p data-usual-copy>Use any area and ACSIS Clarity will remember your most recent choice on this device.</p>
+            <button class="secondary-button" type="button" data-continue disabled>Continue</button>
+          </article>
+
+          <article class="panel next-panel">
+            <p class="eyebrow">Planned next</p>
+            <h2>This is the first beta</h2>
+            <p>Sleep support, ADHD support and autism support will follow after the first four areas have been tested properly.</p>
+            <div class="next-tags" aria-label="Features planned for later phases">
+              <span>Sleep</span><span>ADHD support</span><span>Autism support</span>
+            </div>
+          </article>
+        </div>
+
+        <details class="help-card home-help">
+          <summary>Why might this help?</summary>
+          <p>When things feel busy, choosing a single need can reduce the effort of deciding what to do next. These tools offer structure, not judgement. Use what helps and leave what does not.</p>
+        </details>
+      </section>
+
+      <section class="view" data-view="focus" aria-labelledby="focus-title" hidden>
+        <div class="view-heading">
+          <div>
+            <p class="eyebrow">Focus</p>
+            <h1 id="focus-title">Plan one complete focus session</h1>
+            <p>Choose your focus time, breaks and number of blocks once. ACSIS Clarity will move through the whole session for you.</p>
+          </div>
+          <details class="help-card compact-help">
+            <summary>How do I use this?</summary>
+            <p>Build your task list, choose a session or use the Pomodoro setup, then press Start session. Optional breathing comes first. Focus blocks and breaks then change automatically until the session is complete.</p>
+          </details>
+        </div>
+
+        <div class="tool-grid focus-layout">
+          <article class="panel timer-panel accent-focus">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Your session</p>
+                <h2 data-focus-mode-title>Ready to begin</h2>
+              </div>
+              <span class="session-step-badge" data-focus-session-step>Block 1 of 1</span>
+            </div>
+
+            <div class="timer-stage">
+              <div class="timer-ring">
+                <svg viewBox="0 0 112 112" aria-hidden="true">
+                  <circle class="ring-track" cx="56" cy="56" r="48"/>
+                  <circle class="ring-progress" data-focus-ring cx="56" cy="56" r="48"/>
+                </svg>
+                <div class="timer-centre">
+                  <span class="timer-label" data-focus-state>Ready</span>
+                  <strong data-focus-time role="timer" aria-label="25 minutes remaining">25:00</strong>
+                </div>
+              </div>
+              <p class="timer-guidance" data-focus-guidance>Your first unfinished task will appear here when the session begins.</p>
+            </div>
+
+            <div class="session-sequence" data-focus-sequence aria-label="Session sequence"></div>
+
+            <div class="timer-controls">
+              <button class="primary-button" type="button" data-focus-toggle>Start session</button>
+              <button class="secondary-button" type="button" data-focus-reset>Reset session</button>
+            </div>
+            <p class="microcopy">Keep the app open and your device awake for the alarm. Silent mode or browser restrictions can prevent sound.</p>
+          </article>
+
+          <div class="stack">
+            <article class="panel focus-setup-panel">
+              <div class="panel-heading">
+                <div><p class="eyebrow">Session setup</p><h2>Choose once, then press start</h2></div>
+                <button class="pomodoro-button" type="button" data-pomodoro-setup><span>Pomodoro</span><small>25 focus · 5 break · 4 blocks</small></button>
+              </div>
+              <div class="session-settings" aria-label="Focus session settings">
+                <label for="focus-length"><span>Focus time</span><span><input id="focus-length" type="number" min="1" max="180" value="25" inputmode="numeric" data-focus-length> min</span></label>
+                <label for="break-length"><span>Break time</span><span><input id="break-length" type="number" min="1" max="60" value="5" inputmode="numeric" data-break-length> min</span></label>
+                <label for="focus-blocks"><span>Focus blocks</span><select id="focus-blocks" data-focus-blocks><option value="1">1 block</option><option value="2">2 blocks</option><option value="3">3 blocks</option><option value="4">4 blocks</option></select></label>
+              </div>
+              <details class="focus-breathing-card" data-focus-breathing>
+                <summary><span><strong>Begin with box breathing</strong><small>Optional settling time before the first focus block</small></span><span class="focus-breathing-summary-state" data-focus-breathing-summary>Off</span></summary>
+                <div class="focus-breathing-inner">
+                  <div class="mini-breath-visual" aria-hidden="true"><span data-focus-breath-orb></span></div>
+                  <div class="mini-breath-copy"><strong data-focus-breath-phase>Box breathing</strong><span data-focus-breath-time>03:00</span><small data-focus-breath-next>Inhale 4, hold 4, exhale 4, hold 4.</small></div>
+                  <label class="toggle-row compact-toggle"><span><strong>Include at the start</strong><small>The focus timer begins automatically afterwards</small></span><input type="checkbox" data-focus-use-breathing></label>
+                  <label>Length<select data-focus-breath-length aria-label="Optional breathing length"><option value="1">1 min</option><option value="3" selected>3 min</option><option value="5">5 min</option></select></label>
+                </div>
+              </details>
+              <p class="session-summary-line" data-focus-setup-summary>25 minutes of focus. No break is needed for one block.</p>
+            </article>
+
+            <article class="panel plan-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Set your direction</p>
+                  <h2>Build your session plan</h2>
+                </div>
+                <span class="save-state" data-focus-save-state>Saved locally</span>
+              </div>
+              <div class="session-plan-heading">
+                <span>Tasks or intentions</span>
+                <button class="small-button" type="button" data-add-session-task>+ Add line</button>
+              </div>
+              <div class="session-task-list" data-session-task-list></div>
+              <label class="field-label" for="focus-impact">Why will completing this matter?</label>
+              <textarea id="focus-impact" rows="3" maxlength="800" data-focus-impact placeholder="What changes if you make progress?"></textarea>
+              <label class="field-label" for="focus-reflection">Notes from the session</label>
+              <textarea id="focus-reflection" rows="3" maxlength="800" data-focus-reflection placeholder="What moved forward, what helped, or what will you do next?"></textarea>
+              <div class="plan-actions">
+                <button class="secondary-button" type="button" data-clear-plan>Clear plan</button>
+                <button class="secondary-button" type="button" data-copy-session>Copy summary</button>
+                <button class="primary-button" type="button" data-save-session>Save session output</button>
+              </div>
+            </article>
+
+            <article class="panel distraction-panel">
+              <div class="panel-heading">
+                <div>
+                  <p class="eyebrow">Distraction pad</p>
+                  <h2>Park it for later</h2>
+                </div>
+                <button class="text-button" type="button" data-clear-distractions>Clear</button>
+              </div>
+              <form class="inline-form" data-distraction-form>
+                <label class="visually-hidden" for="distraction-entry">Add a thought or task for later</label>
+                <input id="distraction-entry" type="text" maxlength="120" placeholder="A thought I do not want to lose" data-distraction-input>
+                <button class="small-button" type="submit">Add</button>
+              </form>
+              <ul class="distraction-list" data-distraction-list>
+                <li class="empty-message">Nothing parked yet.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+
+        <article class="panel focus-sound-panel">
+          <div class="panel-heading"><div><p class="eyebrow">Session sound</p><h2>Choose sound separately from your timer</h2></div><span class="soft-badge">Optional</span></div>
+          <p class="panel-intro">Choose no sound, a background sound, a pure tone, or both. Their volumes are controlled separately so one does not overpower the other.</p>
+          <div data-sound-customizer="focus"></div>
+        </article>
+      </section>
+
+      <section class="view" data-view="breathe" aria-labelledby="breathe-title" hidden>
+        <div class="view-heading">
+          <div>
+            <p class="eyebrow">Breathe</p>
+            <h1 id="breathe-title">Follow a rhythm that feels comfortable</h1>
+            <p>Keep your breathing easy. Stop or return to your usual breathing if you feel uncomfortable or light-headed.</p>
+          </div>
+          <details class="help-card compact-help">
+            <summary>How do I use this?</summary>
+            <p>Choose a rhythm, read its ? guide and set a length. Press Start breathing and follow the words, number and expanding circle. Keep every breath easy. Pause or stop if the pace is not comfortable.</p>
+          </details>
+        </div>
+
+        <div class="tool-grid breathe-layout">
+          <article class="panel breath-stage-panel">
+            <div class="breath-stage" data-breath-stage>
+              <div class="breath-orbit" aria-hidden="true">
+                <div class="breath-orb" data-breath-orb></div>
+              </div>
+              <p class="breath-phase" data-breath-phase>Ready when you are</p>
+              <strong class="breath-count" data-breath-count>4</strong>
+              <p class="breath-next" data-breath-next>Select a pattern and duration.</p>
+            </div>
+            <div class="session-progress" aria-label="Breathing session progress">
+              <span data-breath-progress></span>
+            </div>
+            <div class="timer-controls">
+              <button class="primary-button" type="button" data-breath-toggle>Start breathing</button>
+              <button class="secondary-button" type="button" data-breath-reset>Reset</button>
+            </div>
+            <p class="session-remaining" data-breath-remaining>3:00 remaining</p>
+          </article>
+
+          <article class="panel breath-options-panel">
+            <p class="eyebrow">Choose your rhythm</p>
+            <h2>Breathing pattern</h2>
+            <div class="pattern-list" role="radiogroup" aria-label="Breathing pattern">
+              <div class="pattern-option"><button class="pattern-card is-active" type="button" role="radio" aria-checked="true" data-pattern="box"><span><strong>Box breathing</strong><small>In 4 · hold 4 · out 4 · hold 4</small></span><span>4:4:4:4</span></button><button class="info-dot" type="button" data-breath-help="box" aria-label="Why use box breathing?">?</button></div>
+              <div class="pattern-option"><button class="pattern-card" type="button" role="radio" aria-checked="false" data-pattern="ease"><span><strong>Longer exhale</strong><small>In 4 · out 6</small></span><span>4:6</span></button><button class="info-dot" type="button" data-breath-help="ease" aria-label="Why use a longer exhale?">?</button></div>
+              <div class="pattern-option"><button class="pattern-card" type="button" role="radio" aria-checked="false" data-pattern="steady"><span><strong>Steady breathing</strong><small>In 5 · out 5</small></span><span>5:5</span></button><button class="info-dot" type="button" data-breath-help="steady" aria-label="Why use steady breathing?">?</button></div>
+              <div class="pattern-option"><button class="pattern-card" type="button" role="radio" aria-checked="false" data-pattern="478"><span><strong>4-7-8 breathing</strong><small>In 4 · hold 7 · out 8</small></span><span>4:7:8</span></button><button class="info-dot" type="button" data-breath-help="478" aria-label="Why use 4-7-8 breathing?">?</button></div>
+              <div class="pattern-option"><button class="pattern-card" type="button" role="radio" aria-checked="false" data-pattern="resonance"><span><strong>Resonance breathing</strong><small>Build a slow HRV-paced rhythm</small></span><span data-resonance-pattern-label>6 bpm</span></button><button class="info-dot" type="button" data-breath-help="resonance" aria-label="Why use resonance breathing?">?</button></div>
+            </div>
+
+            <div class="inline-explainer" data-breath-help-panel hidden>
+              <button type="button" aria-label="Close breathing guidance" data-close-breath-help>×</button>
+              <strong data-breath-help-title></strong>
+              <p data-breath-help-copy></p>
+            </div>
+
+            <div class="resonance-builder" data-resonance-builder hidden>
+              <div class="section-heading-inline"><div><p class="eyebrow">HRV pace builder</p><h3>Find a comfortable slow rhythm</h3></div></div>
+              <label class="range-setting"><span><strong>Breaths per minute</strong><output data-resonance-rate-output>6.0</output></span><input type="range" min="4.5" max="6.5" step="0.5" value="6" data-resonance-rate></label>
+              <label class="field-label" for="resonance-ratio">Breath balance</label>
+              <select id="resonance-ratio" data-resonance-ratio><option value="equal">Equal inhale and exhale</option><option value="longer">A slightly longer exhale</option></select>
+              <details class="practice-note"><summary>Best-practice guidance</summary><ul><li>Begin with five minutes and keep each breath light and comfortable.</li><li>Breathe through your nose if that is comfortable, without taking the deepest breath possible.</li><li>Your exact resonance rate can differ. Finding it precisely normally requires reliable HRV measurement.</li><li>Stop and return to normal breathing if you feel dizzy, short of breath or uncomfortable.</li></ul></details>
+            </div>
+
+            <label class="field-label" for="breath-duration">Session length</label>
+            <select id="breath-duration" data-breath-duration>
+              <option value="1">1 minute</option>
+              <option value="3" selected>3 minutes</option>
+              <option value="5">5 minutes</option>
+              <option value="10">10 minutes</option>
+            </select>
+            <label class="toggle-row">
+              <span><strong>Phase chimes</strong><small>A quiet note when the instruction changes</small></span>
+              <input type="checkbox" data-breath-chimes>
+            </label>
+            <div data-sound-customizer="breathe"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" data-view="meditate" aria-labelledby="meditate-title" hidden>
+        <div class="view-heading">
+          <div>
+            <p class="eyebrow">Meditate</p>
+            <h1 id="meditate-title">Set aside a little quiet</h1>
+            <p>Choose a time, an anchor and optional background sound. There is no voice and nothing to achieve.</p>
+          </div>
+          <details class="help-card compact-help">
+            <summary>How do I use this?</summary>
+            <p>Choose one guidance style and a session length. Press Begin meditation, follow each on-screen direction and return to it gently whenever your attention moves elsewhere. Nothing needs to feel a particular way.</p>
+          </details>
+        </div>
+
+        <div class="tool-grid meditate-layout">
+          <article class="panel meditation-panel">
+            <div class="meditation-sky" data-meditation-sky>
+              <div class="meditation-halo" aria-hidden="true"></div>
+              <div class="meditation-content">
+                <span class="timer-label" data-meditation-state>Ready</span>
+                <strong data-meditation-time>10:00</strong>
+                <span class="meditation-step" data-meditation-step>Step 1 of 4</span>
+                <p data-meditation-prompt>Let the next moment be enough.</p>
+                <small data-meditation-next>Next: notice the breath as it is</small>
+              </div>
+            </div>
+            <div class="session-progress" aria-label="Meditation progress">
+              <span data-meditation-progress></span>
+            </div>
+            <div class="timer-controls">
+              <button class="primary-button" type="button" data-meditation-toggle>Begin meditation</button>
+              <button class="secondary-button" type="button" data-meditation-reset>Reset</button>
+            </div>
+          </article>
+
+          <article class="panel meditation-options">
+            <p class="eyebrow">Shape your session</p>
+            <h2>Time and attention</h2>
+            <label class="field-label" for="meditation-duration">Session length</label>
+            <select id="meditation-duration" data-meditation-duration>
+              <option value="5">5 minutes</option>
+              <option value="10" selected>10 minutes</option>
+              <option value="15">15 minutes</option>
+              <option value="20">20 minutes</option>
+              <option value="30">30 minutes</option>
+              <option value="45">45 minutes</option>
+              <option value="60">60 minutes</option>
+            </select>
+
+            <fieldset>
+              <legend>Choose your on-screen guidance</legend>
+              <div class="anchor-grid guide-grid">
+                <label><input type="radio" name="anchor" value="breath" checked><span><strong>Breath</strong><small>Return to a natural breath</small></span></label>
+                <label><input type="radio" name="anchor" value="body"><span><strong>Body scan</strong><small>Move attention through the body</small></span></label>
+                <label><input type="radio" name="anchor" value="brushing"><span><strong>Body brushing</strong><small>Optional steady touch cues</small></span></label>
+                <label><input type="radio" name="anchor" value="sound"><span><strong>Listening</strong><small>Use sound as the anchor</small></span></label>
+                <label><input type="radio" name="anchor" value="open"><span><strong>Open awareness</strong><small>Notice without following</small></span></label>
+              </div>
+            </fieldset>
+
+            <div class="anchor-guidance" data-meditation-anchor-help>
+              <strong data-meditation-anchor-title>Using breath guidance</strong>
+              <p data-meditation-anchor-copy>Notice where an ordinary breath is easiest to feel, perhaps at the nostrils, chest or abdomen. You are observing the breath, not making it deeper.</p>
+            </div>
+
+            <label class="toggle-row">
+              <span><strong>Guidance pings</strong><small>A quiet ping when the on-screen direction changes</small></span>
+              <input type="checkbox" data-guidance-pings checked>
+            </label>
+            <div data-sound-customizer="meditation"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" data-view="soundscapes" aria-labelledby="soundscapes-title" hidden>
+        <div class="view-heading">
+          <div>
+            <p class="eyebrow">Soundscapes</p>
+            <h1 id="soundscapes-title">Build the space you need</h1>
+            <p>Play a ready-made mix or combine sounds yourself. There is no timer, so the sound continues until you stop it.</p>
+          </div>
+          <details class="help-card compact-help">
+            <summary>How do I use this?</summary>
+            <p>Choose a ready-made space or build your own background mix. A pure tone is optional and has its own volume. Start quietly, listen for comfort rather than an effect, and stop any sound that feels distracting.</p>
+          </details>
+        </div>
+
+        <article class="sound-hero panel">
+          <div class="sound-visual" data-sound-visual aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="sound-hero-copy">
+            <p class="eyebrow">Now playing</p>
+            <h2 data-sound-title>Choose a sound or mix</h2>
+            <p data-sound-description>All sound is created on your device. Nothing is recorded or uploaded.</p>
+            <div class="sound-actions">
+              <button class="primary-button" type="button" data-sound-toggle>Play selected mix</button>
+              <button class="secondary-button" type="button" data-stop-audio>Stop all sound</button>
+            </div>
+          </div>
+          <label class="master-volume">
+            <span>Overall volume <output data-master-volume-output>35%</output></span>
+            <input type="range" min="0" max="100" value="35" data-master-volume aria-label="Overall sound volume">
+          </label>
+        </article>
+
+        <div class="preset-section">
+          <div class="section-heading-inline">
+            <div><p class="eyebrow">Ready-made spaces</p><h2>Choose a starting mix</h2></div>
+          </div>
+          <div class="shared-library-banner">
+            <strong>Your shared Soundscapes mix</strong>
+            <p>The rain, ocean, woodland, fire and noise levels on this page are saved as <strong>My Soundscapes mix</strong>. You can select that same mix in Focus, Breathe or Meditate. Changes made here update it in all three areas.</p>
+          </div>
+          <div class="preset-grid">
+            <button type="button" class="preset-card" data-preset="focus"><strong>Clear focus</strong><span>Pink noise · soft rain</span></button>
+            <button type="button" class="preset-card" data-preset="settle"><strong>Settle</strong><span>Slow ocean · brown noise</span></button>
+            <button type="button" class="preset-card" data-preset="restore"><strong>Restore</strong><span>Woodland air · slow ocean</span></button>
+            <button type="button" class="preset-card" data-preset="shelter"><strong>Sound shelter</strong><span>Brown noise · rainfall</span></button>
+          </div>
+        </div>
+
+        <div class="sound-workspace">
+          <article class="panel mixer-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">Sound mixer</p><h2>Adjust each layer</h2></div>
+              <button class="text-button" type="button" data-clear-mix>Use no sound</button>
+            </div>
+            <div class="channel-list">
+              <label class="sound-channel" data-channel-card="rain"><span class="channel-icon">Rain</span><input type="range" min="0" max="100" value="0" data-channel="rain"><output>0%</output></label>
+              <label class="sound-channel" data-channel-card="ocean"><span class="channel-icon">Ocean</span><input type="range" min="0" max="100" value="0" data-channel="ocean"><output>0%</output></label>
+              <label class="sound-channel" data-channel-card="forest"><span class="channel-icon">Woodland</span><input type="range" min="0" max="100" value="0" data-channel="forest"><output>0%</output></label>
+              <label class="sound-channel" data-channel-card="fire"><span class="channel-icon">Fire</span><input type="range" min="0" max="100" value="0" data-channel="fire"><output>0%</output></label>
+              <label class="sound-channel" data-channel-card="pink"><span class="channel-icon">Pink noise</span><input type="range" min="0" max="100" value="0" data-channel="pink"><output>0%</output></label>
+              <label class="sound-channel" data-channel-card="brown"><span class="channel-icon">Brown noise</span><input type="range" min="0" max="100" value="0" data-channel="brown"><output>0%</output></label>
+            </div>
+          </article>
+
+          <article class="panel frequency-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">Frequency tones</p><h2>Add a pure tone</h2></div>
+              <button class="text-button" type="button" data-frequency-off>Turn off</button>
+            </div>
+            <p class="frequency-note">These are optional listening choices, not treatments. Start quietly. Headphones are optional.</p>
+            <div class="frequency-grid" role="radiogroup" aria-label="Frequency tone">
+              <div class="frequency-choice"><button type="button" role="radio" aria-checked="false" data-frequency="174"><strong>174 Hz</strong><span>“Grounding” tone</span></button><button class="info-dot" type="button" data-frequency-help="174" aria-label="About 174 hertz">?</button></div>
+              <div class="frequency-choice"><button type="button" role="radio" aria-checked="false" data-frequency="285"><strong>285 Hz</strong><span>“Restoration” tone</span></button><button class="info-dot" type="button" data-frequency-help="285" aria-label="About 285 hertz">?</button></div>
+              <div class="frequency-choice"><button type="button" role="radio" aria-checked="false" data-frequency="396"><strong>396 Hz</strong><span>“Release” tone</span></button><button class="info-dot" type="button" data-frequency-help="396" aria-label="About 396 hertz">?</button></div>
+              <div class="frequency-choice"><button type="button" role="radio" aria-checked="false" data-frequency="417"><strong>417 Hz</strong><span>“Change” tone</span></button><button class="info-dot" type="button" data-frequency-help="417" aria-label="About 417 hertz">?</button></div>
+              <div class="frequency-choice"><button type="button" role="radio" aria-checked="false" data-frequency="432"><strong>432 Hz</strong><span>“Focus” / alternative tuning</span></button><button class="info-dot" type="button" data-frequency-help="432" aria-label="About 432 hertz">?</button></div>
+              <div class="frequency-choice"><button type="button" role="radio" aria-checked="false" data-frequency="528"><strong>528 Hz</strong><span>“Love / happiness” tone</span></button><button class="info-dot" type="button" data-frequency-help="528" aria-label="About 528 hertz">?</button></div>
+              <div class="frequency-choice"><button type="button" role="radio" aria-checked="false" data-frequency="639"><strong>639 Hz</strong><span>“Connection” tone</span></button><button class="info-dot" type="button" data-frequency-help="639" aria-label="About 639 hertz">?</button></div>
+              <div class="frequency-choice"><button type="button" role="radio" aria-checked="false" data-frequency="741"><strong>741 Hz</strong><span>“Expression” tone</span></button><button class="info-dot" type="button" data-frequency-help="741" aria-label="About 741 hertz">?</button></div>
+              <div class="frequency-choice"><button type="button" role="radio" aria-checked="false" data-frequency="852"><strong>852 Hz</strong><span>“Intuition” tone</span></button><button class="info-dot" type="button" data-frequency-help="852" aria-label="About 852 hertz">?</button></div>
+            </div>
+            <div class="inline-explainer frequency-explainer" data-frequency-help-panel hidden><button type="button" aria-label="Close frequency guidance" data-close-frequency-help>×</button><strong data-frequency-help-title></strong><p data-frequency-help-copy></p><small>There is no robust evidence that a particular pure tone has unique healing properties. Use these as listening preferences only.</small></div>
+            <label class="field-label" for="frequency-volume">Tone volume <output data-frequency-output>8%</output></label>
+            <input id="frequency-volume" type="range" min="0" max="20" value="8" data-frequency-volume>
+          </article>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <p>ACSIS Clarity offers general wellbeing tools. It does not provide medical advice, diagnosis or emergency support.</p>
+        <p>If you need urgent help in the UK, call 999 or use the NHS 111 service.</p>
+      </footer>
+    </main>
+
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <button class="is-active" type="button" data-route="home" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg><span>Today</span></button>
+      <button type="button" data-route="focus"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg><span>Focus</span></button>
+      <button type="button" data-route="breathe"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 2v4M12 18v4"/></svg><span>Breathe</span></button>
+      <button type="button" data-route="meditate"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.6 15.8A8 8 0 0 1 8.2 6.4 8 8 0 1 0 17.6 15.8Z"/></svg><span>Meditate</span></button>
+      <button type="button" data-route="soundscapes"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-4M8 18V6M12 21V3M16 17V7M20 14v-4"/></svg><span>Sounds</span></button>
+    </nav>
+  </div>
+
+  <div class="now-playing" data-now-playing hidden>
+    <span class="playing-pulse" aria-hidden="true"></span>
+    <span><small>Sound playing</small><strong data-now-playing-label>Custom mix</strong></span>
+    <button type="button" data-stop-audio>Stop</button>
+  </div>
+
+  <dialog class="settings-dialog" data-settings-dialog aria-labelledby="settings-title">
+    <form method="dialog">
+      <div class="dialog-heading">
+        <div><p class="eyebrow">Your comfort</p><h2 id="settings-title">Comfort settings</h2></div>
+        <button class="round-button" value="cancel" aria-label="Close settings">×</button>
+      </div>
+      <p>These choices are saved only on this device.</p>
+      <label class="toggle-row">
+        <span><strong>Reduce movement</strong><small>Keep timers clear without pulsing or expanding animation</small></span>
+        <input type="checkbox" data-reduce-motion>
+      </label>
+      <label class="toggle-row">
+        <span><strong>Low-stimulation display</strong><small>Use flatter colour and remove decorative effects</small></span>
+        <input type="checkbox" data-low-stimulation>
+      </label>
+      <label class="range-setting">
+        <span><strong>App sound volume</strong><output data-settings-volume-output>35%</output></span>
+        <input type="range" min="0" max="100" value="35" data-settings-volume aria-label="App sound volume">
+      </label>
+      <div class="dialog-actions">
+        <button class="secondary-button" type="button" data-test-chime>Test alarm</button>
+        <button class="danger-button" type="button" data-clear-local>Clear my saved choices</button>
+        <button class="primary-button" value="default">Done</button>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="sound-customizer-template">
+    <details class="inline-sound-customizer">
+      <summary><span><strong>Sound choices</strong><small>Choose a nature sound, noise, mix or optional pure tone</small></span><span data-context-sound-summary>No sound</span></summary>
+      <div class="inline-sound-body">
+        <button class="no-sound-button" type="button" data-context-clear>Use no sound</button>
+        <div class="shared-sound-note">
+          <strong>Linked with Soundscapes</strong>
+          <p>Choose one sound, a ready-made mix, or <strong>My Soundscapes mix</strong>. That shared mix uses the exact layer levels saved in the Soundscapes tab.</p>
+          <button class="text-button" type="button" data-open-soundscapes>Open Soundscapes to build or change the mix</button>
+        </div>
+        <section class="sound-choice-section"><div class="sound-choice-heading"><div><strong>1. Background sound</strong><small>Optional nature, noise or mixed layer</small></div></div>
+          <label class="field-label">Background<select data-context-sound>
+            <option value="none">No background sound</option>
+            <optgroup label="Your shared mix"><option value="custom">My Soundscapes mix</option></optgroup>
+            <optgroup label="Nature sounds"><option value="rain">Soft rain</option><option value="ocean">Slow ocean</option><option value="forest">Woodland air</option><option value="fire">Fireside</option></optgroup>
+            <optgroup label="Noise sounds"><option value="pink">Pink noise</option><option value="brown">Brown noise</option></optgroup>
+            <optgroup label="Ready-made mixes"><option value="focus">Clear focus</option><option value="settle">Settle</option><option value="restore">Restore</option><option value="shelter">Sound shelter</option></optgroup>
+          </select></label>
+          <p class="selection-help" data-context-sound-description>No background layer will play.</p>
+          <label class="range-setting compact-range"><span><strong>Background volume</strong><output data-context-ambient-output>30%</output></span><input type="range" min="0" max="100" value="30" data-context-ambient-volume aria-label="Background sound volume"></label>
+          <details class="layer-controls"><summary>Edit the shared Soundscapes mix here</summary><p>These controls update <strong>My Soundscapes mix</strong> for Focus, Breathe, Meditate and the Soundscapes tab.</p><div class="compact-mixer">
+            <label>Rain<input type="range" min="0" max="100" value="0" data-context-channel="rain" aria-label="Rain level in shared Soundscapes mix"><output>0%</output></label>
+            <label>Ocean<input type="range" min="0" max="100" value="0" data-context-channel="ocean" aria-label="Ocean level in shared Soundscapes mix"><output>0%</output></label>
+            <label>Woodland<input type="range" min="0" max="100" value="0" data-context-channel="forest" aria-label="Woodland level in shared Soundscapes mix"><output>0%</output></label>
+            <label>Fire<input type="range" min="0" max="100" value="0" data-context-channel="fire" aria-label="Fire level in shared Soundscapes mix"><output>0%</output></label>
+            <label>Pink noise<input type="range" min="0" max="100" value="0" data-context-channel="pink" aria-label="Pink noise level in shared Soundscapes mix"><output>0%</output></label>
+            <label>Brown noise<input type="range" min="0" max="100" value="0" data-context-channel="brown" aria-label="Brown noise level in shared Soundscapes mix"><output>0%</output></label>
+          </div></details>
+        </section>
+        <section class="sound-choice-section"><div class="sound-choice-heading"><div><strong>2. Pure tone</strong><small>Optional single frequency with its own volume</small></div></div>
+          <div class="context-frequency-row"><label class="field-label">Frequency<select data-context-frequency><option value="0">No pure tone</option><option value="174">174 Hz · “Grounding”</option><option value="285">285 Hz · “Restoration”</option><option value="396">396 Hz · “Release”</option><option value="417">417 Hz · “Change”</option><option value="432">432 Hz · “Focus” / alternative tuning</option><option value="528">528 Hz · “Love / happiness”</option><option value="639">639 Hz · “Connection”</option><option value="741">741 Hz · “Expression”</option><option value="852">852 Hz · “Intuition”</option></select></label><button class="info-dot" type="button" data-context-frequency-help aria-label="Choose a pure tone to see guidance">?</button></div>
+          <label class="range-setting compact-range"><span><strong>Tone volume</strong><output data-context-frequency-output>14%</output></span><input type="range" min="0" max="30" value="14" data-context-frequency-volume aria-label="Pure tone volume"></label>
+        </section>
+        <div class="inline-explainer context-frequency-help" data-context-frequency-help-panel hidden><button type="button" aria-label="Close frequency guidance" data-close-context-frequency-help>×</button><strong></strong><p></p><small>Pure tones are listening choices, not treatments. There is no robust evidence that one number has unique healing properties.</small></div>
+        <div class="inline-sound-actions"><button class="secondary-button" type="button" data-context-preview>Preview sound</button><button class="text-button" type="button" data-context-stop>Stop</button></div>
+        <p class="microcopy">All sounds are created on this device. Nothing is recorded or uploaded. Start quietly and stop anything that feels distracting or uncomfortable.</p>
+      </div>
+    </details>
+  </template>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
