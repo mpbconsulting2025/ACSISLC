@@ -680,6 +680,46 @@ main {
   grid-template-columns: minmax(340px, 0.76fr) minmax(440px, 1.24fr);
 }
 
+.focus-prep-grid {
+  display: grid;
+  grid-template-columns: minmax(520px, 1.1fr) minmax(380px, 0.9fr);
+  align-items: start;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.focus-workspace {
+  display: grid;
+  grid-template-columns: minmax(290px, 0.84fr) minmax(390px, 1.12fr) minmax(250px, 0.74fr);
+  align-items: start;
+  gap: 18px;
+}
+
+.focus-workspace .timer-panel {
+  position: static;
+}
+
+.focus-prep-grid > *,
+.focus-workspace > * {
+  min-width: 0;
+}
+
+.focus-workspace .timer-stage {
+  margin-block: 8px 16px;
+}
+
+.focus-workspace .timer-ring {
+  width: min(230px, 72vw);
+}
+
+.focus-workspace .distraction-panel .inline-form {
+  grid-template-columns: 1fr;
+}
+
+.focus-workspace .distraction-panel .small-button {
+  width: 100%;
+}
+
 .focus-column {
   display: grid;
   align-content: start;
@@ -1142,7 +1182,13 @@ textarea::placeholder {
   transform: scale(1);
 }
 
-.breath-orb[data-phase-type="hold"] {
+.breath-orb[data-phase-type="hold-in"] {
+  transform: scale(1.8);
+  opacity: 0.72;
+}
+
+.breath-orb[data-phase-type="hold-out"] {
+  transform: scale(1);
   opacity: 0.72;
 }
 
@@ -1677,6 +1723,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .focus-breathing-card,
+.focus-alerts-card,
+.plan-output-card,
 .inline-sound-customizer {
   margin: 0 0 18px;
   overflow: hidden;
@@ -1686,6 +1734,8 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .focus-breathing-card > summary,
+.focus-alerts-card > summary,
+.plan-output-card > summary,
 .inline-sound-customizer > summary {
   display: flex;
   align-items: center;
@@ -1698,17 +1748,23 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .focus-breathing-card > summary::-webkit-details-marker,
+.focus-alerts-card > summary::-webkit-details-marker,
+.plan-output-card > summary::-webkit-details-marker,
 .inline-sound-customizer > summary::-webkit-details-marker {
   display: none;
 }
 
 .focus-breathing-card > summary > span:first-child,
+.focus-alerts-card > summary > span:first-child,
+.plan-output-card > summary > span:first-child,
 .inline-sound-customizer > summary > span:first-child {
   display: grid;
   gap: 2px;
 }
 
 .focus-breathing-card summary strong,
+.focus-alerts-card summary strong,
+.plan-output-card summary strong,
 .inline-sound-customizer summary strong {
   color: var(--navy-900);
   font-family: "Montserrat", Arial, sans-serif;
@@ -1716,12 +1772,16 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .focus-breathing-card summary small,
+.focus-alerts-card summary small,
+.plan-output-card summary small,
 .inline-sound-customizer summary small {
   color: var(--muted);
   font-size: 0.68rem;
 }
 
 .focus-breathing-summary-state,
+.focus-alerts-summary,
+.plan-output-card > summary > span:last-child,
 .inline-sound-customizer [data-context-sound-summary] {
   flex: 0 0 auto;
   border-radius: 999px;
@@ -1738,6 +1798,45 @@ input[type="range"]::-moz-range-thumb {
   gap: 12px;
   border-top: 1px solid rgba(37, 137, 161, 0.17);
   padding: 14px;
+}
+
+.focus-alerts-inner,
+.plan-output-inner {
+  display: grid;
+  gap: 11px;
+  border-top: 1px solid rgba(37, 137, 161, 0.17);
+  padding: 14px;
+}
+
+.plan-output-card {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.focus-alerts-inner .toggle-row {
+  margin: 0;
+  border-top: 0;
+  padding: 0;
+}
+
+.focus-alerts-inner .toggle-row + .toggle-row {
+  border-top: 1px solid rgba(37, 137, 161, 0.14);
+  padding-top: 11px;
+}
+
+.focus-alert-actions {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(37, 137, 161, 0.14);
+  padding-top: 11px;
+}
+
+.focus-alert-actions small {
+  color: var(--muted);
+  font-size: 0.69rem;
+  line-height: 1.45;
 }
 
 .mini-breath-visual {
@@ -1759,7 +1858,8 @@ input[type="range"]::-moz-range-thumb {
 
 .mini-breath-visual span[data-phase-type="in"] { transform: scale(1.75); }
 .mini-breath-visual span[data-phase-type="out"] { transform: scale(1); }
-.mini-breath-visual span[data-phase-type="hold"] { opacity: 0.58; }
+.mini-breath-visual span[data-phase-type="hold-in"] { transform: scale(1.75); opacity: 0.58; }
+.mini-breath-visual span[data-phase-type="hold-out"] { transform: scale(1); opacity: 0.58; }
 
 .mini-breath-copy {
   display: grid;
@@ -1768,7 +1868,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .mini-breath-copy strong { font-size: 0.78rem; }
-.mini-breath-copy span { font-family: "Montserrat", Arial, sans-serif; font-size: 1.25rem; font-weight: 800; }
+.mini-breath-copy > .mini-breath-count { font-family: "Montserrat", Arial, sans-serif; font-size: 1.25rem; font-weight: 800; }
 .mini-breath-copy small { color: var(--muted); font-size: 0.66rem; }
 
 .focus-breathing-inner label {
@@ -2371,6 +2471,28 @@ body.reduce-motion *::after {
   }
 }
 
+@media (max-width: 1250px) {
+  .focus-prep-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-workspace {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .focus-workspace .distraction-panel {
+    grid-column: 1 / -1;
+  }
+
+  .focus-workspace .distraction-panel .inline-form {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .focus-workspace .distraction-panel .small-button {
+    width: auto;
+  }
+}
+
 @media (max-width: 1050px) {
   .side-rail {
     width: 205px;
@@ -2391,10 +2513,16 @@ body.reduce-motion *::after {
   }
 
   .focus-layout,
+  .focus-prep-grid,
+  .focus-workspace,
   .breathe-layout,
   .meditate-layout,
   .sound-workspace {
     grid-template-columns: 1fr;
+  }
+
+  .focus-workspace .distraction-panel {
+    grid-column: auto;
   }
 
   .focus-column {
@@ -2439,6 +2567,14 @@ body.reduce-motion *::after {
     width: 100%;
     margin: 0;
     padding: 0 16px calc(105px + env(safe-area-inset-bottom));
+  }
+
+  .focus-workspace .distraction-panel .inline-form {
+    grid-template-columns: 1fr;
+  }
+
+  .focus-workspace .distraction-panel .small-button {
+    width: 100%;
   }
 
   .topbar {
@@ -2621,6 +2757,10 @@ body.reduce-motion *::after {
 
   .focus-breathing-inner {
     grid-template-columns: 54px minmax(0, 1fr);
+  }
+
+  .focus-alert-actions {
+    grid-template-columns: 1fr;
   }
 
   .session-settings {

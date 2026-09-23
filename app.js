@@ -26,6 +26,11 @@
       blocks: 1,
       useBreathing: false,
       breathingLength: 3,
+      alerts: {
+        focusStart: true,
+        breakStart: true,
+        sessionEnd: true
+      },
       tasks: [
         { id: "task-1", text: "", done: false },
         { id: "task-2", text: "", done: false }
@@ -77,9 +82,9 @@
   const BREATH_PATTERNS = {
     box: [
       { label: "Breathe in", short: "Then hold", seconds: 4, type: "in" },
-      { label: "Hold gently", short: "Then breathe out", seconds: 4, type: "hold" },
+      { label: "Hold gently", short: "Then breathe out", seconds: 4, type: "hold-in" },
       { label: "Breathe out", short: "Then hold", seconds: 4, type: "out" },
-      { label: "Hold gently", short: "Then breathe in", seconds: 4, type: "hold" }
+      { label: "Hold gently", short: "Then breathe in", seconds: 4, type: "hold-out" }
     ],
     ease: [
       { label: "Breathe in", short: "Then breathe out", seconds: 4, type: "in" },
@@ -91,7 +96,7 @@
     ],
     "478": [
       { label: "Breathe in", short: "Then hold", seconds: 4, type: "in" },
-      { label: "Hold gently", short: "Then breathe out", seconds: 7, type: "hold" },
+      { label: "Hold gently", short: "Then breathe out", seconds: 7, type: "hold-in" },
       { label: "Breathe out", short: "Let the breath empty slowly", seconds: 8, type: "out" }
     ]
   };
@@ -253,7 +258,11 @@
       ...DEFAULT_STATE,
       ...saved,
       settings: { ...DEFAULT_STATE.settings, ...(saved?.settings || {}) },
-      focus: { ...DEFAULT_STATE.focus, ...(saved?.focus || {}) },
+      focus: {
+        ...DEFAULT_STATE.focus,
+        ...(saved?.focus || {}),
+        alerts: { ...DEFAULT_STATE.focus.alerts, ...(saved?.focus?.alerts || {}) }
+      },
       breathe: { ...DEFAULT_STATE.breathe, ...(saved?.breathe || {}) },
       meditation: { ...DEFAULT_STATE.meditation, ...(saved?.meditation || {}) },
       sound: {
@@ -763,7 +772,7 @@
     const totalMinutes = blocks * state.focus.focusDuration + breaks * state.focus.breakDuration + (state.focus.useBreathing ? state.focus.breathingLength : 0);
     const parts = [blocks + " focus " + (blocks === 1 ? "block" : "blocks") + " of " + state.focus.focusDuration + " minutes"];
     if (breaks) parts.push(breaks + " automatic " + state.focus.breakDuration + "-minute " + (breaks === 1 ? "break" : "breaks"));
-    if (state.focus.useBreathing) parts.push(state.focus.breathingLength + " minutes of breathing first");
+    if (state.focus.useBreathing) parts.push(state.focus.breathingLength + (state.focus.breathingLength === 1 ? " minute" : " minutes") + " of breathing first");
     $("[data-focus-setup-summary]").textContent = parts.join(", ") + ". Total: " + formatSessionLength(totalMinutes) + ".";
     const sequence = $("[data-focus-sequence]");
     sequence.replaceChildren();
@@ -780,6 +789,16 @@
       }
     }
     updateFocusStageUI();
+    renderFocusAlerts();
+  }
+
+  function renderFocusAlerts() {
+    const alerts = state.focus.alerts;
+    $("[data-focus-alert-start]").checked = alerts.focusStart;
+    $("[data-focus-alert-break]").checked = alerts.breakStart;
+    $("[data-focus-alert-complete]").checked = alerts.sessionEnd;
+    const enabled = [alerts.focusStart, alerts.breakStart, alerts.sessionEnd].filter(Boolean).length;
+    $("[data-focus-alerts-summary]").textContent = enabled === 3 ? "All on" : enabled === 0 ? "Off" : enabled + " on";
   }
 
   function startFocusStage() {
@@ -788,6 +807,8 @@
     $("[data-focus-toggle]").textContent = "Pause session";
     updateFocusStageUI();
     applySoundChoice(state.focus.sound, "focus");
+    const shouldAlert = focusPhase === "focus" ? state.focus.alerts.focusStart : state.focus.alerts.breakStart;
+    if (shouldAlert) void audio.chime(true);
     announce(focusPhase === "focus" ? "Focus block " + focusBlock + " started." : "Break started.");
   }
 
@@ -819,14 +840,13 @@
           $("[data-focus-session-step]").textContent = state.focus.blocks + (Number(state.focus.blocks) === 1 ? " block complete" : " blocks complete");
           $("[data-focus-guidance]").textContent = "Take a moment to add any useful notes before you move on.";
           audio.pause();
-          audio.chime();
+          if (state.focus.alerts.sessionEnd) void audio.chime();
           announce("Focus session complete.", 5000);
           return;
         }
         focusPhase = "break";
         focusTimer.set(state.focus.breakDuration * 60);
         updateFocusStageUI();
-        audio.chime(true);
         announce("Focus block complete. Your break is starting.", 4200);
         scheduleFocusStage();
         return;
@@ -835,7 +855,6 @@
       focusPhase = "focus";
       focusTimer.set(state.focus.focusDuration * 60);
       updateFocusStageUI();
-      audio.chime(true);
       announce("Break complete. Focus block " + focusBlock + " is starting.", 4200);
       scheduleFocusStage();
     }
@@ -844,26 +863,35 @@
   let focusBreathPhaseIndex = -1;
   const focusBreathTimer = new DeadlineTimer({
     onTick: (remaining, duration) => {
-      $("[data-focus-breath-time]").textContent = formatTime(remaining);
+      $("[data-focus-breath-time]").textContent = formatTime(remaining) + " remaining";
       if (!focusBreathTimer.running) return;
       const phases = BREATH_PATTERNS.box;
       const elapsed = duration - remaining;
       const phaseIndex = Math.floor((elapsed % 16) / 4);
       const phase = phases[phaseIndex];
+      const phaseElapsed = elapsed % 4;
+      const phaseCount = Math.max(1, Math.ceil(4 - phaseElapsed));
       if (phaseIndex !== focusBreathPhaseIndex) focusBreathPhaseIndex = phaseIndex;
       $("[data-focus-breath-phase]").textContent = phase.label;
+      $("[data-focus-breath-count]").textContent = String(phaseCount);
       $("[data-focus-breath-next]").textContent = phase.short;
       const orb = $("[data-focus-breath-orb]");
       orb.dataset.phaseType = phase.type;
       orb.style.transitionDuration = "4s";
       $("[data-focus-breathing-summary]").textContent = "In progress";
+      $("[data-focus-time]").textContent = formatTime(remaining);
+      $("[data-focus-time]").setAttribute("aria-label", `${Math.ceil(remaining)} seconds of breathing remaining`);
+      $("[data-focus-ring]").style.strokeDashoffset = String(301.593 * ((duration - remaining) / duration));
+      $("[data-focus-state]").textContent = "Breathing";
+      $("[data-focus-guidance]").textContent = phase.label + ". " + phase.short + ". Your focus block will start automatically.";
     },
     onComplete: () => {
       $("[data-focus-breath-phase]").textContent = "Breathing complete";
-      $("[data-focus-breath-next]").textContent = "Begin your focus block when you are ready.";
+      $("[data-focus-breath-count]").textContent = "✓";
+      $("[data-focus-breath-time]").textContent = "00:00 remaining";
+      $("[data-focus-breath-next]").textContent = "Your focus block is starting.";
       $("[data-focus-breathing-summary]").textContent = "Complete";
       $("[data-focus-breath-orb]").removeAttribute("data-phase-type");
-      audio.chime(true);
       if (focusBreathingInSequence) {
         focusBreathingInSequence = false;
         $("[data-focus-breathing]").open = false;
@@ -884,6 +912,8 @@
     focusBreathPhaseIndex = -1;
     focusBreathTimer.reset(state.focus.breathingLength * 60);
     $("[data-focus-breath-phase]").textContent = "Box breathing";
+    $("[data-focus-breath-count]").textContent = "4";
+    $("[data-focus-breath-time]").textContent = formatTime(state.focus.breathingLength * 60) + " remaining";
     $("[data-focus-breath-next]").textContent = "Inhale 4, hold 4, exhale 4, hold 4.";
     $("[data-focus-breathing-summary]").textContent = state.focus.useBreathing ? "Included" : "Off";
     $("[data-focus-breath-orb]").removeAttribute("data-phase-type");
@@ -1174,6 +1204,27 @@
       if (state.focus.useBreathing) $("[data-focus-breathing]").open = true;
       renderFocusSetup();
       saveState();
+    });
+    $("[data-focus-alert-start]").addEventListener("change", (event) => {
+      state.focus.alerts.focusStart = event.target.checked;
+      renderFocusAlerts();
+      saveState();
+    });
+    $("[data-focus-alert-break]").addEventListener("change", (event) => {
+      state.focus.alerts.breakStart = event.target.checked;
+      renderFocusAlerts();
+      saveState();
+    });
+    $("[data-focus-alert-complete]").addEventListener("change", (event) => {
+      state.focus.alerts.sessionEnd = event.target.checked;
+      renderFocusAlerts();
+      saveState();
+    });
+    $("[data-test-focus-alert]").addEventListener("click", () => {
+      void audio.ensure()
+        .then(() => audio.chime(true))
+        .then(() => announce("Gentle timer alert played."))
+        .catch(() => announce("The timer alert could not play in this browser."));
     });
     $("[data-add-session-task]").addEventListener("click", () => addSessionTask());
     $("[data-focus-impact]").addEventListener("input", (event) => {

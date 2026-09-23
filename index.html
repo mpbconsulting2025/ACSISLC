@@ -10,7 +10,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/acsis-mark.png">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="stylesheet" href="styles.css?v=11">
+  <link rel="stylesheet" href="styles.css?v=12">
 </head>
 <body>
   <script>document.body.classList.toggle("is-embedded", window.self !== window.top || new URLSearchParams(window.location.search).has("embed"));</script>
@@ -149,9 +149,51 @@
           </details>
         </div>
 
-        <div class="tool-grid focus-layout">
-          <div class="focus-column focus-session-column">
-            <article class="panel timer-panel accent-focus">
+        <div class="focus-prep-grid">
+          <article class="panel focus-setup-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">Session setup</p><h2>Choose once, then press start</h2></div>
+              <button class="pomodoro-button" type="button" data-pomodoro-setup><span>Pomodoro</span><small>25 focus · 5 break · 4 blocks</small></button>
+            </div>
+            <div class="session-settings" aria-label="Focus session settings">
+              <label for="focus-length"><span>Focus time</span><span><input id="focus-length" type="number" min="1" max="180" value="25" inputmode="numeric" data-focus-length> min</span></label>
+              <label for="break-length"><span>Break time</span><span><input id="break-length" type="number" min="1" max="60" value="5" inputmode="numeric" data-break-length> min</span></label>
+              <label for="focus-blocks"><span>Focus blocks</span><select id="focus-blocks" data-focus-blocks><option value="1">1 block</option><option value="2">2 blocks</option><option value="3">3 blocks</option><option value="4">4 blocks</option></select></label>
+            </div>
+            <details class="focus-breathing-card" data-focus-breathing>
+              <summary><span><strong>Begin with box breathing</strong><small>Optional settling time before the first focus block</small></span><span class="focus-breathing-summary-state" data-focus-breathing-summary>Off</span></summary>
+              <div class="focus-breathing-inner">
+                <div class="mini-breath-visual" aria-hidden="true"><span data-focus-breath-orb></span></div>
+                <div class="mini-breath-copy">
+                  <strong data-focus-breath-phase>Box breathing</strong>
+                  <span class="mini-breath-count" data-focus-breath-count>4</span>
+                  <small><span data-focus-breath-time>03:00 remaining</span><span aria-hidden="true"> · </span><span data-focus-breath-next>Then hold</span></small>
+                </div>
+                <label class="toggle-row compact-toggle"><span><strong>Include at the start</strong><small>The focus timer begins automatically afterwards</small></span><input type="checkbox" data-focus-use-breathing></label>
+                <label>Length<select data-focus-breath-length aria-label="Optional breathing length"><option value="1">1 min</option><option value="3" selected>3 min</option><option value="5">5 min</option></select></label>
+              </div>
+            </details>
+            <details class="focus-alerts-card">
+              <summary><span><strong>Timer alerts</strong><small>Choose when a short chime plays</small></span><span class="focus-alerts-summary" data-focus-alerts-summary>3 on</span></summary>
+              <div class="focus-alerts-inner">
+                <label class="toggle-row"><span><strong>Focus starts or resumes</strong><small>At the beginning and after each break</small></span><input type="checkbox" data-focus-alert-start></label>
+                <label class="toggle-row"><span><strong>Break starts</strong><small>When a focus block ends</small></span><input type="checkbox" data-focus-alert-break></label>
+                <label class="toggle-row"><span><strong>Session complete</strong><small>At the end of the final focus block</small></span><input type="checkbox" data-focus-alert-complete></label>
+                <div class="focus-alert-actions"><button class="secondary-button" type="button" data-test-focus-alert>Test gentle alert</button><small>Alert volume follows Comfort settings. Silent mode and browser restrictions can prevent sound.</small></div>
+              </div>
+            </details>
+            <p class="session-summary-line" data-focus-setup-summary>25 minutes of focus. No break is needed for one block.</p>
+          </article>
+
+          <article class="panel focus-sound-panel">
+            <div class="panel-heading"><div><p class="eyebrow">Continuous session sound</p><h2>Choose your listening background</h2></div><span class="soft-badge">Optional</span></div>
+            <p class="panel-intro">Choose no sound, a background sound, a pure tone, or both. This is separate from the short timer alerts in Session setup.</p>
+            <div data-sound-customizer="focus"></div>
+          </article>
+        </div>
+
+        <div class="focus-workspace" aria-label="Focus working view">
+          <article class="panel timer-panel accent-focus">
             <div class="panel-heading">
               <div>
                 <p class="eyebrow">Your session</p>
@@ -159,7 +201,6 @@
               </div>
               <span class="session-step-badge" data-focus-session-step>Block 1 of 1</span>
             </div>
-
             <div class="timer-stage">
               <div class="timer-ring">
                 <svg viewBox="0 0 112 112" aria-hidden="true">
@@ -173,89 +214,53 @@
               </div>
               <p class="timer-guidance" data-focus-guidance>Your first unfinished task will appear here when the session begins.</p>
             </div>
-
             <div class="session-sequence" data-focus-sequence aria-label="Session sequence"></div>
-
             <div class="timer-controls">
               <button class="primary-button" type="button" data-focus-toggle>Start session</button>
               <button class="secondary-button" type="button" data-focus-reset>Reset session</button>
             </div>
-            <p class="microcopy">Keep the app open and your device awake for the alarm. Silent mode or browser restrictions can prevent sound.</p>
-            </article>
+            <p class="microcopy">Keep the app open and your device awake for timer alerts.</p>
+          </article>
 
-            <article class="panel focus-sound-panel">
-              <div class="panel-heading"><div><p class="eyebrow">Session sound</p><h2>Choose sound separately from your timer</h2></div><span class="soft-badge">Optional</span></div>
-              <p class="panel-intro">Choose no sound, a background sound, a pure tone, or both. Their volumes are controlled separately so one does not overpower the other.</p>
-              <div data-sound-customizer="focus"></div>
-            </article>
-          </div>
-
-          <div class="focus-column focus-planning-column">
-            <article class="panel focus-setup-panel">
-              <div class="panel-heading">
-                <div><p class="eyebrow">Session setup</p><h2>Choose once, then press start</h2></div>
-                <button class="pomodoro-button" type="button" data-pomodoro-setup><span>Pomodoro</span><small>25 focus · 5 break · 4 blocks</small></button>
-              </div>
-              <div class="session-settings" aria-label="Focus session settings">
-                <label for="focus-length"><span>Focus time</span><span><input id="focus-length" type="number" min="1" max="180" value="25" inputmode="numeric" data-focus-length> min</span></label>
-                <label for="break-length"><span>Break time</span><span><input id="break-length" type="number" min="1" max="60" value="5" inputmode="numeric" data-break-length> min</span></label>
-                <label for="focus-blocks"><span>Focus blocks</span><select id="focus-blocks" data-focus-blocks><option value="1">1 block</option><option value="2">2 blocks</option><option value="3">3 blocks</option><option value="4">4 blocks</option></select></label>
-              </div>
-              <details class="focus-breathing-card" data-focus-breathing>
-                <summary><span><strong>Begin with box breathing</strong><small>Optional settling time before the first focus block</small></span><span class="focus-breathing-summary-state" data-focus-breathing-summary>Off</span></summary>
-                <div class="focus-breathing-inner">
-                  <div class="mini-breath-visual" aria-hidden="true"><span data-focus-breath-orb></span></div>
-                  <div class="mini-breath-copy"><strong data-focus-breath-phase>Box breathing</strong><span data-focus-breath-time>03:00</span><small data-focus-breath-next>Inhale 4, hold 4, exhale 4, hold 4.</small></div>
-                  <label class="toggle-row compact-toggle"><span><strong>Include at the start</strong><small>The focus timer begins automatically afterwards</small></span><input type="checkbox" data-focus-use-breathing></label>
-                  <label>Length<select data-focus-breath-length aria-label="Optional breathing length"><option value="1">1 min</option><option value="3" selected>3 min</option><option value="5">5 min</option></select></label>
+          <article class="panel plan-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">Set your direction</p><h2>Keep the next step visible</h2></div>
+              <span class="save-state" data-focus-save-state>Saved locally</span>
+            </div>
+            <div class="session-plan-heading">
+              <span>Tasks or intentions</span>
+              <button class="small-button" type="button" data-add-session-task>+ Add line</button>
+            </div>
+            <div class="session-task-list" data-session-task-list></div>
+            <label class="field-label" for="focus-impact">Why will completing this matter?</label>
+            <textarea id="focus-impact" rows="2" maxlength="800" data-focus-impact placeholder="What changes if you make progress?"></textarea>
+            <details class="plan-output-card">
+              <summary><span><strong>Notes and session output</strong><small>Reflect, copy or download when useful</small></span><span>Optional</span></summary>
+              <div class="plan-output-inner">
+                <label class="field-label" for="focus-reflection">Notes from the session</label>
+                <textarea id="focus-reflection" rows="2" maxlength="800" data-focus-reflection placeholder="What moved forward, what helped, or what will you do next?"></textarea>
+                <div class="plan-actions">
+                  <button class="secondary-button" type="button" data-clear-plan>Clear plan</button>
+                  <button class="secondary-button" type="button" data-copy-session>Copy summary</button>
+                  <button class="primary-button" type="button" data-save-session>Save session output</button>
                 </div>
-              </details>
-              <p class="session-summary-line" data-focus-setup-summary>25 minutes of focus. No break is needed for one block.</p>
-            </article>
+              </div>
+            </details>
+          </article>
 
-            <article class="panel plan-panel">
-              <div class="panel-heading">
-                <div>
-                  <p class="eyebrow">Set your direction</p>
-                  <h2>Build your session plan</h2>
-                </div>
-                <span class="save-state" data-focus-save-state>Saved locally</span>
-              </div>
-              <div class="session-plan-heading">
-                <span>Tasks or intentions</span>
-                <button class="small-button" type="button" data-add-session-task>+ Add line</button>
-              </div>
-              <div class="session-task-list" data-session-task-list></div>
-              <label class="field-label" for="focus-impact">Why will completing this matter?</label>
-              <textarea id="focus-impact" rows="3" maxlength="800" data-focus-impact placeholder="What changes if you make progress?"></textarea>
-              <label class="field-label" for="focus-reflection">Notes from the session</label>
-              <textarea id="focus-reflection" rows="3" maxlength="800" data-focus-reflection placeholder="What moved forward, what helped, or what will you do next?"></textarea>
-              <div class="plan-actions">
-                <button class="secondary-button" type="button" data-clear-plan>Clear plan</button>
-                <button class="secondary-button" type="button" data-copy-session>Copy summary</button>
-                <button class="primary-button" type="button" data-save-session>Save session output</button>
-              </div>
-            </article>
-
-            <article class="panel distraction-panel">
-              <div class="panel-heading">
-                <div>
-                  <p class="eyebrow">Distraction pad</p>
-                  <h2>Park it for later</h2>
-                </div>
-                <button class="text-button" type="button" data-clear-distractions>Clear</button>
-              </div>
-              <form class="inline-form" data-distraction-form>
-                <label class="visually-hidden" for="distraction-entry">Add a thought or task for later</label>
-                <input id="distraction-entry" type="text" maxlength="120" placeholder="A thought I do not want to lose" data-distraction-input>
-                <button class="small-button" type="submit">Add</button>
-              </form>
-              <ul class="distraction-list" data-distraction-list>
-                <li class="empty-message">Nothing parked yet.</li>
-              </ul>
-            </article>
-
-          </div>
+          <article class="panel distraction-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">Distraction pad</p><h2>Park it for later</h2></div>
+              <button class="text-button" type="button" data-clear-distractions>Clear</button>
+            </div>
+            <p class="panel-intro">Capture a thought without leaving your focus session.</p>
+            <form class="inline-form" data-distraction-form>
+              <label class="visually-hidden" for="distraction-entry">Add a thought or task for later</label>
+              <input id="distraction-entry" type="text" maxlength="120" placeholder="A thought I do not want to lose" data-distraction-input>
+              <button class="small-button" type="submit">Add</button>
+            </form>
+            <ul class="distraction-list" data-distraction-list><li class="empty-message">Nothing parked yet.</li></ul>
+          </article>
         </div>
       </section>
 
@@ -582,6 +587,6 @@
     </details>
   </template>
 
-  <script src="app.js?v=10" defer></script>
+  <script src="app.js?v=12" defer></script>
 </body>
 </html>
