@@ -680,6 +680,13 @@ main {
   grid-template-columns: minmax(340px, 0.76fr) minmax(440px, 1.24fr);
 }
 
+.focus-column {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+  min-width: 0;
+}
+
 .stack {
   display: grid;
   gap: 18px;
@@ -689,6 +696,10 @@ main {
   position: sticky;
   top: 22px;
   overflow: hidden;
+}
+
+.focus-layout .timer-panel {
+  position: static;
 }
 
 .session-step-badge {
@@ -803,7 +814,7 @@ main {
 }
 
 .focus-sound-panel {
-  margin-top: 18px;
+  min-width: 0;
 }
 
 .focus-sound-panel .inline-sound-customizer {
@@ -2385,6 +2396,16 @@ body.reduce-motion *::after {
   .sound-workspace {
     grid-template-columns: 1fr;
   }
+
+  .focus-column {
+    display: contents;
+  }
+
+  .focus-layout .timer-panel { order: 1; }
+  .focus-layout .focus-setup-panel { order: 2; }
+  .focus-layout .plan-panel { order: 3; }
+  .focus-layout .distraction-panel { order: 4; }
+  .focus-layout .focus-sound-panel { order: 5; }
 
   .timer-panel,
   .breath-stage-panel,

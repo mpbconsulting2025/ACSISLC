@@ -10,7 +10,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/acsis-mark.png">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -149,7 +149,8 @@
         </div>
 
         <div class="tool-grid focus-layout">
-          <article class="panel timer-panel accent-focus">
+          <div class="focus-column focus-session-column">
+            <article class="panel timer-panel accent-focus">
             <div class="panel-heading">
               <div>
                 <p class="eyebrow">Your session</p>
@@ -179,9 +180,16 @@
               <button class="secondary-button" type="button" data-focus-reset>Reset session</button>
             </div>
             <p class="microcopy">Keep the app open and your device awake for the alarm. Silent mode or browser restrictions can prevent sound.</p>
-          </article>
+            </article>
 
-          <div class="stack">
+            <article class="panel focus-sound-panel">
+              <div class="panel-heading"><div><p class="eyebrow">Session sound</p><h2>Choose sound separately from your timer</h2></div><span class="soft-badge">Optional</span></div>
+              <p class="panel-intro">Choose no sound, a background sound, a pure tone, or both. Their volumes are controlled separately so one does not overpower the other.</p>
+              <div data-sound-customizer="focus"></div>
+            </article>
+          </div>
+
+          <div class="focus-column focus-planning-column">
             <article class="panel focus-setup-panel">
               <div class="panel-heading">
                 <div><p class="eyebrow">Session setup</p><h2>Choose once, then press start</h2></div>
@@ -245,14 +253,9 @@
                 <li class="empty-message">Nothing parked yet.</li>
               </ul>
             </article>
+
           </div>
         </div>
-
-        <article class="panel focus-sound-panel">
-          <div class="panel-heading"><div><p class="eyebrow">Session sound</p><h2>Choose sound separately from your timer</h2></div><span class="soft-badge">Optional</span></div>
-          <p class="panel-intro">Choose no sound, a background sound, a pure tone, or both. Their volumes are controlled separately so one does not overpower the other.</p>
-          <div data-sound-customizer="focus"></div>
-        </article>
       </section>
 
       <section class="view" data-view="breathe" aria-labelledby="breathe-title" hidden>
@@ -578,6 +581,6 @@
     </details>
   </template>
 
-  <script src="app.js" defer></script>
+  <script src="app.js?v=10" defer></script>
 </body>
 </html>
