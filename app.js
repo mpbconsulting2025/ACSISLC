@@ -1632,9 +1632,11 @@
         contextState.frequency = 0;
         audio.pause();
         $("[data-context-frequency-help-panel]", mount).hidden = true;
+        const soundChoices = $(".inline-sound-customizer", mount);
+        if (soundChoices) soundChoices.open = false;
         renderSoundControls();
         saveState();
-        announce("No sound selected for this area.");
+        announce("No sound selected. Sound choices minimised.");
       });
       ambientVolume.addEventListener("input", () => {
         contextState.ambientVolume = Number(ambientVolume.value);

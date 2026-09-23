@@ -10,7 +10,7 @@
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/acsis-mark.png">
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=14">
 </head>
 <body>
   <script>document.body.classList.toggle("is-embedded", window.self !== window.top || new URLSearchParams(window.location.search).has("embed"));</script>
@@ -161,7 +161,7 @@
               <label for="focus-blocks"><span>Focus blocks</span><select id="focus-blocks" data-focus-blocks><option value="1">1 block</option><option value="2">2 blocks</option><option value="3">3 blocks</option><option value="4">4 blocks</option></select></label>
             </div>
             <details class="focus-breathing-card" data-focus-breathing>
-              <summary><span><strong>Begin with box breathing</strong><small>Optional settling time before the first focus block</small></span><span class="focus-breathing-summary-state" data-focus-breathing-summary>Off</span></summary>
+              <summary title="Expand or minimise box breathing settings"><span><strong>Begin with box breathing</strong><small>Optional settling time before the first focus block</small></span><span class="details-summary-actions"><span class="focus-breathing-summary-state" data-focus-breathing-summary>Off</span><span class="details-toggle" aria-hidden="true"></span></span></summary>
               <div class="focus-breathing-inner">
                 <div class="mini-breath-visual" aria-hidden="true"><span data-focus-breath-orb></span></div>
                 <div class="mini-breath-copy">
@@ -174,7 +174,7 @@
               </div>
             </details>
             <details class="focus-alerts-card">
-              <summary><span><strong>Timer alerts</strong><small>Choose when a short chime plays</small></span><span class="focus-alerts-summary" data-focus-alerts-summary>3 on</span></summary>
+              <summary title="Expand or minimise timer alert settings"><span><strong>Timer alerts</strong><small>Choose when a short chime plays</small></span><span class="details-summary-actions"><span class="focus-alerts-summary" data-focus-alerts-summary>3 on</span><span class="details-toggle" aria-hidden="true"></span></span></summary>
               <div class="focus-alerts-inner">
                 <label class="toggle-row"><span><strong>Focus starts or resumes</strong><small>At the beginning and after each break</small></span><input type="checkbox" data-focus-alert-start></label>
                 <label class="toggle-row"><span><strong>Break starts</strong><small>When a focus block ends</small></span><input type="checkbox" data-focus-alert-break></label>
@@ -235,7 +235,7 @@
             <label class="field-label" for="focus-impact">Why will completing this matter?</label>
             <textarea id="focus-impact" rows="2" maxlength="800" data-focus-impact placeholder="What changes if you make progress?"></textarea>
             <details class="plan-output-card">
-              <summary><span><strong>Notes and session output</strong><small>Reflect, copy or download when useful</small></span><span>Optional</span></summary>
+              <summary title="Expand or minimise notes and session output"><span><strong>Notes and session output</strong><small>Reflect, copy or download when useful</small></span><span class="details-summary-actions"><span class="details-status">Optional</span><span class="details-toggle" aria-hidden="true"></span></span></summary>
               <div class="plan-output-inner">
                 <label class="field-label" for="focus-reflection">Notes from the session</label>
                 <textarea id="focus-reflection" rows="2" maxlength="800" data-focus-reflection placeholder="What moved forward, what helped, or what will you do next?"></textarea>
@@ -549,7 +549,7 @@
 
   <template id="sound-customizer-template">
     <details class="inline-sound-customizer">
-      <summary><span><strong>Sound choices</strong><small>Choose a nature sound, noise, mix or optional pure tone</small></span><span data-context-sound-summary>No sound</span></summary>
+      <summary title="Expand or minimise sound choices"><span><strong>Sound choices</strong><small>Choose a nature sound, noise, mix or optional pure tone</small></span><span class="details-summary-actions"><span data-context-sound-summary>No sound</span><span class="details-toggle" aria-hidden="true"></span></span></summary>
       <div class="inline-sound-body">
         <button class="no-sound-button" type="button" data-context-clear>Use no sound</button>
         <div class="shared-sound-note">
@@ -587,6 +587,6 @@
     </details>
   </template>
 
-  <script src="app.js?v=12" defer></script>
+  <script src="app.js?v=14" defer></script>
 </body>
 </html>

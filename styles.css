@@ -682,7 +682,7 @@ main {
 
 .focus-prep-grid {
   display: grid;
-  grid-template-columns: minmax(520px, 1.1fr) minmax(380px, 0.9fr);
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: 18px;
   margin-bottom: 18px;
@@ -690,8 +690,8 @@ main {
 
 .focus-workspace {
   display: grid;
-  grid-template-columns: minmax(290px, 0.84fr) minmax(390px, 1.12fr) minmax(250px, 0.74fr);
-  align-items: start;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.1fr) minmax(0, 0.95fr);
+  align-items: stretch;
   gap: 18px;
 }
 
@@ -709,7 +709,18 @@ main {
 }
 
 .focus-workspace .timer-ring {
-  width: min(230px, 72vw);
+  width: min(220px, 100%);
+}
+
+.focus-workspace .timer-centre {
+  padding-inline: 24px;
+}
+
+.focus-workspace .timer-centre strong {
+  max-width: 100%;
+  font-size: clamp(2.45rem, 4.2vw, 3.5rem);
+  letter-spacing: -0.045em;
+  white-space: nowrap;
 }
 
 .focus-workspace .distraction-panel .inline-form {
@@ -718,6 +729,10 @@ main {
 
 .focus-workspace .distraction-panel .small-button {
   width: 100%;
+}
+
+.focus-sound-panel {
+  padding-block: 24px;
 }
 
 .focus-column {
@@ -1781,7 +1796,7 @@ input[type="range"]::-moz-range-thumb {
 
 .focus-breathing-summary-state,
 .focus-alerts-summary,
-.plan-output-card > summary > span:last-child,
+.details-status,
 .inline-sound-customizer [data-context-sound-summary] {
   flex: 0 0 auto;
   border-radius: 999px;
@@ -1789,6 +1804,49 @@ input[type="range"]::-moz-range-thumb {
   color: var(--aqua-dark);
   padding: 5px 9px;
   font-weight: 800;
+}
+
+.details-summary-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.details-toggle {
+  min-width: 88px;
+  min-height: 31px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(23, 39, 71, 0.2);
+  border-radius: 999px;
+  background: var(--navy-900);
+  color: #fff;
+  padding: 6px 10px;
+  font-family: "Libre Franklin", Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.details-toggle::before {
+  content: "Expand";
+}
+
+.details-toggle::after {
+  content: "+";
+  font-size: 0.9rem;
+}
+
+details[open] > summary .details-toggle::before {
+  content: "Minimise";
+}
+
+details[open] > summary .details-toggle::after {
+  content: "−";
 }
 
 .focus-breathing-inner {
@@ -2111,9 +2169,19 @@ input[type="range"]::-moz-range-thumb {
 
 .inline-sound-body {
   display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 13px;
   border-top: 1px solid var(--line);
   padding: 14px;
+}
+
+.inline-sound-body > .no-sound-button,
+.inline-sound-body > .shared-sound-note,
+.inline-sound-body > .context-frequency-help,
+.inline-sound-body > .inline-sound-actions,
+.inline-sound-body > .microcopy {
+  grid-column: 1 / -1;
 }
 
 .no-sound-button {
@@ -2471,11 +2539,7 @@ body.reduce-motion *::after {
   }
 }
 
-@media (max-width: 1250px) {
-  .focus-prep-grid {
-    grid-template-columns: 1fr;
-  }
-
+@media (max-width: 1320px) {
   .focus-workspace {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2575,6 +2639,20 @@ body.reduce-motion *::after {
 
   .focus-workspace .distraction-panel .small-button {
     width: 100%;
+  }
+
+  .inline-sound-body {
+    grid-template-columns: 1fr;
+  }
+
+  .inline-sound-body > * {
+    grid-column: auto;
+  }
+
+  .details-summary-actions {
+    display: grid;
+    justify-items: end;
+    gap: 5px;
   }
 
   .topbar {
