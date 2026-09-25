@@ -21,7 +21,7 @@
 
   class ACSISClarityMobile extends HTMLElement {
     static get observedAttributes() {
-      return ["src", "bottom-offset"];
+      return ["src", "bottom-offset", "mode"];
     }
 
     constructor() {
@@ -41,7 +41,7 @@
         this.sendToApp({ type: "acsis-clarity-measure" });
         this.sendToApp({ type: "acsis-clarity-route", route: this.currentRoute });
       });
-      this.applySource();
+      if (this.getAttribute("mode") !== "launcher") this.applySource();
       this.applyBottomOffset();
       this.updateNavigationVisibility();
     }
@@ -56,6 +56,18 @@
       if (oldValue === newValue || !this.isConnected) return;
       if (name === "src") this.applySource();
       if (name === "bottom-offset") this.applyBottomOffset();
+      if (name === "mode") {
+        if (newValue === "launcher") {
+          this.frame.removeAttribute("src");
+          this.frame.style.removeProperty("height");
+          this.navigation.classList.remove("is-visible");
+          this.style.removeProperty("height");
+          this.style.removeProperty("min-height");
+        } else {
+          this.applySource();
+          this.updateNavigationVisibility();
+        }
+      }
     }
 
     render() {
@@ -88,6 +100,94 @@
 
           .mobile-navigation {
             display: none;
+          }
+
+          .launcher {
+            display: none;
+          }
+
+          :host([mode="launcher"]) {
+            min-height: 0;
+            height: 100%;
+            background: #f3f6fa;
+          }
+
+          :host([mode="launcher"]) iframe,
+          :host([mode="launcher"]) .mobile-navigation {
+            display: none !important;
+          }
+
+          :host([mode="launcher"]) .launcher {
+            min-height: 100%;
+            display: grid;
+            align-content: center;
+            gap: 15px;
+            padding: 24px 20px;
+            border: 1px solid rgba(23, 39, 71, 0.12);
+            border-radius: 24px;
+            background: #ffffff;
+            color: #172747;
+            font-family: Arial, sans-serif;
+            text-align: left;
+            box-shadow: 0 14px 34px rgba(23, 39, 71, 0.1);
+          }
+
+          .launcher-kicker {
+            color: #ef1743;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+          }
+
+          .launcher h2 {
+            margin: 0;
+            font-size: clamp(25px, 8vw, 34px);
+            line-height: 1.04;
+          }
+
+          .launcher p {
+            margin: 0;
+            color: #4d5d76;
+            font-size: 15px;
+            line-heigight: 1.5;
+          }
+
+          .launcher-link {
+            min-height: 54px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 999px;
+            background: #172747;
+            color: #ffffff;
+            padding: 12px 18px;
+            font-size: 16px;
+            font-weight: 800;
+            text-decoration: none;
+            }
+
+          .launcher-link:focus-visible {
+            outline: 3px solid rgba(90, 200, 223, 0.68);
+            outline-offset: 3px;
+          }
+
+          .launcher-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #647188;
+            font-size: 12px;
+            line-height: 1.35;
+          }
+
+          .launcher-note::before {
+            width: 10px;
+            height: 10px;
+            flex: 0 0 10px;
+            border-radius: 50%;
+            background: #5ac8df;
+            content: "";
           }
 
           @media (max-width: 760px) {
@@ -158,6 +258,13 @@
             }
           }
         </style>
+        <section class="launcher" aria-labelledby="acsis-clarity-launcher-title">
+          <span class="launcher-kicker">ACSIS Clarity</span>
+          <h2 id="acsis-clarity-launcher-title">Open your clarity space</h2>
+          <p>For the best mobile experience, open Clarity full screen. You will have one smooth scroll and the five tools will stay within easy reach.</p>
+          <a class="launcher-link" href="https://mpbconsulting2025.github.io/ACSISLC/?v=17#home" target="_top">Open ACSIS Clarity</a>
+          <span class="launcher-note">Free to use. Your entries stay in this browser.</span>
+        </section>
         <iframe title="ACSIS Clarity wellbeing tools" scrolling="no" allow="autoplay"></iframe>
         <nav class="mobile-navigation" aria-label="ACSIS Clarity tools">${navigation}</nav>
       `;
