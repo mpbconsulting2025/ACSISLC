@@ -2810,6 +2810,20 @@ body.reduce-motion *::after {
     height: 21px;
   }
 
+  body.is-auto-height-embed main {
+    min-height: 0;
+    padding-bottom: 24px;
+  }
+
+  body.is-auto-height-embed,
+  body.is-auto-height-embed .app-shell {
+    min-height: 0;
+  }
+
+  body.is-auto-height-embed .mobile-nav {
+    display: none;
+  }
+
   .app-footer {
     display: grid;
     gap: 8px;

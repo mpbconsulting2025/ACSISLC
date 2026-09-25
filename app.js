@@ -11,6 +11,71 @@
     meditate: "Make room for quiet",
     soundscapes: "Shape your listening space"
   };
+  const EMBED_PARAMS = new URLSearchParams(window.location.search);
+  const AUTO_HEIGHT_EMBED = EMBED_PARAMS.get("autoHeight") === "1";
+  const EMBED_PARENT_ORIGIN = (() => {
+    if (!AUTO_HEIGHT_EMBED || window.parent === window || !document.referrer) return "";
+    try {
+      return new URL(document.referrer).origin;
+    } catch {
+      return "";
+    }
+  })();
+  let embedHeightFrame = 0;
+
+  function postToEmbedParent(message) {
+    if (!AUTO_HEIGHT_EMBED || !EMBED_PARENT_ORIGIN || window.parent === window) return;
+    window.parent.postMessage({ source: "acsis-clarity", ...message }, EMBED_PARENT_ORIGIN);
+  }
+
+  function reportEmbedHeight(reason = "layout") {
+    if (!AUTO_HEIGHT_EMBED) return;
+    window.cancelAnimationFrame(embedHeightFrame);
+    embedHeightFrame = window.requestAnimationFrame(() => {
+      const root = document.documentElement;
+      const body = document.body;
+      const shell = document.querySelector(".app-shell");
+      const shellHeight = shell ? shell.getBoundingClientRect().height : 0;
+      const height = Math.ceil(shellHeight || Math.max(root.scrollHeight, body.scrollHeight));
+      postToEmbedParent({
+        type: "acsis-clarity-height",
+        height,
+        route: window.location.hash.slice(1) || "home",
+        reason
+      });
+    });
+  }
+
+  function initialiseAutoHeightEmbed() {
+    if (!AUTO_HEIGHT_EMBED) return;
+
+    window.addEventListener("message", (event) => {
+      if (event.source !== window.parent || event.origin !== EMBED_PARENT_ORIGIN) return;
+      const message = event.data;
+      if (!message || message.source !== "acsis-clarity-host") return;
+      if (message.type === "acsis-clarity-route" && ROUTES.includes(message.route)) {
+        routeTo(message.route);
+      }
+      if (message.type === "acsis-clarity-measure") reportEmbedHeight("requested");
+    });
+
+    if ("ResizeObserver" in window) {
+      const resizeObserver = new ResizeObserver(() => reportEmbedHeight("resize"));
+      resizeObserver.observe(document.documentElement);
+      resizeObserver.observe(document.body);
+      const main = document.querySelector("main");
+      if (main) resizeObserver.observe(main);
+    }
+
+    window.addEventListener("load", () => reportEmbedHeight("load"));
+    window.addEventListener("resize", () => reportEmbedHeight("viewport"));
+    if (document.fonts?.ready) document.fonts.ready.then(() => reportEmbedHeight("fonts"));
+    postToEmbedParent({
+      type: "acsis-clarity-ready",
+      route: window.location.hash.slice(1) || "home"
+    });
+    reportEmbedHeight("ready");
+  }
 
   const DEFAULT_STATE = {
     lastTool: null,
@@ -668,6 +733,8 @@
     if (updateHash) history.replaceState(null, "", `#${target}`);
     window.scrollTo({ top: 0, behavior: state.settings.reduceMotion ? "auto" : "smooth" });
     $("#main-content").focus({ preventScroll: true });
+    postToEmbedParent({ type: "acsis-clarity-route", route: target });
+    reportEmbedHeight("route");
   }
 
   function updateContinueCard() {
@@ -1941,6 +2008,7 @@
     applySettings();
     updateContinueCard();
     routeTo(window.location.hash.slice(1) || "home", false);
+    initialiseAutoHeightEmbed();
 
     if ("serviceWorker" in navigator && window.location.protocol.startsWith("http")) {
       window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));

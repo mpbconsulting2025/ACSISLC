@@ -31,6 +31,17 @@ The app uses relative paths and can be served from a GitHub Pages project subdir
 
 After pushing the `main` branch to a public GitHub repository, open **Settings > Pages** and select **GitHub Actions** as the publishing source. Future pushes to `main` will publish the site automatically.
 
+## Wix mobile one-scroll embed
+
+The standard Wix URL embed uses a fixed-height iframe, which can create a page scroll inside the Wix page scroll on phones. The mobile custom element removes that nested scrolling by listening for the active ACSIS Clarity content height and resizing itself whenever a tool, task line or expandable panel changes.
+
+Add a mobile-only custom element in Wix with:
+
+- source: `https://mpbconsulting2025.github.io/ACSISLC/acsis-clarity-mobile.js`
+- tag name: `acsis-clarity-mobile`
+
+Hide the standard URL embed on mobile but keep it for desktop. The custom element supplies the mobile tool navigation and keeps it above the Wix Contact and Book quick-action bar while ACSIS Clarity is in view.
+
 ## Important limitation
 
 Timer alarms depend on the web app remaining open. Silent mode, battery controls and browser restrictions can prevent sound. This limitation is stated inside the app.
