@@ -150,7 +150,7 @@
             margin: 0;
             color: #4d5d76;
             font-size: 15px;
-            line-heigight: 1.5;
+            line-height: 1.5;
           }
 
           .launcher-link {
