@@ -1909,3 +1909,33 @@
     throw err;
   });
 })();
+
+/* Handbook embed helper. The worksheet remains a complete standalone page. */
+(() => {
+  const params = new URLSearchParams(location.search);
+  if (params.get('embed') !== 'handbook' || window.parent === window) return;
+  document.documentElement.classList.add('is-handbook-tool');
+  const style = document.createElement('style');
+  style.textContent = `
+    html.is-handbook-tool,html.is-handbook-tool body{margin:0!important;background:#fff!important;overflow:hidden!important}
+    html.is-handbook-tool [data-noprint]{display:none!important}
+    html.is-handbook-tool doc-page{min-height:0!important}
+    @media print{html.is-handbook-tool doc-page{zoom:.8!important}}
+  `;
+  document.head.appendChild(style);
+  const toolId = params.get('tool') || '';
+  let lastHeight = 0;
+  const reportHeight = () => {
+    document.querySelectorAll('doc-page').forEach((page) => { if (!page.hasAttribute('data-handbook-embed')) page.setAttribute('data-handbook-embed', ''); });
+    const height = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    if (!height || height === lastHeight) return;
+    lastHeight = height;
+    window.parent.postMessage({ type: 'acsis-handbook-tool-height', toolId, height }, location.origin);
+  };
+  addEventListener('load', reportHeight);
+  addEventListener('input', () => requestAnimationFrame(reportHeight), true);
+  addEventListener('change', () => requestAnimationFrame(reportHeight), true);
+  new MutationObserver(() => requestAnimationFrame(reportHeight)).observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+  if ('ResizeObserver' in window) new ResizeObserver(reportHeight).observe(document.documentElement);
+  requestAnimationFrame(reportHeight);
+})();

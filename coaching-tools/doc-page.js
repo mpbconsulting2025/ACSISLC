@@ -193,6 +193,15 @@
       --doc-hdr-pad: 0px;
       --doc-ftr-pad: 0px;
     }
+    :host([data-handbook-embed]) {
+      min-height: 0;
+      background: #fff;
+      padding: 0;
+    }
+    :host([data-handbook-embed]) .sheet {
+      border-radius: 0;
+      box-shadow: none;
+    }
     .sheet {
       width: min(var(--doc-page-w), 100%);
       margin: 0 auto;
