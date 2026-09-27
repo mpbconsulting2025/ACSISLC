@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>Personal SWOT | ACSIS Coaching Toolbox</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/acsis-tools.css">
+<script src="../support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#1C2B4B"/><text x="100" y="118" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="52" fill="#fff">A</text><rect x="60" y="140" width="24" height="6" rx="3" fill="#E51B3F"/><rect x="88" y="140" width="24" height="6" rx="3" fill="#5BC8E0"/><rect x="116" y="140" width="24" height="6" rx="3" fill="#fff"/></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Libre Franklin',sans-serif;color:#22283A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:#1C2B4B}a:hover{color:#E51B3F}
+textarea:focus,input:focus{outline:none;border-color:#5BC8E0 !important;box-shadow:0 0 0 2px rgba(91,200,224,.35)}
+input[type=range]{accent-color:#E51B3F}
+input[type=checkbox]{accent-color:#1C2B4B;width:4.2mm;height:4.2mm;margin:0;flex:none}
+textarea::placeholder,input::placeholder{color:#A3ABB8}
+textarea{field-sizing:content}
+@media print{textarea,section>div{break-inside:avoid}[data-noprint]{display:none !important}textarea,input{background:transparent !important;box-shadow:none !important}}
+</style>
+</helmet>
+<a data-noprint href="../Toolbox.dc.html" style="position:fixed;top:14px;left:14px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#1C2B4B;border:1.5px solid #1C2B4B;padding:8px 14px 8px 10px;border-radius:999px;text-decoration:none;font:700 13px 'Montserrat',sans-serif;box-shadow:0 4px 14px rgba(28,43,75,.15)" style-hover="background:#1C2B4B;color:#fff"><span style="font-size:16px;line-height:1">&larr;</span>All tools</a>
+<div data-noprint style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;background:#1C2B4B;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(28,43,75,.35);font:500 13px 'Libre Franklin',sans-serif;white-space:nowrap">
+  <span style="opacity:.8">Answers save only in this browser</span>
+  <a href="../Toolbox.dc.html" style="color:#fff;text-decoration:none;font:600 13px 'Montserrat',sans-serif;padding:8px 12px;border-radius:999px" style-hover="background:rgba(255,255,255,.12)">All tools</a>
+  <button type="button">Clear</button>
+  <button type="button">Save as PDF</button>
+</div>
+<doc-page size="a4" margin="0">
+<section data-screen-label="Personal SWOT" style="padding:12mm 13mm 10mm;display:flex;flex-direction:column;gap:5mm;font-family:'Libre Franklin',sans-serif;color:#22283A;background:#fff">
+
+<header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">Coaching tool · Clarity</div>
+      <h1 style="margin:0;font:800 24pt/1.05 'Montserrat',sans-serif;color:#1C2B4B;letter-spacing:-.02em">Personal SWOT</h1>
+      <p style="margin:0;font-size:10pt;line-height:1.45;max-width:122mm;text-wrap:pretty"><strong>SWOT means Strength, Weakness, Opportunity and Threat.</strong> Use the four boxes to examine one role, decision or goal. Strengths and weaknesses are internal; opportunities and threats are external.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:14mm;width:auto;margin-top:1mm">
+  </header>
+  <details class="acsis-help"><summary>Why this may help</summary><p>Brings internal strengths and weaknesses together with external opportunities and threats, making a situation easier to plan around.</p></details>
+<div style="display:flex;flex-direction:column;gap:1.5mm;"><label style="font:700 9.5pt 'Montserrat',sans-serif;color:#1C2B4B;">What situation or goal is this SWOT about?</label><textarea value="{{ v.focus }}" onChange="{{ set.focus }}" placeholder="e.g. Applying for the team lead role. Starting my own practice. The next 12 months." style="width:100%;box-sizing:border-box;min-height:10mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none;" aria-label="e.g. Applying for the team lead role. Starting my own practice. The next 12 months."></textarea></div>
+<div style="display:grid;grid-template-columns:7mm 1fr 1fr;grid-template-rows:auto 1fr 1fr;gap:3mm 4mm">
+  <div></div>
+  <div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#1C2B4B;text-align:center;font-size:8pt">Helpful</div>
+  <div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#1C2B4B;text-align:center;font-size:8pt">Harmful</div>
+  <div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#1C2B4B;font-size:8pt;writing-mode:vertical-rl;transform:rotate(180deg);text-align:center">Internal</div>
+  <div style="display:flex;flex-direction:column;gap:2mm;border-radius:3mm;padding:3.5mm;background:#F3F6FA;border-top:3px solid #1C2B4B">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:800 12pt 'Montserrat',sans-serif;color:#1C2B4B">S · Strength</div><div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394;font-size:7pt">What I bring</div></div>
+    <div style="font-size:8.5pt;line-height:1.4;color:#4B5566">· What do you do well, and what do others rely on you for?<br>· Which achievements are you proudest of?<br>· What resources, skills or contacts do you have?</div>
+    <textarea value="{{ v.s }}" onChange="{{ set.s }}" style="width:100%;box-sizing:border-box;min-height:23mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:9.5pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#fff;resize:none" aria-label="Strength"></textarea>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:2mm;border-radius:3mm;padding:3.5mm;background:#F3F6FA;border-top:3px solid #E51B3F">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:800 12pt 'Montserrat',sans-serif;color:#1C2B4B">W · Weakness</div><div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394;font-size:7pt">What holds me back</div></div>
+    <div style="font-size:8.5pt;line-height:1.4;color:#4B5566">· What do you avoid or find draining?<br>· Where has feedback pointed more than once?<br>· What gaps in skill, time or confidence show up?</div>
+    <textarea value="{{ v.w }}" onChange="{{ set.w }}" style="width:100%;box-sizing:border-box;min-height:23mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:9.5pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#fff;resize:none" aria-label="Weakness"></textarea>
+  </div>
+  <div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#1C2B4B;font-size:8pt;writing-mode:vertical-rl;transform:rotate(180deg);text-align:center">External</div>
+  <div style="display:flex;flex-direction:column;gap:2mm;border-radius:3mm;padding:3.5mm;background:#F3F6FA;border-top:3px solid #5BC8E0">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:800 12pt 'Montserrat',sans-serif;color:#1C2B4B">O · Opportunity</div><div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394;font-size:7pt">What is open to me</div></div>
+    <div style="font-size:8.5pt;line-height:1.4;color:#4B5566">· What is changing around you that you could use?<br>· Who could help, and who needs what you offer?<br>· Which strength could you apply somewhere new?</div>
+    <textarea value="{{ v.o }}" onChange="{{ set.o }}" style="width:100%;box-sizing:border-box;min-height:23mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:9.5pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#fff;resize:none" aria-label="Opportunity"></textarea>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:2mm;border-radius:3mm;padding:3.5mm;background:#F3F6FA;border-top:3px solid #6DAF4B">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font:800 12pt 'Montserrat',sans-serif;color:#1C2B4B">T · Threat</div><div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394;font-size:7pt">What could get in the way</div></div>
+    <div style="font-size:8.5pt;line-height:1.4;color:#4B5566">· What obstacles or competition do you face?<br>· Which limitation could a threat expose?<br>· What happens if nothing changes?</div>
+    <textarea value="{{ v.t }}" onChange="{{ set.t }}" style="width:100%;box-sizing:border-box;min-height:23mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:9.5pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#fff;resize:none" aria-label="Threat"></textarea>
+  </div>
+</div>
+<div style="display:flex;flex-direction:column;gap:1.5mm;"><label style="font:700 9.5pt 'Montserrat',sans-serif;color:#1C2B4B;">So what? Which strength can you use to pursue an opportunity or reduce a threat, and which weakness needs a plan?</label><textarea value="{{ v.sowhat }}" onChange="{{ set.sowhat }}" placeholder="The one move that comes out of this grid…" style="width:100%;box-sizing:border-box;min-height:14mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none;border:2px solid #1C2B4B;background:#fff" aria-label="Action arising from the SWOT"></textarea></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:auto">
+    <div style="display:flex;flex-direction:column;gap:1.5mm">
+      <label style="font:700 8pt/1.35 'Montserrat',sans-serif;letter-spacing:.01em;color:#7A8394">Notes you want to share with your coach for the next session</label>
+      <textarea value="{{ v.coach }}" onChange="{{ set.coach }}" placeholder="Add anything you would like your coach to read before your next session." style="width:100%;box-sizing:border-box;min-height:10mm;overflow:hidden;border:1px dashed #B9C2CE;border-radius:2.5mm;padding:2mm 3mm;font:9.5pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#fff;resize:none" aria-label="Notes you want to share with your coach for the next session"></textarea>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;align-content:end">
+      <div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Name</label><input type="text" value="{{ v.name }}" onChange="{{ set.name }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="name"></div><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date</label><input type="text" value="{{ v.date }}" onChange="{{ set.date }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="date"></div>
+      <p style="grid-column:1/-1;margin:1mm 0 0;font-size:8.5pt;color:#4B5566;line-height:1.4;text-wrap:pretty">Ask for evidence in every box. “I’m good with people” becomes “three people came to me for advice this month.”</p>
+    </div>
+  </div>
+<footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2.5mm;font:600 8pt 'Montserrat',sans-serif;color:#1C2B4B">
+    <span style="display:flex;gap:2mm;align-items:center"><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#1C2B4B;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#E51B3F;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#5BC8E0;display:inline-block"></span><span style="margin-left:2mm">Clarity · Courage · Connection</span></span>
+    <span>www.acsis.co.uk</span>
+  </footer>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.key='acsis-swot';
+    this.defaults={};
+    let s={}; try{ s=JSON.parse(localStorage.getItem(this.key)||'{}') }catch(e){}
+    this.state={v:s};
+    this._h={};
+    this.set=new Proxy({},{get:(_,k)=>this._h[k]||(this._h[k]=(e)=>{const t=e.target;const val=t.type==='checkbox'?t.checked:t.value;this.setState(st=>{const v={...st.v,[k]:val};try{localStorage.setItem(this.key,JSON.stringify(v))}catch(e){}return {v}})})});
+  }
+  val(k){ const x=this.state.v[k]; return x===undefined||x===null ? (this.defaults[k]!==undefined?this.defaults[k]:'') : x; }
+  extra(){ return {}; }
+  renderVals(){
+    const v=new Proxy({},{get:(_,k)=>this.val(k)});
+    return Object.assign({v,set:this.set,print:()=>window.print(),
+      clear:()=>{ if(confirm('Clear all your answers on this sheet?')){ try{localStorage.removeItem(this.key)}catch(e){} this.setState({v:{}}) } }}, this.extra(v));
+  }
+}
+</script>
+</body>
+</html>

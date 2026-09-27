@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>ACHIEVE | ACSIS Coaching Toolbox</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/acsis-tools.css">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Libre Franklin',Arial,sans-serif;color:#22283A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:#1C2B4B}a:hover{color:#E51B3F}
+textarea:focus,input:focus,button:focus-visible{outline:none;border-color:#5BC8E0!important;box-shadow:0 0 0 2px rgba(91,200,224,.35)}
+textarea::placeholder,input::placeholder{color:#7A8394}
+textarea{field-sizing:content}
+.achieve-page{padding:10mm 12mm 9mm;display:flex;flex-direction:column;gap:4mm;font-family:'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff}
+.stage{display:grid;grid-template-columns:13mm 49mm minmax(0,1fr);gap:3mm;align-items:start;border:1px solid #DDE3EA;border-radius:3mm;padding:3mm;background:#FAFBFD}
+.stage-letter{width:11mm;height:11mm;border-radius:3mm;display:grid;place-items:center;font:800 15pt 'Montserrat',Arial,sans-serif}
+.stage-copy{display:flex;flex-direction:column;gap:1mm}
+.stage-copy h3{margin:0;font:800 10.5pt 'Montserrat',Arial,sans-serif;color:#1C2B4B}
+.stage-copy p{margin:0;font-size:8.2pt;line-height:1.4;color:#4B5566}
+.stage textarea{width:100%;min-height:25mm;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.2mm 2.7mm;font:9.3pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none}
+@media screen and (max-width:720px){.stage{grid-template-columns:44px minmax(0,1fr)!important}.stage textarea{grid-column:1/-1}}
+@media print{.achieve-page{break-after:page}.achieve-page:last-child{break-after:auto}.stage{break-inside:avoid}[data-noprint]{display:none!important}textarea,input{background:transparent!important;box-shadow:none!important}}
+</style>
+</helmet>
+<a data-noprint href="../Toolbox.dc.html" style="position:fixed;top:14px;left:14px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#1C2B4B;border:1.5px solid #1C2B4B;padding:8px 14px 8px 10px;border-radius:999px;text-decoration:none;font:700 13px 'Montserrat',Arial,sans-serif;box-shadow:0 4px 14px rgba(28,43,75,.15)"><span aria-hidden="true" style="font-size:16px;line-height:1">&larr;</span>All tools</a>
+<div data-noprint style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;background:#1C2B4B;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(28,43,75,.35);font:500 13px 'Libre Franklin',Arial,sans-serif;white-space:nowrap">
+  <span style="opacity:.85">Answers save only in this browser</span>
+  <a href="../Toolbox.dc.html" style="color:#fff;text-decoration:none;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px;border-radius:999px">All tools</a>
+  <button type="button" onClick="{{ clear }}" style="border:0;background:transparent;color:#fff;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px;border-radius:999px;cursor:pointer">Clear</button>
+  <button type="button" onClick="{{ print }}" style="border:0;background:#E51B3F;color:#fff;font:700 13px 'Montserrat',Arial,sans-serif;padding:9px 16px;border-radius:999px;cursor:pointer">Save as PDF</button>
+</div>
+<doc-page size="a4" margin="0">
+<section data-screen-label="ACHIEVE 1" class="achieve-page">
+  <header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">Coaching framework · Clarity &amp; Courage</div>
+      <h1 style="margin:0;font:800 23pt/1.05 'Montserrat',Arial,sans-serif;color:#1C2B4B;letter-spacing:-.02em">ACHIEVE</h1>
+      <p style="margin:0;font-size:9.5pt;line-height:1.45;max-width:128mm;text-wrap:pretty">Use this seven-stage framework when a challenge has several moving parts, stakeholders or consequences. Work through the stages in order, while staying responsive to what the client needs.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:13mm;width:auto;margin-top:1mm">
+  </header>
+  <details class="acsis-help"><summary>Why this may help</summary><p>Useful when a challenge is complex or the first goal is not yet the right one. It slows the conversation enough to explore options and build a plan you own.</p></details>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm">
+    <div style="background:#F3F6FA;border-radius:3mm;padding:3mm;font-size:8.5pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Start with the real situation.</strong><br>Separate facts, interpretations, people and pressures.</div>
+    <div style="background:#F3F6FA;border-radius:3mm;padding:3mm;font-size:8.5pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Generate before judging.</strong><br>Make room for possibilities before comparing them.</div>
+    <div style="background:#F3F6FA;border-radius:3mm;padding:3mm;font-size:8.5pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Finish with ownership.</strong><br>Test the plan and decide how momentum will be sustained.</div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:1.2mm"><label style="font:700 8pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">What complex challenge or decision are we working on?</label><textarea value="{{ v.challenge }}" onChange="{{ set.challenge }}" aria-label="Complex challenge or decision" placeholder="Name the issue and why it matters now..." style="width:100%;min-height:14mm;border:1.5px solid #1C2B4B;border-radius:2.5mm;padding:2.3mm 2.8mm;font:9.5pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none"></textarea></div>
+
+  <div class="stage">
+    <div class="stage-letter" style="background:#1C2B4B;color:#fff">A</div>
+    <div class="stage-copy"><h3>Assess the current situation</h3><p>What is happening? What are the facts, relationships, pressures, assumptions and available resources?</p></div>
+    <textarea value="{{ v.assess }}" onChange="{{ set.assess }}" aria-label="Assess the current situation" placeholder="What do we know, and what still needs checking?"></textarea>
+  </div>
+  <div class="stage">
+    <div class="stage-letter" style="background:#E51B3F;color:#fff">C</div>
+    <div class="stage-copy"><h3>Create goals</h3><p>What broad outcome does the client want from this situation and from the coaching conversation?</p></div>
+    <textarea value="{{ v.create }}" onChange="{{ set.create }}" aria-label="Create goals" placeholder="The direction or change I want is..."></textarea>
+  </div>
+  <div class="stage">
+    <div class="stage-letter" style="background:#5BC8E0;color:#1C2B4B">H</div>
+    <div class="stage-copy"><h3>Hone goals</h3><p>Make the goal precise. What would success look like, for whom, by when and with what evidence?</p></div>
+    <textarea value="{{ v.hone }}" onChange="{{ set.hone }}" aria-label="Hone goals" placeholder="Success will look like... We will know because..."></textarea>
+  </div>
+  <div class="stage">
+    <div class="stage-letter" style="background:#6DAF4B;color:#fff">I</div>
+    <div class="stage-copy"><h3>Identify options</h3><p>Generate several possible routes before selecting one. Include small, bold and collaborative options.</p></div>
+    <textarea value="{{ v.identify }}" onChange="{{ set.identify }}" aria-label="Identify options" placeholder="Possible routes, combinations and people to involve..."></textarea>
+  </div>
+
+  <footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2.5mm;font:600 8pt 'Montserrat',Arial,sans-serif;color:#1C2B4B"><span>Page 1 · Understand and define</span><span>www.acsis.co.uk</span></footer>
+</section>
+
+<section data-screen-label="ACHIEVE 2" class="achieve-page">
+  <header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">ACHIEVE · Choose and commit</div>
+      <h2 style="margin:0;font:800 22pt/1.05 'Montserrat',Arial,sans-serif;color:#1C2B4B">Turn the thinking into movement</h2>
+      <p style="margin:0;font-size:9.5pt;line-height:1.45;max-width:128mm">Compare the strongest options, test what is realistic and build the support that will keep the plan moving.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:13mm;width:auto;margin-top:1mm">
+  </header>
+
+  <div class="stage">
+    <div class="stage-letter" style="background:#1C2B4B;color:#fff">E</div>
+    <div class="stage-copy"><h3>Evaluate options</h3><p>Compare benefits, risks, effort, values, resources and stakeholder impact. What trade-offs matter?</p></div>
+    <textarea value="{{ v.evaluate }}" onChange="{{ set.evaluate }}" aria-label="Evaluate options" placeholder="The strongest options are... The trade-offs are..."></textarea>
+  </div>
+  <div class="stage">
+    <div class="stage-letter" style="background:#E51B3F;color:#fff">V</div>
+    <div class="stage-copy"><h3>Validate the plan</h3><p>Check sequence, ownership, timing and readiness. What could derail the plan, and how will that be handled?</p></div>
+    <textarea value="{{ v.validate }}" onChange="{{ set.validate }}" aria-label="Validate the plan" placeholder="Who will do what, by when? What needs testing first?"></textarea>
+  </div>
+  <div class="stage">
+    <div class="stage-letter" style="background:#5BC8E0;color:#1C2B4B">E</div>
+    <div class="stage-copy"><h3>Encourage momentum</h3><p>Identify the first move, support, accountability and review points that will sustain action after the session.</p></div>
+    <textarea value="{{ v.encourage }}" onChange="{{ set.encourage }}" aria-label="Encourage momentum" placeholder="Support, check-ins, reminders and review points..."></textarea>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm">
+    <div style="display:flex;flex-direction:column;gap:1.2mm"><label style="font:700 9pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">The agreed direction or decision</label><textarea value="{{ v.decision }}" onChange="{{ set.decision }}" aria-label="Agreed direction or decision" placeholder="We have decided to..." style="width:100%;min-height:27mm;border:1.5px solid #1C2B4B;border-radius:2.5mm;padding:2.5mm 3mm;font:9.5pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none"></textarea></div>
+    <div style="display:flex;flex-direction:column;gap:1.2mm"><label style="font:700 9pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">The first visible action and review point</label><textarea value="{{ v.first }}" onChange="{{ set.first }}" aria-label="First action and review point" placeholder="First action, owner, date and review..." style="width:100%;min-height:27mm;border:1.5px solid #1C2B4B;border-radius:2.5mm;padding:2.5mm 3mm;font:9.5pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none"></textarea></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:auto">
+    <div style="display:flex;flex-direction:column;gap:1.2mm"><label style="font:700 8pt/1.35 'Montserrat',Arial,sans-serif;letter-spacing:.01em;color:#7A8394">Notes you want to share with your coach for the next session</label><textarea value="{{ v.coach }}" onChange="{{ set.coach }}" aria-label="Notes you want to share with your coach for the next session" placeholder="Add anything you would like your coach to read before your next session." style="width:100%;min-height:22mm;border:1px dashed #B9C2CE;border-radius:2.5mm;padding:2.3mm 3mm;font:9.3pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none"></textarea></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;align-content:end">
+      <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Name<input type="text" value="{{ v.name }}" onChange="{{ set.name }}" aria-label="Name" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',Arial,sans-serif;color:#22283A;background:transparent;width:100%"></label>
+      <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date<input type="text" value="{{ v.date }}" onChange="{{ set.date }}" aria-label="Date" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',Arial,sans-serif;color:#22283A;background:transparent;width:100%"></label>
+      <p style="grid-column:1/-1;margin:1mm 0 0;font-size:7.7pt;line-height:1.4;color:#4B5566">This worksheet follows the wording in the linked <a href="https://www.tpccoachingacademy.co.uk/blogs/insights/achieve-coaching-model-bringing-structure-to-complex-coaching-challenges" target="_blank" rel="noopener">TPC Coaching Academy overview</a>. ACHIEVE was developed by Sabine Dembkowski and Fiona Eldridge. Published versions use some different stage labels.</p>
+    </div>
+  </div>
+
+  <footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2.5mm;font:600 8pt 'Montserrat',Arial,sans-serif;color:#1C2B4B"><span>Page 2 · Choose and commit</span><span>www.acsis.co.uk</span></footer>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.key='acsis-achieve';
+    let s={}; try{s=JSON.parse(localStorage.getItem(this.key)||'{}')}catch(e){}
+    this.state={v:s};
+    this._h={};
+    this.set=new Proxy({},{get:(_,k)=>this._h[k]||(this._h[k]=(e)=>{const val=e.target.value;this.setState(st=>{const v={...st.v,[k]:val};try{localStorage.setItem(this.key,JSON.stringify(v))}catch(e){}return {v}})})});
+  }
+  val(k){const x=this.state.v[k];return x===undefined||x===null?'':x}
+  renderVals(){
+    const v=new Proxy({},{get:(_,k)=>this.val(k)});
+    return {v,set:this.set,print:()=>window.print(),clear:()=>{if(confirm('Clear all your answers on this ACHIEVE worksheet?')){try{localStorage.removeItem(this.key)}catch(e){}this.setState({v:{}})}}};
+  }
+}
+</script>
+</body>
+</html>

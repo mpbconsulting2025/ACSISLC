@@ -1,0 +1,317 @@
+doc-page:not(:defined) {
+  visibility: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: "Libre Franklin", Arial, sans-serif;
+  color: #22283a;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+a {
+  color: #1c2b4b;
+}
+
+a:hover {
+  color: #e51b3f;
+}
+
+textarea:focus,
+input:focus,
+select:focus,
+button:focus-visible {
+  outline: none;
+  border-color: #5bc8e0 !important;
+  box-shadow: 0 0 0 2px rgba(91, 200, 224, 0.35);
+}
+
+textarea::placeholder,
+input::placeholder {
+  color: #7a8394;
+}
+
+textarea {
+  field-sizing: content;
+}
+
+input[type="range"] {
+  accent-color: #e51b3f;
+}
+
+.acsis-tool-page {
+  padding: 10mm 12mm 9mm;
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+  font-family: "Libre Franklin", Arial, sans-serif;
+  color: #22283a;
+  background: #fff;
+}
+
+.acsis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8mm;
+}
+
+.acsis-header-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.acsis-eyebrow {
+  font: 700 7.5pt "Montserrat", Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #e51b3f;
+}
+
+.acsis-title {
+  margin: 0;
+  font: 800 23pt/1.05 "Montserrat", Arial, sans-serif;
+  color: #1c2b4b;
+  letter-spacing: -0.02em;
+}
+
+.acsis-intro {
+  margin: 0;
+  font-size: 9.4pt;
+  line-height: 1.45;
+  max-width: 130mm;
+  text-wrap: pretty;
+}
+
+.acsis-logo {
+  display: block;
+  width: 45mm;
+  height: auto;
+  max-width: 45mm;
+  aspect-ratio: 6935 / 2019;
+  object-fit: contain;
+  flex: 0 0 45mm;
+  margin-top: 1mm;
+}
+
+.acsis-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3mm;
+}
+
+.acsis-guide {
+  background: #f3f6fa;
+  border-radius: 3mm;
+  padding: 3mm;
+  font-size: 8.2pt;
+  line-height: 1.4;
+}
+
+.acsis-guide strong {
+  font-family: "Montserrat", Arial, sans-serif;
+  color: #1c2b4b;
+}
+
+.acsis-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 3mm;
+}
+
+.acsis-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 3mm;
+}
+
+.acsis-card {
+  border: 1px solid #d9e0e8;
+  border-radius: 3mm;
+  padding: 3mm;
+  background: #fafbfd;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5mm;
+  min-width: 0;
+}
+
+.acsis-card h2,
+.acsis-card h3 {
+  margin: 0;
+  font: 800 10pt/1.25 "Montserrat", Arial, sans-serif;
+  color: #1c2b4b;
+}
+
+.acsis-card p {
+  margin: 0;
+  font-size: 8.2pt;
+  line-height: 1.4;
+  color: #4b5566;
+  text-wrap: pretty;
+}
+
+.acsis-answer {
+  width: 100%;
+  min-height: 19mm;
+  border: 1px solid #c9d1dc;
+  border-radius: 2.5mm;
+  padding: 2.4mm 2.8mm;
+  font: 9.3pt/1.45 "Libre Franklin", Arial, sans-serif;
+  color: #22283a;
+  background: #fff;
+  resize: none;
+}
+
+.acsis-answer-sm {
+  min-height: 13mm;
+}
+
+.acsis-line {
+  width: 100%;
+  border: 0;
+  border-bottom: 1.5px solid #1c2b4b;
+  padding: 1.5mm 0;
+  font: 9.6pt "Libre Franklin", Arial, sans-serif;
+  color: #22283a;
+  background: transparent;
+}
+
+.acsis-scale {
+  display: grid;
+  grid-template-columns: 40mm minmax(0, 1fr) 10mm;
+  gap: 3mm;
+  align-items: center;
+  border-bottom: 1px solid #e2e7ed;
+  padding: 2mm 0;
+}
+
+.acsis-scale:last-child {
+  border-bottom: 0;
+}
+
+.acsis-scale label {
+  font: 700 8.4pt/1.3 "Montserrat", Arial, sans-serif;
+  color: #1c2b4b;
+}
+
+.acsis-scale input {
+  width: 100%;
+}
+
+.acsis-score {
+  font: 800 12pt "Montserrat", Arial, sans-serif;
+  color: #e51b3f;
+  text-align: right;
+}
+
+.acsis-highlight {
+  border: 1px solid #e6c98a;
+  border-radius: 3mm;
+  padding: 3.2mm;
+  background: #fff6e8;
+}
+
+.acsis-boundary {
+  border-left: 4px solid #e51b3f;
+  padding: 2.5mm 3mm;
+  background: #fceef1;
+  border-radius: 0 2.5mm 2.5mm 0;
+  font-size: 8pt;
+  line-height: 1.4;
+  color: #4b5566;
+}
+
+.acsis-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4mm;
+  margin-top: auto;
+}
+
+.acsis-coach-label {
+  font: 700 8pt/1.35 "Montserrat", Arial, sans-serif;
+  letter-spacing: 0.01em;
+  color: #7a8394;
+}
+
+.acsis-coach-notes {
+  width: 100%;
+  min-height: 15mm;
+  border: 1px dashed #b9c2ce;
+  border-radius: 2.5mm;
+  padding: 2.3mm 3mm;
+  font: 9.2pt/1.45 "Libre Franklin", Arial, sans-serif;
+  color: #22283a;
+  background: #fff;
+  resize: none;
+}
+
+.acsis-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3mm;
+  align-content: end;
+}
+
+.acsis-meta label {
+  display: flex;
+  flex-direction: column;
+  gap: 1mm;
+  font: 700 7.5pt "Montserrat", Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7a8394;
+}
+
+.acsis-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1.5px solid #1c2b4b;
+  padding-top: 2.5mm;
+  font: 600 8pt "Montserrat", Arial, sans-serif;
+  color: #1c2b4b;
+}
+
+@media screen and (max-width: 720px) {
+  .acsis-guide-grid,
+  .acsis-grid-2,
+  .acsis-grid-3,
+  .acsis-bottom,
+  .acsis-meta {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .acsis-scale {
+    grid-template-columns: minmax(0, 1fr) 42px !important;
+  }
+
+  .acsis-scale label {
+    grid-column: 1 / -1;
+  }
+}
+
+@media print {
+  [data-noprint] {
+    display: none !important;
+  }
+
+  .acsis-card,
+  .acsis-highlight,
+  .acsis-boundary,
+  .acsis-scale {
+    break-inside: avoid;
+  }
+
+  textarea,
+  input,
+  select {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}

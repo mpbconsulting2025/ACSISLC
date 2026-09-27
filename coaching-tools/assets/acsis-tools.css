@@ -1,0 +1,227 @@
+:root {
+  color-scheme: light;
+}
+
+html,
+body,
+input,
+textarea,
+select {
+  font-family: "Libre Franklin", Arial, sans-serif !important;
+}
+
+h1,
+h2,
+h3,
+button,
+[data-heading] {
+  font-family: "Montserrat", Arial, sans-serif !important;
+}
+
+section,
+section * {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+textarea {
+  max-width: 100%;
+}
+
+section p,
+section label,
+section h1,
+section h2,
+section h3,
+section span {
+  overflow-wrap: break-word;
+}
+
+section > header img[src$="acsis-logo.png"] {
+  display: block;
+  width: 45mm !important;
+  height: auto !important;
+  max-width: 45mm;
+  aspect-ratio: 6935 / 2019;
+  object-fit: contain;
+  flex: 0 0 45mm;
+}
+
+@media screen and (min-width: 721px) and (max-width: 900px) {
+  section > header img[src$="acsis-logo.png"] {
+    width: 40mm !important;
+    max-width: 40mm;
+    flex-basis: 40mm;
+  }
+
+  .acsis-title {
+    font-size: 20pt !important;
+    line-height: 1.08 !important;
+  }
+}
+
+.acsis-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.acsis-secondary-button {
+  border: 1.5px solid #1c2b4b;
+  background: #fff;
+  color: #1c2b4b;
+  border-radius: 999px;
+  padding: 8px 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.acsis-secondary-button:hover,
+.acsis-secondary-button:focus-visible {
+  background: #1c2b4b;
+  color: #fff;
+}
+
+.acsis-danger-button {
+  border-color: #b91c36;
+  color: #b91c36;
+}
+
+.acsis-danger-button:hover,
+.acsis-danger-button:focus-visible {
+  background: #b91c36;
+  color: #fff;
+}
+
+.acsis-help {
+  border: 1px solid #c9d1dc;
+  border-radius: 10px;
+  background: #fafbfd;
+  overflow: hidden;
+}
+
+.acsis-help summary {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 12px;
+  cursor: pointer;
+  color: #1c2b4b;
+  font: 700 12px "Montserrat", Arial, sans-serif;
+  list-style: none;
+}
+
+.acsis-help summary::-webkit-details-marker {
+  display: none;
+}
+
+.acsis-help summary:hover {
+  background: #f3f6fa;
+}
+
+.acsis-help summary:focus-visible {
+  outline: 3px solid rgba(91, 200, 224, 0.65);
+  outline-offset: -3px;
+}
+
+.acsis-help summary::before {
+  content: "?";
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  border-radius: 50%;
+  background: #1c2b4b;
+  color: #fff;
+  font: 800 13px "Montserrat", Arial, sans-serif;
+}
+
+.acsis-help summary::after {
+  content: "+";
+  margin-left: auto;
+  color: #e51b3f;
+  font: 800 18px/1 "Montserrat", Arial, sans-serif;
+}
+
+.acsis-help[open] summary::after {
+  content: "-";
+}
+
+.acsis-help p {
+  margin: 0;
+  padding: 0 12px 11px 43px;
+  color: #4b5566;
+  font-size: 12px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+@media screen and (max-width: 720px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding: 20px 16px 108px !important;
+    gap: 18px !important;
+  }
+
+  section > header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+  }
+
+  section > header img {
+    align-self: flex-end;
+    width: min(150px, 42vw) !important;
+    height: auto !important;
+    max-width: 150px !important;
+    flex: 0 0 auto !important;
+  }
+
+  section > div[style*="grid-template-columns"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  section input[type="text"],
+  section input[type="date"],
+  section textarea {
+    width: 100% !important;
+    font-size: max(16px, 1em) !important;
+  }
+
+  body > a[data-noprint],
+  x-dc > a[data-noprint] {
+    position: sticky !important;
+    top: 8px !important;
+    left: 8px !important;
+    width: max-content;
+    margin: 8px !important;
+  }
+
+  body > div[data-noprint],
+  x-dc > div[data-noprint] {
+    left: 8px !important;
+    right: 8px !important;
+    bottom: 8px !important;
+    transform: none !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    white-space: normal !important;
+    padding: 8px !important;
+  }
+
+  body > div[data-noprint] > span:first-child,
+  x-dc > div[data-noprint] > span:first-child {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+}

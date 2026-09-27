@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>SMART Action | ACSIS Coaching Toolbox</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/acsis-tools.css">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Libre Franklin',sans-serif;color:#22283A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:#1C2B4B}a:hover{color:#E51B3F}
+textarea:focus,input:focus{outline:none;border-color:#5BC8E0 !important;box-shadow:0 0 0 2px rgba(91,200,224,.35)}
+input[type=range]{accent-color:#E51B3F}
+input[type=checkbox]{accent-color:#1C2B4B;width:4.2mm;height:4.2mm;margin:0;flex:none}
+textarea::placeholder,input::placeholder{color:#A3ABB8}
+textarea{field-sizing:content}
+@media print{textarea,section>div{break-inside:avoid}[data-noprint]{display:none !important}textarea,input{background:transparent !important;box-shadow:none !important}}
+</style>
+</helmet>
+<a data-noprint href="../Toolbox.dc.html" style="position:fixed;top:14px;left:14px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#1C2B4B;border:1.5px solid #1C2B4B;padding:8px 14px 8px 10px;border-radius:999px;text-decoration:none;font:700 13px 'Montserrat',sans-serif;box-shadow:0 4px 14px rgba(28,43,75,.15)" style-hover="background:#1C2B4B;color:#fff"><span style="font-size:16px;line-height:1">&larr;</span>All tools</a>
+<div data-noprint style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;background:#1C2B4B;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(28,43,75,.35);font:500 13px 'Libre Franklin',sans-serif;white-space:nowrap">
+  <span style="opacity:.8">Answers save only in this browser</span>
+  <a href="../Toolbox.dc.html" style="color:#fff;text-decoration:none;font:600 13px 'Montserrat',sans-serif;padding:8px 12px;border-radius:999px" style-hover="background:rgba(255,255,255,.12)">All tools</a>
+  <button type="button">Clear</button>
+  <button type="button">Save as PDF</button>
+</div>
+<doc-page size="a4" margin="0">
+<section data-screen-label="SMART action" style="padding:12mm 13mm 10mm;display:flex;flex-direction:column;gap:5mm;font-family:'Libre Franklin',sans-serif;color:#22283A;background:#fff">
+
+<header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">Coaching tool · Clarity</div>
+      <h1 style="margin:0;font:800 24pt/1.05 'Montserrat',sans-serif;color:#1C2B4B;letter-spacing:-.02em">SMART action</h1>
+      <p style="margin:0;font-size:10pt;line-height:1.45;max-width:118mm;text-wrap:pretty">Turn an intention into an action you can actually start, and know when you have finished. Write the rough version first, test it against the five checks, then rewrite it.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:14mm;width:auto;margin-top:1mm">
+  </header>
+  <details class="acsis-help"><summary>Why this may help</summary><p>Turns a broad intention into an action that is specific enough to start, track and review.</p></details>
+<div style="display:flex;flex-direction:column;gap:1.5mm;"><label style="font:700 9.5pt 'Montserrat',sans-serif;color:#1C2B4B;">Rough version - what do you want to do?</label><textarea value="{{ v.rough }}" onChange="{{ set.rough }}" placeholder="e.g. Get fitter. Sort out my finances. Talk to my manager." style="width:100%;box-sizing:border-box;min-height:14mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none;" aria-label="e.g. Get fitter. Sort out my finances. Talk to my manager."></textarea></div>
+<div style="display:grid;grid-template-columns:12mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:12mm;height:12mm;border-radius:3mm;background:#1C2B4B;color:#fff;display:grid;place-items:center;font:800 7.4399999999999995pt 'Montserrat',sans-serif;letter-spacing:-.02em">S</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:.5mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Specific</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">What exactly will you do? Who is involved, where does it happen?</div></div>
+    <textarea value="{{ v.s }}" onChange="{{ set.s }}" placeholder="Exactly what…" style="width:100%;box-sizing:border-box;min-height:16mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="Exactly what…"></textarea>
+  </div>
+<div style="display:grid;grid-template-columns:12mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:12mm;height:12mm;border-radius:3mm;background:#E51B3F;color:#fff;display:grid;place-items:center;font:800 7.4399999999999995pt 'Montserrat',sans-serif;letter-spacing:-.02em">M</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:.5mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Measurable</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">How will you know it is done? What number or evidence counts?</div></div>
+    <textarea value="{{ v.m }}" onChange="{{ set.m }}" placeholder="I will know because…" style="width:100%;box-sizing:border-box;min-height:16mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="I will know because…"></textarea>
+  </div>
+<div style="display:grid;grid-template-columns:12mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:12mm;height:12mm;border-radius:3mm;background:#5BC8E0;color:#1C2B4B;display:grid;place-items:center;font:800 7.4399999999999995pt 'Montserrat',sans-serif;letter-spacing:-.02em">A</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:.5mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Achievable</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">Is this realistic with the time, energy and support you have? What would make it so?</div></div>
+    <textarea value="{{ v.a }}" onChange="{{ set.a }}" placeholder="It is realistic because…" style="width:100%;box-sizing:border-box;min-height:16mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="It is realistic because…"></textarea>
+  </div>
+<div style="display:grid;grid-template-columns:12mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:12mm;height:12mm;border-radius:3mm;background:#6DAF4B;color:#fff;display:grid;place-items:center;font:800 7.4399999999999995pt 'Montserrat',sans-serif;letter-spacing:-.02em">R</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:.5mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Relevant</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">Why does this matter to you now? Which bigger goal does it serve?</div></div>
+    <textarea value="{{ v.r }}" onChange="{{ set.r }}" placeholder="It matters because…" style="width:100%;box-sizing:border-box;min-height:16mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="It matters because…"></textarea>
+  </div>
+<div style="display:grid;grid-template-columns:12mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:12mm;height:12mm;border-radius:3mm;background:#1C2B4B;color:#fff;display:grid;place-items:center;font:800 7.4399999999999995pt 'Montserrat',sans-serif;letter-spacing:-.02em">T</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:.5mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Time-bound</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">By when? What is the first date in your diary?</div></div>
+    <textarea value="{{ v.t }}" onChange="{{ set.t }}" placeholder="By…" style="width:100%;box-sizing:border-box;min-height:16mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="By…"></textarea>
+  </div>
+<div style="display:flex;flex-direction:column;gap:1.5mm;"><label style="font:700 9.5pt 'Montserrat',sans-serif;color:#1C2B4B;">Rewritten SMART action</label><textarea value="{{ v.final }}" onChange="{{ set.final }}" placeholder="I will … by … and I will know it is done when …" style="width:100%;box-sizing:border-box;min-height:18mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none;border:2px solid #1C2B4B;background:#fff;font-weight:600" aria-label="I will … by … and I will know it is done when …"></textarea></div>
+<div style="display:grid;grid-template-columns:1fr 34mm 34mm;gap:4mm;align-items:end">
+  <div style="display:flex;flex-direction:column;gap:1.5mm;"><label style="font:700 9.5pt 'Montserrat',sans-serif;color:#1C2B4B;">First step (this week)</label><textarea value="{{ v.first }}" onChange="{{ set.first }}" placeholder="The very first thing you will do…" style="width:100%;box-sizing:border-box;min-height:12mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none;" aria-label="The very first thing you will do…"></textarea></div>
+  <div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date</label><input type="text" value="{{ v.when }}" onChange="{{ set.when }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="when"></div><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Confidence 1–10</label><input type="text" value="{{ v.conf }}" onChange="{{ set.conf }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="conf"></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:auto">
+    <div style="display:flex;flex-direction:column;gap:1.5mm">
+      <label style="font:700 8pt/1.35 'Montserrat',sans-serif;letter-spacing:.01em;color:#7A8394">Notes you want to share with your coach for the next session</label>
+      <textarea value="{{ v.coach }}" onChange="{{ set.coach }}" placeholder="Add anything you would like your coach to read before your next session." style="width:100%;box-sizing:border-box;min-height:14mm;overflow:hidden;border:1px dashed #B9C2CE;border-radius:2.5mm;padding:2mm 3mm;font:9.5pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#fff;resize:none" aria-label="Notes you want to share with your coach for the next session"></textarea>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;align-content:end">
+      <div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Name</label><input type="text" value="{{ v.name }}" onChange="{{ set.name }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="name"></div><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date</label><input type="text" value="{{ v.date }}" onChange="{{ set.date }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="date"></div>
+      <p style="grid-column:1/-1;margin:1mm 0 0;font-size:8.5pt;color:#4B5566;line-height:1.4;text-wrap:pretty">Confidence below 7? Shrink the action or the deadline until it moves up. Small and certain beats big and hopeful.</p>
+    </div>
+  </div>
+<footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2.5mm;font:600 8pt 'Montserrat',sans-serif;color:#1C2B4B">
+    <span style="display:flex;gap:2mm;align-items:center"><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#1C2B4B;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#E51B3F;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#5BC8E0;display:inline-block"></span><span style="margin-left:2mm">Clarity · Courage · Connection</span></span>
+    <span>www.acsis.co.uk</span>
+  </footer>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.key='acsis-smart';
+    this.defaults={};
+    let s={}; try{ s=JSON.parse(localStorage.getItem(this.key)||'{}') }catch(e){}
+    this.state={v:s};
+    this._h={};
+    this.set=new Proxy({},{get:(_,k)=>this._h[k]||(this._h[k]=(e)=>{const t=e.target;const val=t.type==='checkbox'?t.checked:t.value;this.setState(st=>{const v={...st.v,[k]:val};try{localStorage.setItem(this.key,JSON.stringify(v))}catch(e){}return {v}})})});
+  }
+  val(k){ const x=this.state.v[k]; return x===undefined||x===null ? (this.defaults[k]!==undefined?this.defaults[k]:'') : x; }
+  extra(){ return {}; }
+  renderVals(){
+    const v=new Proxy({},{get:(_,k)=>this.val(k)});
+    return Object.assign({v,set:this.set,print:()=>window.print(),
+      clear:()=>{ if(confirm('Clear all your answers on this sheet?')){ try{localStorage.removeItem(this.key)}catch(e){} this.setState({v:{}}) } }}, this.extra(v));
+  }
+}
+</script>
+</body>
+</html>

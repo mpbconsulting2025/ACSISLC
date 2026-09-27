@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="description" content="ACSIS Coaches Handbook with browser-only private saving and PDF export"/>
+<meta name="referrer" content="no-referrer"/>
+<meta name="acsis-build" content="2026-09-27-v17-browser-only"/>
+<link rel="icon" href="data:,"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"/>
+<title>ACSIS Coaches Handbook</title>
+<link href="../coaching-tools/assets/fonts/fonts.css" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#1F2A4F;--red:#E50941;--blue:#5DCAE2;--green:#6AA84F;
+  --paper:#FAFAFA;--card:#FFFFFF;--ink:#1F2A4F;--muted:#5C6580;
+  --rule:#D5D9E2;--hair:#E7EAF0;--tint:#F3F5F9;
+  --display:"Montserrat",Arial,sans-serif;--body:"Libre Franklin",Arial,sans-serif;--mono:ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:920px;margin:0 auto;padding-left:20px;padding-right:20px}
+.band{background:var(--navy);color:#fff;padding:28px 0 0;overflow:hidden}.band .wrap{padding-bottom:0}
+.band h1{font-family:var(--display);font-weight:600;font-size:clamp(28px,4.4vw,40px);letter-spacing:-.01em;margin:0}
+.band .strap{font-family:var(--mono);font-size:12px;letter-spacing:.11em;color:var(--blue);margin:0 0 8px}
+.band .sub{color:#B5BED6;font-size:15px;max-width:64ch;margin:10px 0 0}.contour{display:block;width:100%;height:52px;margin-top:18px}
+.tabs{background:var(--navy);padding-top:2px}.tabs .wrap{display:grid;grid-template-columns:repeat(5,1fr);padding-bottom:0}
+.tab{background:transparent;border:none;border-bottom:3px solid transparent;color:#8E99B8;font-family:var(--body);font-weight:700;font-size:15px;padding:14px 10px;cursor:pointer;text-align:left;border-radius:0}
+.tab small{display:block;font-family:var(--body);font-size:12px;font-weight:400;margin-top:2px;opacity:.8}.tab:hover{color:#DDE3F0}.tab[aria-selected="true"]{color:#fff;border-bottom-color:var(--red)}
+.toolbar{position:sticky;top:0;z-index:20;background:rgba(250,250,250,.96);backdrop-filter:blur(6px);border-bottom:1px solid var(--rule)}
+.toolbar .wrap{padding-top:11px;padding-bottom:11px;display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+button{font-family:var(--body);font-size:14px;font-weight:700;border-radius:3px;padding:9px 14px;cursor:pointer;border:1px solid var(--navy);transition:transform .08s,background .15s,color .15s}button:active{transform:translateY(1px)}
+.btn-primary{background:var(--navy);color:#fff}.btn-primary:hover{background:var(--red);border-color:var(--red)}.btn-ghost{background:#fff;color:var(--navy);border-color:var(--rule)}.btn-ghost:hover{border-color:var(--navy)}
+.status{font-size:12px;color:var(--muted);margin-left:auto}
+main.wrap{padding-bottom:80px}.panel{display:none}.panel.active{display:block}
+.notice{border-left:3px solid var(--blue);background:#fff;padding:14px 16px;margin:26px 0 0;font-size:14px}.notice strong{display:block;margin-bottom:4px}
+section{margin-top:32px}.sec-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--rule);padding-bottom:8px;margin-bottom:18px}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:22px;margin:0;letter-spacing:-.01em}.sec-head .tag{font-size:12px;color:var(--muted);margin-left:auto;text-align:right}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}.grid.three{grid-template-columns:repeat(3,1fr)}
+.field{margin-top:14px}.field.first{margin-top:0}.field label,.lbl{display:block;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:6px}
+input[type=text],input[type=date],input[type=time],input[type=number],select,textarea{width:100%;font-family:var(--body);font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:3px;padding:10px 11px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}textarea{resize:vertical;min-height:92px;line-height:1.55}.hint{font-size:12px;color:var(--muted);margin-top:5px}
+.checklist{background:var(--card);border:1px solid var(--rule);border-radius:2px}.check{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border-bottom:1px solid var(--hair);cursor:pointer}.check:last-child{border-bottom:none}.check:hover{background:var(--tint)}
+.check input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:19px;height:19px;margin-top:1px;border:1.5px solid var(--green);border-radius:2px;background:#fff;cursor:pointer;position:relative}.check input:checked{background:var(--green);border-color:var(--green)}.check input:checked::after{content:"";position:absolute;left:5.5px;top:2px;width:5px;height:10px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(42deg)}.check span{font-size:15px;line-height:1.45}.check input:checked + span{color:var(--muted)}
+.guide-block{background:#fff;border:1px solid var(--rule);border-radius:3px;margin-bottom:14px;overflow:hidden}.guide-block summary{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--tint);cursor:pointer;list-style:none}.guide-block summary::-webkit-details-marker{display:none}.guide-block summary::after{content:"▾";margin-left:auto;color:var(--muted);transition:transform .15s}.guide-block:not([open]) summary::after{transform:rotate(-90deg)}
+.mins{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--navy);background:var(--blue);padding:3px 7px;border-radius:2px;white-space:nowrap}.guide-block h3{font-family:var(--display);font-weight:600;font-size:17px;margin:0}.guide-body .checklist{border:0;border-radius:0}.say{padding:10px 14px 12px;border-top:1px dashed var(--hair);font-size:14px;color:var(--muted);line-height:1.5}.say b{display:block;font-size:11px;color:var(--red);margin-bottom:5px}.say em{font-style:italic;color:var(--ink)}
+.progress{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:12px;color:var(--muted)}.bar{flex:1;height:3px;background:var(--rule);position:relative}.bar i{position:absolute;inset:0 auto 0 0;background:var(--green);width:0%;transition:width .2s}
+.card{background:#fff;border:1px solid var(--rule);border-radius:3px;margin-bottom:16px;overflow:hidden}.card-head{padding:13px 15px;background:var(--tint);border-bottom:1px solid var(--rule)}.card-head h3{font-family:var(--display);font-size:18px;margin:0}.card-head p{font-size:13px;color:var(--muted);margin:4px 0 0}.card-body{padding:15px}
+.output-section{background:#fff;border:1px solid var(--rule);border-radius:3px;margin-bottom:14px;overflow:hidden}.output-section summary{cursor:pointer;padding:14px 16px;font-family:var(--display);font-size:18px;font-weight:600;background:var(--tint);list-style:none}.output-section summary::-webkit-details-marker{display:none}.output-section summary::after{content:"+";float:right;font-family:var(--body);font-size:20px}.output-section[open] summary::after{content:"−"}.details-body{padding:16px}
+.actions-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule)}.actions-table th{font-size:11px;color:var(--muted);text-align:left;font-weight:700;padding:9px 10px;border-bottom:1px solid var(--rule);background:var(--tint)}.actions-table td{padding:0;border-bottom:1px solid var(--hair)}.actions-table td input,.actions-table td select{border:0;border-radius:0;background:transparent;padding:10px}.actions-table tr:last-child td{border-bottom:0}
+.actions-footer{display:flex;justify-content:flex-end;margin-top:10px}.btn-add{display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--navy);border-color:var(--rule);padding:8px 12px}.btn-add:hover{border-color:var(--navy);background:var(--tint)}.btn-add .plus{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--navy);color:#fff;font-size:17px;line-height:1}.remove-action{border:0;background:transparent;color:var(--muted);padding:8px;font-size:18px}.remove-action:hover{color:var(--red)}
+.tool-shell{border:1px solid var(--rule);background:#fff;border-radius:3px;overflow:hidden}.tool-intro{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;background:linear-gradient(90deg,var(--tint),#fff);border-bottom:1px solid var(--rule)}.tool-badge{flex:0 0 auto;display:grid;place-items:center;width:38px;height:38px;background:var(--navy);color:#fff;font-family:var(--display);font-size:20px;font-weight:600;border-radius:50%}.tool-intro strong{display:block;font-family:var(--display);font-size:17px}.tool-intro p{margin:2px 0 0;color:var(--muted);font-size:13px}.phase-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:14px}.phase-card{border:1px solid var(--hair);border-top:3px solid var(--blue);background:#fff;padding:13px}.phase-card:nth-child(2){border-top-color:var(--green)}.phase-card:nth-child(3){border-top-color:var(--red)}.phase-card:nth-child(4){border-top-color:var(--navy)}.phase-card:nth-child(5){border-top-color:var(--blue)}.phase-card h4{font-family:var(--display);font-size:16px;margin:0 0 3px}.phase-card .prompt{font-size:12px;color:var(--muted);margin:0 0 8px}.phase-card textarea{min-height:100px}.wheelwrap{display:grid;grid-template-columns:340px 1fr;gap:24px;align-items:start;padding:16px}.wheelcard{background:#fff;border:1px solid var(--rule);border-radius:2px;padding:10px}.wheel{display:block;width:100%;height:auto}.areas{background:#fff;border:1px solid var(--rule);border-radius:2px}.area{display:grid;grid-template-columns:1fr 110px 26px 74px;gap:10px;align-items:center;padding:9px 12px;border-bottom:1px solid var(--hair)}.area:last-child{border-bottom:none}.area .nm{font-size:14px;line-height:1.3}.area .val{font-family:var(--mono);font-size:14px;text-align:right}.area input[type=range]{width:100%;accent-color:var(--navy);padding:0;border:none;background:transparent}.focus-btn{font-family:var(--body);font-size:11px;letter-spacing:.03em;font-weight:700;padding:6px;border:1px solid var(--rule);background:#fff;color:var(--muted);border-radius:2px;cursor:pointer}.focus-btn[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}.focus-summary{margin-top:12px;font-size:14px}.focus-summary b{display:block;font-size:12px;color:var(--muted);margin-bottom:3px}.model-notes{padding:0 16px 16px}.matrix-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:14px}.matrix-card{border:1px solid var(--hair);padding:13px;background:#fff}.matrix-card h4{font-family:var(--display);font-size:16px;margin:0 0 8px}.scale-visual{padding:16px}.scale-track{display:grid;grid-template-columns:repeat(11,1fr);gap:4px;margin:12px 0}.scale-step{border:1px solid var(--rule);background:#fff;border-radius:2px;padding:8px 2px;text-align:center;font-family:var(--mono);font-size:12px;cursor:pointer}.scale-step.selected{background:var(--navy);border-color:var(--navy);color:#fff}
+
+.model-bank{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.model-toggle{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--rule);border-radius:3px;padding:12px;cursor:pointer}.model-toggle:hover{border-color:var(--navy)}.model-toggle input{margin-top:3px;accent-color:var(--navy)}.model-toggle strong{display:block}.model-toggle small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.model-module{display:none}.model-module.enabled{display:block}.model-module .output-section{border-left:3px solid var(--blue)}
+.scale-row{display:grid;grid-template-columns:1fr 90px;gap:12px;align-items:center}.score-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.score-line{display:grid;grid-template-columns:1fr 80px;gap:10px;align-items:center}.score-line label{margin:0}
+.alert{border-left:3px solid var(--red);background:#FFF7F9;padding:14px 16px;margin:26px 0 0;font-size:14px}
+footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:720px){.tabs .wrap{grid-template-columns:repeat(2,1fr)}.grid,.grid.three,.model-bank,.score-grid,.phase-grid,.matrix-grid,.wheelwrap{grid-template-columns:1fr}.status{width:100%;margin-left:0}.actions-table{display:block;overflow-x:auto}.sec-head{align-items:flex-start}.sec-head .tag{max-width:45%}}
+@page{size:A4;margin:15mm 13mm}
+@media print{
+  :root{--paper:#fff;--card:#fff;--rule:#AFB6C6;--hair:#DDE1E9;--tint:#F2F4F8}
+  body{background:#fff;font-size:10.5pt;line-height:1.4}.toolbar,.tabs,.notice,.hint,.no-print,.progress,.model-bank-wrap,.practical-bank-wrap{display:none!important}.wrap{max-width:none;padding:0}.band{background:#fff;color:var(--navy);padding:0;border-bottom:2px solid var(--navy)}.band .strap{color:var(--muted)}.band .sub,.contour{display:none}.band h1{font-size:19pt}.panel{display:none!important}.panel.print-me,.panel.print-all{display:block!important}.panel.print-all{page-break-after:always}.panel.print-all:last-child{page-break-after:auto}section{margin-top:14pt}.sec-head{margin-bottom:8pt;padding-bottom:4pt}.sec-head h2{font-size:13pt}.guide-block,.card,.output-section{break-inside:avoid;margin-bottom:8pt}.guide-block summary,.card-head,.output-section summary{padding:6pt 8pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}.guide-block:not([open]) .guide-body,.output-section:not([open]) .details-body{display:block!important}.guide-block summary::after,.output-section summary::after{display:none}.say{display:none}.check{padding:4pt 8pt}.check span{font-size:10pt}.check input{width:12px;height:12px;-webkit-print-color-adjust:exact;print-color-adjust:exact}input[type=text],input[type=date],input[type=time],input[type=number],select,textarea{border:none;border-bottom:1px solid var(--hair);padding:2pt 0;font-size:10pt}textarea{min-height:0;height:auto;overflow:visible}.field{margin-top:7pt}.details-body,.card-body{padding:8pt}.model-module:not(.enabled),.practical-module:not(.enabled){display:none!important}.actions-table th{padding:4pt 6pt}.actions-table td input,.actions-table td select{padding:4pt 6pt}.actions-table th:last-child,.actions-table td:last-child{display:none}.wheelwrap{grid-template-columns:260px 1fr;gap:12pt}.phase-grid,.matrix-grid{gap:7pt;padding:8pt}.tool-intro{padding:7pt 8pt}footer{margin-top:16pt}
+}
+
+.brand-head{display:grid;grid-template-columns:minmax(190px,310px) 1fr auto;gap:24px;align-items:center}.brand-logo{width:100%;max-height:92px;object-fit:contain;object-position:left center}.partner-logos{display:flex;gap:12px;align-items:center;justify-content:flex-end}.partner-logos img{width:70px;height:48px;object-fit:contain;background:#fff;border-radius:3px;padding:4px}.brand-copy{font-size:14px;color:#DDE3F0;max-width:70ch}.brand-copy strong{color:#fff}.brand-pillars{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.brand-pillars span{font-size:12px;border:1px solid rgba(255,255,255,.3);padding:4px 8px;border-radius:20px}.mini-brand{display:flex;align-items:center;gap:10px;margin:14px 0 0;padding:9px 12px;background:#fff;border:1px solid var(--hair)}.mini-brand img{width:34px;height:34px;object-fit:contain}.mini-brand span{font-size:12px;color:var(--muted)}
+.reflection-box{margin-top:20px}.help-toggle{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;border:1px solid var(--blue);color:var(--navy);font-weight:700;font-size:13px;cursor:pointer;background:#fff;margin-left:8px}.model-help{margin:0 14px 14px;border:1px solid var(--hair);background:var(--tint);padding:0}.model-help summary{cursor:pointer;padding:10px 12px;font-weight:700;color:var(--navy)}.model-help .help-body{padding:0 12px 12px;font-size:14px;color:var(--muted)}
+.flow-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.flow-choice{border:1px solid var(--rule);background:#fff;padding:14px;text-align:left;border-radius:3px;cursor:pointer}.flow-choice:hover,.flow-choice.active{border-color:var(--navy);box-shadow:0 0 0 2px rgba(31,42,79,.08)}.flow-choice strong{display:block;font-family:var(--display);font-size:17px}.flow-choice small{display:block;color:var(--muted);margin-top:3px}.journey{display:none;margin-top:14px;border-left:4px solid var(--red);background:#fff;border-top:1px solid var(--rule);border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:16px}.journey.active{display:block}.journey h3{font-family:var(--display);margin:0 0 8px}.journey ol{margin:8px 0 0;padding-left:22px}.journey li{margin:7px 0}.must-notify{background:#FFF1F4;border:1px solid #F5B6C6;padding:10px 12px;margin-top:12px;font-weight:700}
+.session-log-table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule)}.session-log-table th{font-size:11px;color:var(--muted);padding:8px;background:var(--tint);text-align:left}.session-log-table td{border-top:1px solid var(--hair);padding:0}.session-log-table input,.session-log-table select{border:0;border-radius:0;background:transparent}.record-note{font-size:13px;color:var(--muted);border-left:3px solid var(--green);padding:9px 12px;background:#fff;margin-top:12px}.email-box{background:var(--tint);border:1px solid var(--rule);padding:12px;margin-top:12px}.footer-brand{display:flex;align-items:center;gap:10px}.footer-brand img{width:28px;height:28px;object-fit:contain}
+@media(max-width:720px){.brand-head{grid-template-columns:1fr}.partner-logos{justify-content:flex-start}.flow-grid{grid-template-columns:1fr}}
+@media print{.brand-head{grid-template-columns:180px 1fr auto;gap:12pt}.brand-logo{max-height:52pt}.partner-logos img{width:42pt;height:30pt}.brand-copy{color:var(--navy);font-size:8.5pt}.brand-pillars span{border-color:var(--rule);font-size:8pt}.mini-brand{break-inside:avoid}.help-toggle,.model-help summary{display:none!important}.model-help{display:block!important;border:none;background:#fff}.model-help .help-body{display:block!important;padding:0;font-size:9pt}.flow-choice{display:none}.journey{display:block!important;break-inside:avoid}.journey:not(.selected-print){display:none!important}.footer-brand img{width:22pt;height:22pt}.partner-logos{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+
+.practical-bank-wrap{margin-top:30px}
+.practical-bank{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.practical-toggle{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--rule);border-radius:3px;padding:12px;cursor:pointer}
+.practical-toggle:hover{border-color:var(--green)}
+.practical-toggle input{margin-top:3px;accent-color:var(--green)}
+.practical-toggle strong{display:block}
+.practical-toggle small{display:block;color:var(--muted);font-size:12px;margin-top:2px}
+.practical-module{display:none}
+.practical-module.enabled{display:block}
+.practical-module .output-section{border-left:3px solid var(--green)}
+.tool-grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:14px}
+.client-tool-card{border:1px solid var(--hair);background:#fff;padding:13px;position:relative}
+.client-tool-card h4{font-family:var(--display);font-size:16px;margin:0 0 4px}
+.client-tool-card p{font-size:12px;color:var(--muted);margin:0 0 8px}
+.client-tool-card textarea{min-height:105px}
+.client-tool-card.urgent{border-top:4px solid var(--red)}
+.client-tool-card.plan{border-top:4px solid var(--blue)}
+.client-tool-card.delegate{border-top:4px solid var(--green)}
+.client-tool-card.remove{border-top:4px solid var(--navy)}
+.frog-card{margin:14px;border:1px solid var(--rule);background:#fff;padding:16px}
+.frog-card .frog-number{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--mono);font-weight:700;margin-right:8px}
+.timer-plan{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;padding:14px}
+.timer-step{border:1px solid var(--hair);background:#fff;padding:12px;text-align:center}
+.timer-step strong{display:block;font-family:var(--display);font-size:18px}
+.timer-step small{display:block;color:var(--muted);margin-top:3px}
+.priority-bars{padding:14px}
+.priority-row{display:grid;grid-template-columns:100px 1fr;gap:12px;align-items:start;margin-bottom:12px}
+.priority-label{font-family:var(--display);font-weight:600}
+.simple-table{width:100%;border-collapse:collapse;background:#fff}
+.simple-table th,.simple-table td{border:1px solid var(--hair);padding:9px;vertical-align:top}
+.simple-table textarea,.simple-table input{border:none;min-height:70px}
+.three-column-tool{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:14px}
+.energy-row{display:grid;grid-template-columns:1fr 120px 1fr;gap:12px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--hair)}
+.energy-row:last-child{border-bottom:none}
+.energy-row select{width:100%}
+.implementation-line{display:grid;grid-template-columns:auto 1fr auto 1fr;gap:8px;align-items:center;padding:14px}
+.implementation-line span{font-family:var(--display);font-weight:600}
+.tool-note{margin:0 14px 14px;padding:11px 13px;border-left:3px solid var(--blue);background:var(--tint);font-size:13px;color:var(--muted)}
+@media(max-width:720px){
+  .practical-bank,.tool-grid-4,.timer-plan,.three-column-tool{grid-template-columns:1fr}
+  .energy-row{grid-template-columns:1fr}
+  .implementation-line{grid-template-columns:1fr}
+}
+
+
+/* Layout refinements */
+.brand-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center}
+.brand-logos{display:flex;align-items:center;justify-content:flex-end;gap:14px;min-width:390px}
+.main-logo-tile{display:flex;align-items:center;justify-content:center;width:250px;height:104px;background:#fff;border-radius:8px;padding:10px 14px;box-shadow:0 1px 0 rgba(255,255,255,.15),0 5px 18px rgba(0,0,0,.12)}
+.brand-logo{width:100%;height:100%;max-height:none;object-fit:contain;object-position:center}
+.partner-logos{display:flex;gap:10px;align-items:center;justify-content:flex-end}
+.partner-logos img{width:92px;height:70px;object-fit:contain;background:#fff;border-radius:8px;padding:7px;box-shadow:0 1px 0 rgba(255,255,255,.15),0 5px 18px rgba(0,0,0,.12)}
+
+.bank-collapse{margin-top:30px;border:1px solid var(--rule);background:#fff;border-radius:4px;overflow:hidden}
+.bank-collapse>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 18px;background:var(--tint);cursor:pointer;border-left:4px solid var(--blue)}
+.bank-collapse>summary::-webkit-details-marker{display:none}
+.bank-collapse>summary::after{content:'–';font-family:var(--mono);font-size:20px;font-weight:700;color:var(--navy);line-height:1}
+.bank-collapse:not([open])>summary::after{content:'+'}
+.bank-summary-title{display:block}
+.bank-summary-title strong{display:block;font-family:var(--display);font-size:20px;line-height:1.2;color:var(--navy)}
+.bank-summary-title small{display:block;margin-top:4px;font-size:13px;color:var(--muted);font-weight:400}
+.bank-collapse-body{padding:16px}
+.bank-collapse-body>.notice{margin:0 0 16px}
+
+input[type=date],input[type=time],input[type=datetime-local],input[type=month],input[type=week]{
+ width:100%;min-height:42px;font-family:var(--body);font-size:15px;color:var(--ink)!important;
+ background:#fff!important;border:1px solid var(--rule);border-radius:3px;padding:9px 11px;
+ color-scheme:light;-webkit-text-fill-color:var(--ink);appearance:auto;-webkit-appearance:auto;
+}
+input[type=date]:focus,input[type=time]:focus,input[type=datetime-local]:focus,input[type=month]:focus,input[type=week]:focus{
+ outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)
+}
+input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-calendar-picker-indicator,input[type=datetime-local]::-webkit-calendar-picker-indicator{opacity:.72;cursor:pointer}
+
+@media(max-width:900px){
+ .brand-head{grid-template-columns:1fr}.brand-logos{justify-content:flex-start;min-width:0;flex-wrap:wrap}.main-logo-tile{width:min(100%,300px)}
+}
+@media(max-width:560px){.partner-logos img{width:78px;height:60px}.brand-logos{gap:10px}.main-logo-tile{height:92px}}
+@media print{
+ .brand-head{grid-template-columns:1fr auto;gap:12pt;align-items:center}
+ .brand-logos{min-width:0;gap:7pt}
+ .main-logo-tile{width:145pt;height:55pt;padding:4pt 7pt;border:1px solid var(--rule);box-shadow:none}
+ .partner-logos img{width:48pt;height:36pt;padding:3pt;border:1px solid var(--rule);box-shadow:none}
+ input[type=date],input[type=time],input[type=datetime-local],input[type=month],input[type=week]{border:none;border-bottom:1px solid var(--hair);padding:2pt 0;min-height:0;background:#fff!important}
+}
+
+/* Final logo arrangement */
+.brand-head{
+  grid-template-columns:minmax(0,1fr) minmax(270px,340px);
+  align-items:center;
+}
+.brand-logos{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:center;
+  gap:12px;
+  min-width:0;
+  width:100%;
+}
+.main-logo-tile{
+  width:100%;
+  height:104px;
+}
+.partner-logos{
+  display:grid;
+  grid-template-columns:minmax(0,1.45fr) minmax(0,.8fr);
+  gap:12px;
+  align-items:stretch;
+  justify-content:stretch;
+  width:100%;
+}
+.partner-logos img{
+  width:100%;
+  height:104px;
+  object-fit:contain;
+  object-position:center;
+  background:#fff;
+  border-radius:8px;
+  padding:9px;
+}
+.partner-logos img[alt="PIVS"]{
+  padding:12px 10px;
+}
+.partner-logos img[alt="Armed Forces Covenant"]{
+  padding:6px;
+}
+@media(max-width:720px){
+  .brand-head{grid-template-columns:1fr}
+  .brand-logos{max-width:390px}
+}
+@media(max-width:460px){
+  .partner-logos{grid-template-columns:1fr}
+  .partner-logos img{height:120px}
+}
+@media print{
+  .brand-head{
+    grid-template-columns:1fr 165pt;
+    gap:12pt;
+    align-items:center;
+  }
+  .brand-logos{
+    width:165pt;
+    gap:5pt;
+  }
+  .main-logo-tile{
+    width:165pt;
+    height:54pt;
+    padding:4pt 7pt;
+    border:1px solid var(--rule);
+    box-shadow:none;
+  }
+  .partner-logos{
+    grid-template-columns:1.45fr .8fr;
+    gap:5pt;
+    width:165pt;
+  }
+  .partner-logos img{
+    width:100%;
+    height:50pt;
+    padding:3pt;
+    border:1px solid var(--rule);
+    box-shadow:none;
+  }
+}
+
+
+/* Final accreditation logo refinement */
+.brand-head{
+  grid-template-columns:minmax(0,1fr) minmax(360px,440px);
+}
+.brand-logos{
+  gap:8px;
+}
+.main-logo-tile{
+  height:96px;
+  padding:8px 12px;
+}
+.partner-logos{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+}
+.partner-logos img{
+  display:block;
+  width:100%;
+  background:#fff;
+  border-radius:7px;
+  border:1px solid rgba(31,42,79,.14);
+  box-shadow:none;
+}
+.partner-logos img[alt="PIVS"]{
+  height:112px;
+  object-fit:contain;
+  padding:2px 8px;
+}
+.partner-logos img[alt="Armed Forces Covenant"]{
+  height:92px;
+  object-fit:cover;
+  object-position:center;
+  padding:0;
+}
+@media(max-width:720px){
+  .brand-head{grid-template-columns:1fr}
+  .brand-logos{max-width:440px}
+}
+@media print{
+  .brand-head{
+    grid-template-columns:1fr 190pt;
+    gap:10pt;
+  }
+  .brand-logos{
+    width:190pt;
+    gap:4pt;
+  }
+  .main-logo-tile{
+    width:190pt;
+    height:50pt;
+    padding:3pt 6pt;
+  }
+  .partner-logos{
+    width:190pt;
+    grid-template-columns:1fr;
+    gap:4pt;
+  }
+  .partner-logos img[alt="PIVS"]{
+    height:52pt;
+    padding:1pt 4pt;
+    object-fit:contain;
+  }
+  .partner-logos img[alt="Armed Forces Covenant"]{
+    height:42pt;
+    padding:0;
+    object-fit:cover;
+  }
+}
+
+
+/* Correct final logo hierarchy: ACSIS large, accreditation logos alongside it */
+.brand-head{
+  grid-template-columns:minmax(250px,1fr) minmax(500px,560px);
+  gap:24px;
+  align-items:center;
+}
+.brand-logos{
+  width:100%;
+  max-width:560px;
+  min-width:0;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-end;
+  gap:9px;
+}
+.main-logo-tile{
+  flex:0 0 260px;
+  width:260px;
+  height:112px;
+  padding:7px 11px;
+  border-radius:7px;
+}
+.main-logo-tile .brand-logo{
+  width:100%;
+  height:100%;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+}
+.partner-logos{
+  flex:1 1 auto;
+  width:auto;
+  display:grid;
+  grid-template-columns:92px minmax(175px,1fr);
+  gap:9px;
+  align-items:center;
+}
+.partner-logos img{
+  display:block;
+  width:100%;
+  height:82px;
+  padding:0;
+  margin:0;
+  background:#fff;
+  border:1px solid rgba(31,42,79,.14);
+  border-radius:7px;
+  box-shadow:none;
+}
+.partner-logos img[alt="PIVS"]{
+  width:92px;
+  height:82px;
+  padding:3px;
+  object-fit:contain;
+  object-position:center;
+}
+.partner-logos img[alt="Armed Forces Covenant"]{
+  width:100%;
+  min-width:175px;
+  height:82px;
+  padding:0;
+  object-fit:cover;
+  object-position:center;
+}
+@media(max-width:940px){
+  .brand-head{
+    grid-template-columns:1fr;
+  }
+  .brand-logos{
+    justify-content:flex-start;
+    max-width:560px;
+  }
+}
+@media(max-width:610px){
+  .brand-logos{
+    display:grid;
+    grid-template-columns:1fr;
+    max-width:390px;
+  }
+  .main-logo-tile{
+    width:100%;
+    height:108px;
+  }
+  .partner-logos{
+    width:100%;
+    grid-template-columns:100px minmax(0,1fr);
+  }
+}
+@media print{
+  .brand-head{
+    grid-template-columns:1fr 300pt;
+    gap:10pt;
+  }
+  .brand-logos{
+    width:300pt;
+    max-width:300pt;
+    display:flex;
+    flex-direction:row;
+    gap:4pt;
+  }
+  .main-logo-tile{
+    flex:0 0 132pt;
+    width:132pt;
+    height:55pt;
+    padding:3pt 5pt;
+  }
+  .partner-logos{
+    display:grid;
+    grid-template-columns:48pt 112pt;
+    gap:4pt;
+  }
+  .partner-logos img[alt="PIVS"]{
+    width:48pt;
+    height:42pt;
+    padding:1pt;
+  }
+  .partner-logos img[alt="Armed Forces Covenant"]{
+    width:112pt;
+    min-width:112pt;
+    height:42pt;
+    padding:0;
+    object-fit:cover;
+  }
+}
+
+
+/* Final requested logo layout:
+   ACSIS large on top, PIVS and AFC beneath it */
+.brand-head{
+  grid-template-columns:minmax(0,1fr) minmax(330px,390px);
+  gap:24px;
+  align-items:center;
+}
+.brand-logos{
+  width:100%;
+  max-width:390px;
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:center;
+  gap:9px;
+}
+.main-logo-tile{
+  width:100%;
+  height:112px;
+  padding:7px 11px;
+  border-radius:7px;
+}
+.main-logo-tile .brand-logo{
+  width:100%;
+  height:100%;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+}
+.partner-logos{
+  width:100%;
+  display:grid;
+  grid-template-columns:92px minmax(0,1fr);
+  gap:9px;
+  align-items:stretch;
+}
+.partner-logos img{
+  display:block;
+  width:100%;
+  height:82px;
+  margin:0;
+  background:#fff;
+  border:1px solid rgba(31,42,79,.14);
+  border-radius:7px;
+  box-shadow:none;
+}
+.partner-logos img[alt="PIVS"]{
+  width:92px;
+  height:82px;
+  padding:3px;
+  object-fit:contain;
+  object-position:center;
+}
+.partner-logos img[alt="Armed Forces Covenant"]{
+  width:100%;
+  min-width:0;
+  height:82px;
+  padding:4px;
+  object-fit:contain;
+  object-position:center;
+}
+@media(max-width:760px){
+  .brand-head{grid-template-columns:1fr}
+  .brand-logos{max-width:390px}
+}
+@media(max-width:430px){
+  .partner-logos{grid-template-columns:82px minmax(0,1fr)}
+  .partner-logos img,
+  .partner-logos img[alt="PIVS"],
+  .partner-logos img[alt="Armed Forces Covenant"]{height:76px}
+  .partner-logos img[alt="PIVS"]{width:82px}
+}
+@media print{
+  .brand-head{
+    grid-template-columns:1fr 188pt;
+    gap:10pt;
+  }
+  .brand-logos{
+    width:188pt;
+    max-width:188pt;
+    display:flex;
+    flex-direction:column;
+    gap:4pt;
+  }
+  .main-logo-tile{
+    width:188pt;
+    height:55pt;
+    padding:3pt 5pt;
+  }
+  .partner-logos{
+    width:188pt;
+    display:grid;
+    grid-template-columns:44pt minmax(0,1fr);
+    gap:4pt;
+  }
+  .partner-logos img[alt="PIVS"]{
+    width:44pt;
+    height:40pt;
+    padding:1pt;
+    object-fit:contain;
+  }
+  .partner-logos img[alt="Armed Forces Covenant"]{
+    width:100%;
+    min-width:0;
+    height:40pt;
+    padding:2pt;
+    object-fit:contain;
+    object-position:center;
+  }
+}
+
+
+/* Tighten the ACSIS logo panel */
+.main-logo-tile{
+  height:96px;
+  padding:0;
+  overflow:hidden;
+}
+.main-logo-tile .brand-logo{
+  width:108%;
+  height:108%;
+  max-width:none;
+  max-height:none;
+  object-fit:cover;
+  object-position:center;
+}
+@media print{
+  .main-logo-tile{
+    height:48pt;
+    padding:0;
+    overflow:hidden;
+  }
+  .main-logo-tile .brand-logo{
+    width:108%;
+    height:108%;
+    max-width:none;
+    max-height:none;
+    object-fit:cover;
+    object-position:center;
+  }
+}
+
+
+/* Correct ACSIS logo treatment */
+.main-logo-tile{
+  height:104px;
+  padding:4px 6px;
+  overflow:hidden;
+}
+.main-logo-tile .brand-logo{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+@media print{
+  .main-logo-tile{
+    height:52pt;
+    padding:2pt 3pt;
+    overflow:hidden;
+  }
+  .main-logo-tile .brand-logo{
+    width:100%;
+    height:100%;
+    max-width:100%;
+    max-height:100%;
+    object-fit:contain;
+    object-position:center;
+  }
+}
+
+
+/* Use the supplied ACSIS JPEG exactly as provided */
+.main-logo-tile{
+  height:auto;
+  padding:0;
+  overflow:hidden;
+  background:transparent;
+  border:none;
+  box-shadow:none;
+}
+.main-logo-tile .brand-logo{
+  display:block;
+  width:100%;
+  height:auto;
+  max-width:100%;
+  max-height:none;
+  object-fit:contain;
+  object-position:center;
+  border-radius:7px;
+}
+@media print{
+  .main-logo-tile{
+    height:auto;
+    padding:0;
+    overflow:hidden;
+    background:transparent;
+    border:none;
+    box-shadow:none;
+  }
+  .main-logo-tile .brand-logo{
+    width:100%;
+    height:auto;
+    max-width:100%;
+    max-height:none;
+    object-fit:contain;
+    object-position:center;
+    border-radius:4pt;
+  }
+}
+
+
+/* Refine logo spacing and ACSIS border */
+.brand-logos{
+  gap:5px;
+}
+.main-logo-tile{
+  border:2px solid var(--navy);
+  border-radius:9px;
+  overflow:hidden;
+}
+.main-logo-tile .brand-logo{
+  border-radius:7px;
+}
+.partner-logos{
+  gap:5px;
+}
+@media print{
+  .brand-logos{
+    gap:2pt;
+  }
+  .main-logo-tile{
+    border:1pt solid var(--navy);
+    border-radius:5pt;
+  }
+  .main-logo-tile .brand-logo{
+    border-radius:4pt;
+  }
+  .partner-logos{
+    gap:2pt;
+  }
+}
+
+
+/* Remove the unwanted vertical gap between the ACSIS and partner logos */
+.brand-logos{
+  gap:0 !important;
+  justify-content:flex-start !important;
+}
+.partner-logos{
+  margin-top:-68px !important;
+}
+@media(max-width:760px){
+  .partner-logos{
+    margin-top:-54px !important;
+  }
+}
+@media(max-width:430px){
+  .partner-logos{
+    margin-top:-42px !important;
+  }
+}
+@media print{
+  .brand-logos{
+    gap:0 !important;
+    justify-content:flex-start !important;
+  }
+  .partner-logos{
+    margin-top:-30pt !important;
+  }
+}
+
+
+/* Correct logo behaviour in printed and PDF output */
+@media print{
+  .brand-head{
+    display:grid !important;
+    grid-template-columns:1fr 188pt !important;
+    gap:10pt !important;
+    align-items:start !important;
+    overflow:visible !important;
+    padding-bottom:8pt !important;
+  }
+
+  .brand-logos{
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:flex-start !important;
+    align-items:stretch !important;
+    width:188pt !important;
+    max-width:188pt !important;
+    gap:3pt !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:none !important;
+    outline:none !important;
+    box-shadow:none !important;
+    position:static !important;
+    transform:none !important;
+  }
+
+  .main-logo-tile{
+    width:188pt !important;
+    height:auto !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:none !important;
+    outline:none !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    overflow:visible !important;
+    background:transparent !important;
+    position:static !important;
+    transform:none !important;
+  }
+
+  .main-logo-tile .brand-logo{
+    display:block !important;
+    width:188pt !important;
+    height:auto !important;
+    max-width:188pt !important;
+    max-height:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:none !important;
+    border-radius:0 !important;
+    object-fit:contain !important;
+    object-position:center !important;
+  }
+
+  .partner-logos{
+    display:grid !important;
+    grid-template-columns:44pt minmax(0,1fr) !important;
+    gap:3pt !important;
+    width:188pt !important;
+    margin:0 !important;
+    padding:0 !important;
+    border:none !important;
+    outline:none !important;
+    box-shadow:none !important;
+    position:static !important;
+    transform:none !important;
+  }
+
+  .partner-logos img{
+    display:block !important;
+    margin:0 !important;
+    border:none !important;
+    outline:none !important;
+    border-radius:0 !important;
+    box-shadow:none !important;
+    background:transparent !important;
+  }
+
+  .partner-logos img[alt="PIVS"]{
+    width:44pt !important;
+    height:40pt !important;
+    padding:0 !important;
+    object-fit:contain !important;
+  }
+
+  .partner-logos img[alt="Armed Forces Covenant"]{
+    width:100% !important;
+    height:40pt !important;
+    padding:0 !important;
+    object-fit:contain !important;
+    object-position:center !important;
+  }
+
+  .band{
+    overflow:visible !important;
+  }
+
+  .contour{
+    margin-top:6pt !important;
+    clear:both !important;
+    position:static !important;
+  }
+}
+
+
+/* Definitive compact PDF logo header. Overrides all earlier logo experiments. */
+@media print{
+  .band{overflow:visible!important;padding-bottom:0!important}
+  .band .wrap{padding-bottom:0!important}
+  .brand-head{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) 188pt!important;
+    gap:10pt!important;
+    align-items:start!important;
+    min-height:0!important;
+    height:auto!important;
+    padding:0 0 5pt!important;
+    margin:0!important;
+    overflow:visible!important;
+  }
+  .brand-logos{
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:stretch!important;
+    justify-content:flex-start!important;
+    flex:0 0 auto!important;
+    width:188pt!important;
+    max-width:188pt!important;
+    min-height:0!important;
+    height:auto!important;
+    gap:2pt!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    outline:0!important;
+    box-shadow:none!important;
+    position:static!important;
+    transform:none!important;
+  }
+  .main-logo-tile{
+    display:block!important;
+    flex:0 0 auto!important;
+    flex-basis:auto!important;
+    width:188pt!important;
+    height:54pt!important;
+    min-height:0!important;
+    max-height:54pt!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    outline:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    background:transparent!important;
+    overflow:hidden!important;
+    position:static!important;
+    transform:none!important;
+  }
+  .main-logo-tile .brand-logo{
+    display:block!important;
+    width:188pt!important;
+    height:54pt!important;
+    max-width:188pt!important;
+    max-height:54pt!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-radius:0!important;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+  .partner-logos{
+    display:grid!important;
+    grid-template-columns:43pt minmax(0,1fr)!important;
+    align-items:center!important;
+    flex:0 0 auto!important;
+    width:188pt!important;
+    height:36pt!important;
+    min-height:0!important;
+    gap:2pt!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    outline:0!important;
+    box-shadow:none!important;
+    position:static!important;
+    transform:none!important;
+  }
+  .partner-logos img{
+    display:block!important;
+    height:36pt!important;
+    max-height:36pt!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    outline:0!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    background:transparent!important;
+    object-fit:contain!important;
+    object-position:center!important;
+  }
+  .partner-logos img[alt="PIVS"]{
+    width:43pt!important;
+    min-width:43pt!important;
+  }
+  .partner-logos img[alt="Armed Forces Covenant"]{
+    width:100%!important;
+    min-width:0!important;
+  }
+  .contour{display:none!important}
+}
+
+
+
+/* V15: print-safe form values. Long single-line inputs are mirrored as wrapping text in PDF output. */
+.print-field-value{display:none}
+@media print{
+  .print-control-source{display:none!important}
+  .print-field-value{
+    display:block!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:16pt;
+    margin:0!important;
+    padding:2pt 0!important;
+    color:var(--ink)!important;
+    font-family:var(--body)!important;
+    font-size:10pt!important;
+    font-weight:400!important;
+    line-height:1.35!important;
+    white-space:pre-wrap!important;
+    overflow:visible!important;
+    overflow-wrap:anywhere!important;
+    word-break:break-word!important;
+    hyphens:auto;
+  }
+  .actions-table{
+    width:100%!important;
+    table-layout:fixed!important;
+  }
+  .actions-table th:nth-child(1){width:55%!important}
+  .actions-table th:nth-child(2){width:18%!important}
+  .actions-table th:nth-child(3){width:27%!important}
+  .actions-table td{
+    vertical-align:top!important;
+    overflow:visible!important;
+    height:auto!important;
+  }
+  .actions-table td .print-field-value{
+    padding:4pt 6pt!important;
+    min-height:24pt!important;
+  }
+  .actions-table tr{
+    height:auto!important;
+    break-inside:avoid!important;
+    page-break-inside:avoid!important;
+  }
+}
+
+
+
+/* V16: keep wide interactive tools inside the printable A4 content area. */
+.wheel-tool,.wheelwrap,.wheelcard,#toolWheel{min-width:0;max-width:100%}
+.wheelcard,#toolWheel{overflow:visible}
+@media print{
+  .tool-shell,.wheel-tool,.wheelwrap,.wheelcard,.areas{
+    box-sizing:border-box!important;
+    max-width:100%!important;
+  }
+  .wheel-tool{
+    width:100%!important;
+    overflow:visible!important;
+    break-inside:avoid!important;
+    page-break-inside:avoid!important;
+  }
+  .wheelwrap{
+    display:grid!important;
+    grid-template-columns:minmax(0,224pt) minmax(0,1fr)!important;
+    gap:10pt!important;
+    align-items:start!important;
+    width:100%!important;
+    padding:8pt!important;
+    overflow:visible!important;
+  }
+  .wheelcard{
+    width:224pt!important;
+    max-width:224pt!important;
+    padding:4pt!important;
+    margin:0 auto!important;
+    overflow:visible!important;
+  }
+  #toolWheel{
+    display:block!important;
+    width:214pt!important;
+    max-width:100%!important;
+    height:auto!important;
+    margin:0 auto!important;
+    overflow:visible!important;
+  }
+  #toolWheel text{font-size:8.5px!important}
+  .areas{width:100%!important;overflow:hidden!important}
+  .area{
+    grid-template-columns:minmax(72pt,1fr) minmax(64pt,88pt) 22pt 48pt!important;
+    gap:5pt!important;
+    padding:5pt 6pt!important;
+  }
+  .area input[type=range]{min-width:0!important;width:100%!important}
+  .area .nm{overflow-wrap:anywhere!important}
+  .phase-grid,.matrix-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .phase-card,.matrix-card{min-width:0!important;overflow-wrap:anywhere!important}
+}
+
+
+/* Browser-only privacy and shared toolbox */
+.privacy-banner{background:#EAF8FB;border-bottom:1px solid #B8E4EC;color:var(--navy)}
+.privacy-banner .wrap{padding-top:11px;padding-bottom:11px;font-size:13px;line-height:1.45}
+.privacy-banner strong{font-weight:700}
+.privacy-chip{display:inline-flex;align-items:center;gap:6px;background:#EAF8FB;color:var(--navy);border:1px solid #B8E4EC;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:700;white-space:nowrap}
+.privacy-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+.legacy-tool-banks[hidden]{display:none!important}
+.toolbox-panel{margin-top:30px}
+.toolbox-intro{border-left:3px solid var(--green);background:#fff;padding:14px 16px;margin:0 0 14px;font-size:14px}
+.toolbox-intro strong{display:block;margin-bottom:4px}
+.shared-tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.shared-tool-card{display:flex;flex-direction:column;gap:5px;min-width:0;padding:13px 14px;border:1px solid var(--rule);border-radius:4px;background:#fff;color:var(--ink);text-decoration:none}
+.shared-tool-card:hover,.shared-tool-card:focus-visible{border-color:var(--navy);box-shadow:0 4px 12px rgba(31,42,79,.1);outline:none}
+.shared-tool-card strong{font-family:var(--display);font-size:15px}
+.shared-tool-card small{color:var(--muted);font-size:12px;line-height:1.4}
+.shared-tool-card span{margin-top:auto;color:var(--red);font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}
+.toolbox-open-all{display:inline-flex;margin-top:14px;color:var(--navy);font-weight:700}
+.is-embedded .band{padding-top:18px}
+@media(max-width:720px){.shared-tool-grid{grid-template-columns:1fr}.privacy-chip{order:-1}.toolbar .wrap{align-items:flex-start}}
+@media print{
+  .privacy-banner,.toolbox-panel,.legacy-tool-banks{display:none!important}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .grid.three{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .print-empty-row{display:none!important}
+  section{margin-top:9pt!important}
+  .sec-head{margin-bottom:5pt!important}
+  .output-section{margin-bottom:5pt!important}
+  .output-section summary{padding:4pt 7pt!important}
+  .details-body{padding:6pt!important}
+  .field{margin-top:4pt!important}
+  footer{margin-top:7pt!important;padding-top:7pt!important}
+}
+</style>
+</head>
+<body>
+<header class="band"><div class="wrap"><div class="brand-head"><div><p class="strap">ACSIS · Coach handrail</p><h1 id="docTitle">Clarity Call</h1><p class="brand-copy">ACSIS Life Coaching offers agile coaching that is sustainable and innovative, giving clients space for self-discovery. Our 3C coaching model centres on <strong>Clarity, Courage and Connection</strong>. Sustainability is at the heart of everything we do.</p><div class="brand-pillars"><span>Clarity</span><span>Courage</span><span>Connection</span><span>Sustainable coaching</span></div></div><div class="brand-logos"><div class="main-logo-tile"><img alt="ACSIS Life Coaching" class="brand-logo" src="../coaching-tools/assets/acsis-logo.png"/></div><div class="partner-logos"><img alt="PIVS" src="assets/pivs.png"/><img alt="Armed Forces Covenant" src="assets/armed-forces-covenant.jpg"/></div></div></div></div><svg aria-hidden="true" class="contour" preserveaspectratio="none" viewbox="0 0 1200 52"><path d="M0 44 C 150 44, 200 22, 340 24 S 560 44, 700 36 S 940 10, 1200 20" fill="none" stroke="#5DCAE2" stroke-width="1.3"></path><path d="M0 52 C 170 50, 230 32, 380 34 S 590 52, 730 45 S 960 22, 1200 30" fill="none" opacity=".75" stroke="#6AA84F" stroke-width="1"></path><path d="M0 36 C 130 36, 180 14, 300 15 S 520 34, 660 27 S 920 2, 1200 11" fill="none" opacity=".55" stroke="#E50941" stroke-width=".9"></path></svg></header>
+<nav class="tabs no-print"><div class="wrap"><button aria-selected="true" class="tab" data-tab="clarity">Clarity Call<small>Introduction and fit check</small></button><button aria-selected="false" class="tab" data-tab="coaching">Coaching Call<small>Flexible session handrail</small></button><button aria-selected="false" class="tab" data-tab="output">Session Output<small>Notes, actions and tools</small></button><button aria-selected="false" class="tab" data-tab="safeguarding">Safeguarding<small>Decision flow and report</small></button><button aria-selected="false" class="tab" data-tab="offboarding">Offboarding<small>Auditable client summary</small></button></div></nav>
+<div class="toolbar no-print"><div class="wrap"><button class="btn-primary" id="printPage">Export this tab as PDF</button><button class="btn-ghost" id="printAll">Export whole handbook as PDF</button><button class="btn-ghost" id="save">Save now</button><button class="btn-ghost" id="restore">Restore saved</button><button class="btn-ghost" id="clear">Clear</button><span class="privacy-chip">Browser only</span><span class="status" id="status" aria-live="polite"></span></div></div><div class="privacy-banner no-print"><div class="wrap"><strong>Private by design.</strong> Entries stay in this browser and are not sent to ACSIS, GitHub, Wix or another device. Download a PDF only when you are ready to save or email it.</div></div>
+<main class="wrap">
+<section class="panel active" id="clarity">
+<div class="notice no-print"><strong>Clarity Call.</strong>This is a taster and a fit check, not a full coaching session. The sections below contain the same prompts as the original run sheet. Open only the reminders you need.</div>
+<section><div class="sec-head"><h2>Clarity Call run sheet</h2><span class="tag">30 minutes · tick as you go</span></div><div id="clarityRunsheet"></div><div class="progress no-print"><span id="ccCount">0 of 0</span><span class="bar"><i id="ccBar"></i></span></div><details class="output-section reflection-box"><summary>Coach reflection · Optional</summary><div class="details-body"><div class="field first"><label>What worked well?</label><textarea name="clarityReflectWorked"></textarea></div><div class="field"><label>What would I do differently?</label><textarea name="clarityReflectDifferent"></textarea></div><div class="field"><label>Anything to take to supervision?</label><textarea name="clarityReflectSupervision"></textarea></div></div></details></section>
+</section>
+<section class="panel" id="coaching">
+<div class="notice no-print"><strong>Coaching Call.</strong>Choose the session type. The core handrail stays available, while the shorter checklist changes to match the type of conversation.</div>
+<section><div class="sec-head"><h2>Session setup</h2><span class="tag">Choose what best fits today</span></div><div class="grid"><div class="field first"><label for="sessionType">Session type</label><select id="sessionType" name="sessionType"></select></div><div class="field first"><label for="sessionLengthGuide">Usual length</label><select id="sessionLengthGuide" name="sessionLengthGuide"><option>60 minutes</option><option>45 minutes</option><option>90 minutes</option></select></div></div></section>
+<section><div class="sec-head"><h2>Core coaching handrail</h2><span class="tag">Use flexibly, not as a script</span></div><details class="guide-block" open=""><summary><span class="mins">Any session</span><h3>Open, explore and close</h3></summary><div class="guide-body"><div class="checklist" id="coreChecklist"></div><div class="say"><b>Keep in mind</b><em>Support, do not solve. The client should do most of the thinking. Silence is allowed. A useful session does not need to cover everything.</em></div></div></details></section>
+<section><div class="sec-head"><h2 id="typeTitle">Goal setting</h2><span class="tag" id="typeCount"></span></div><details class="guide-block" open=""><summary><span class="mins">Selected type</span><h3 id="typeSummary">Goal setting prompts</h3></summary><div class="guide-body"><div class="checklist" id="typeChecklist"></div></div></details><div class="progress no-print"><span id="coachCount">0 of 0</span><span class="bar"><i id="coachBar"></i></span></div><details class="output-section reflection-box"><summary>Coach reflection · Optional</summary><div class="details-body"><div class="field first"><label>What worked well?</label><textarea name="coachingReflectWorked"></textarea></div><div class="field"><label>What would I do differently?</label><textarea name="coachingReflectDifferent"></textarea></div><div class="field"><label>Anything to take to supervision?</label><textarea name="coachingReflectSupervision"></textarea></div></div></details></section>
+</section>
+<section class="panel" id="output">
+<div class="notice no-print"><strong>One record for either call.</strong>Keep notes factual and proportionate. The coaching tools below open as separate worksheets and save independently in this browser.</div>
+<section><div class="sec-head"><h2>Session record</h2><span class="tag">Expand only what you need</span></div>
+<details class="output-section" open=""><summary>Session details</summary><div class="details-body"><div class="grid three"><div class="field first"><label>Client</label><input name="client" type="text"/></div><div class="field first"><label>Coach</label><input name="coach" type="text"/></div><div class="field first"><label>Date</label><input name="date" type="date"/></div></div><div class="grid three"><div class="field"><label>Call type</label><select name="callType"><option></option><option>Clarity Call</option><option>Coaching Call</option></select></div><div class="field"><label>Session number</label><select id="sessionNumber" name="sessionNumber"><option></option><option>Clarity Call</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option><option>20</option><option>Other</option></select></div><div class="field"><label>Format</label><select name="format"><option></option><option>Video call</option><option>Phone</option><option>Face to face</option><option>Walk and talk</option></select></div></div><div class="grid"><div class="field"><label>Start time</label><input name="startTime" type="time"/></div><div class="field"><label>Length</label><select name="length"><option></option><option>30 minutes</option><option>45 minutes</option><option>60 minutes</option><option>90 minutes</option></select></div></div></div></details>
+<details class="output-section" open=""><summary>Session notes · What came up</summary><div class="details-body"><div class="field first"><label>Main focus or reason for the call</label><textarea name="focus"></textarea></div><div class="field"><label>What came up</label><textarea name="cameUp" style="min-height:160px"></textarea><div class="hint">Capture key themes, relevant facts, the client’s own words and any important shift. Avoid diagnosis, speculation and unnecessary detail.</div></div><div class="field"><label>Outcome of the call</label><select name="outcome"><option></option><option>Session completed</option><option>Session completed and next session booked</option><option>Client to book next session</option><option>Coach to book next session</option><option>Ongoing coaching agreed</option><option>Client will consider next steps</option><option>Client paused coaching</option><option>Client completed coaching package</option><option>Coaching ended</option><option>Client referred to additional support</option><option>Not suitable for coaching</option><option>Follow-up required</option><option>Other</option></select></div><div class="field"><label>Outcome notes or other</label><input type="text" name="outcomeNotes" placeholder="Add a short note only if useful"></div></div></details>
+<details class="output-section" open=""><summary>Actions from the call</summary><div class="details-body"><table class="actions-table"><thead><tr><th style="width:49%">Action</th><th style="width:20%">Owner</th><th style="width:25%">By when</th><th class="no-print" style="width:6%"></th></tr></thead><tbody id="actions"></tbody></table><div class="actions-footer no-print"><button class="btn-add" id="addAction" type="button"><span class="plus">+</span>Add another action</button></div></div></details>
+</section>
+<div class="legacy-tool-banks" hidden aria-hidden="true"><div class="mini-brand"><img alt="ACSIS" src="../coaching-tools/assets/acsis-mark.png"/><span>Optional coaching models and practical tools appear in the PDF only when switched on.</span></div><details class="bank-collapse no-print" open=""><summary><span class="bank-summary-title"><strong>Coaching model bank</strong><small>Choose a model to structure the coaching conversation</small></span></summary><div class="bank-collapse-body"><div class="model-bank" id="modelBank"></div></div></details>
+<section id="modelModules"></section>
+<details class="bank-collapse no-print" open=""><summary><span class="bank-summary-title"><strong>Practical tools bank</strong><small>Choose a practical tool to support action between sessions</small></span></summary><div class="bank-collapse-body">
+
+<div class="notice">
+<strong>Choose only what supports the client.</strong>
+    These tools are separate from the coaching models. Switch on a tool when you have introduced it, worked through it with the client, or agreed that they will use it after the session.
+  </div>
+<div class="practical-bank" id="practicalBank"></div>
+</div></details>
+<section id="practicalModules"></section></div><section class="toolbox-panel no-print" aria-labelledby="sharedToolboxTitle">
+<div class="sec-head"><h2 id="sharedToolboxTitle">ACSIS Coaching Toolbox</h2><span class="tag">31 matching worksheets</span></div>
+<div class="toolbox-intro"><strong>Choose the worksheet that best supports the client.</strong>Each tool opens separately, saves only in this browser and has its own PDF export. The handbook and worksheets do not share client answers.</div>
+<div class="shared-tool-grid" id="sharedToolCatalogue"></div>
+<a class="toolbox-open-all" href="../coaching-tools/Toolbox.dc.html" target="_blank" rel="noopener noreferrer">Open the full coaching toolbox</a>
+</section>
+</section>
+<section class="panel" id="safeguarding">
+<div class="alert"><strong>Safeguarding comes before coaching.</strong> Stay calm, listen, do not investigate and do not promise secrecy. Where there is immediate danger call 999. In every scenario, notify ACSIS Safeguarding Lead Sam Kinsey-Briggs and complete the report below.</div>
+<section><div class="sec-head"><h2>Safeguarding question flow</h2><span class="tag">Choose the concern to see the next steps</span></div><details class="output-section" open=""><summary>What type of concern do you suspect?</summary><div class="details-body"><div class="flow-grid" id="flowChoices">
+<button class="flow-choice" data-flow="immediate" type="button"><strong>Immediate danger</strong><small>Life is at risk, serious injury, active violence, overdose or immediate threat</small></button>
+<button class="flow-choice" data-flow="suicide" type="button"><strong>Suicide or self-harm</strong><small>Suicidal thoughts, plans, intent, attempt, self-harm or inability to stay safe</small></button>
+<button class="flow-choice" data-flow="child" type="button"><strong>Child safeguarding</strong><small>Abuse, neglect, exploitation, grooming or risk involving anyone under 18</small></button>
+<button class="flow-choice" data-flow="adult" type="button"><strong>Adult at risk</strong><small>Abuse, neglect, domestic abuse, coercion, exploitation or inability to protect themselves</small></button>
+<button class="flow-choice" data-flow="others" type="button"><strong>Risk to another person</strong><small>Threats, violence, stalking, domestic abuse or credible intent to harm</small></button>
+<button class="flow-choice" data-flow="terror" type="button"><strong>Terrorism or radicalisation</strong><small>Vulnerability to radicalisation, extremist influence or terrorist-related risk</small></button>
+<button class="flow-choice" data-flow="historic" type="button"><strong>Historic or non-immediate disclosure</strong><small>Past abuse or concern without an identified immediate threat</small></button>
+<button class="flow-choice" data-flow="unsure" type="button"><strong>Unsure or outside coaching scope</strong><small>A serious welfare concern, unclear risk or a need for specialist support</small></button></div>
+<div class="journey" id="journey-immediate"><h3>Immediate danger</h3><ol><li>Stop the coaching process and establish the person’s location and immediate safety.</li><li>Call 999, or support the client to call. Stay connected where safe and practical.</li><li>Share only the information needed for emergency action.</li><li>Record the words used, observations, decisions, times and people contacted.</li></ol><div class="must-notify">Notify Sam Kinsey-Briggs immediately, then complete and email the safeguarding report to sam@acsis.co.uk.</div></div>
+<div class="journey" id="journey-suicide"><h3>Suicide or self-harm</h3><ol><li>Ask directly and calmly: Are you thinking about suicide? Have you made a plan? Do you have the means? When might you act? Can you keep yourself safe right now?</li><li>If life is at risk, there is a plan with intent or means, an attempt or overdose, or they cannot stay safe, call 999 or go to A&amp;E.</li><li>If urgent but not an emergency, call NHS 111 and select the mental health option, or support them to contact their GP or crisis team.</li><li>Do not leave an immediately unsafe person alone. In remote coaching, confirm their location and identify someone nearby who can help.</li><li>Record facts and actions, not a clinical judgement.</li></ol><div class="must-notify">Notify Sam Kinsey-Briggs in all cases and complete the safeguarding report.</div></div>
+<div class="journey" id="journey-child"><h3>Concern about a child</h3><ol><li>Listen and reassure. Do not ask leading questions, investigate or confront the alleged person responsible.</li><li>Clarify only what is necessary to understand immediate safety: who, what, where and when.</li><li>If immediate danger, call 999. Otherwise contact the relevant local authority children’s safeguarding service or police as directed by the Safeguarding Lead.</li><li>Do not delay sharing because proof is unavailable. Record the child’s words as accurately as possible.</li></ol><div class="must-notify">Notify Sam Kinsey-Briggs promptly, even when the concern seems uncertain or historic.</div></div>
+<div class="journey" id="journey-adult"><h3>Concern about an adult at risk</h3><ol><li>Consider immediate danger, capacity, coercion and whether other people may also be at risk.</li><li>Seek the adult’s views and consent where safe and appropriate. A serious risk may justify sharing without consent.</li><li>If immediate danger, call 999. Otherwise consult the Safeguarding Lead and the relevant local authority adult safeguarding service.</li><li>Record the concern, wishes, consent decision, actions and reasons.</li></ol><div class="must-notify">Notify Sam Kinsey-Briggs in every scenario.</div></div>
+<div class="journey" id="journey-others"><h3>Risk to another person</h3><ol><li>Clarify who may be at risk, the nature and immediacy of the threat, access to weapons or means, and the person’s location.</li><li>For a credible immediate threat call 999. Do not warn or confront a potential victim yourself where this could increase risk.</li><li>Share relevant information with emergency services and the Safeguarding Lead.</li><li>Record exact words, context, times and actions.</li></ol><div class="must-notify">Notify Sam Kinsey-Briggs immediately.</div></div>
+<div class="journey" id="journey-terror"><h3>Terrorism or radicalisation concern</h3><ol><li>Do not investigate, challenge ideology or alert anyone who may increase the risk.</li><li>If there is immediate danger or an active terrorist-related threat, call 999.</li><li>For a non-immediate concern, notify the Safeguarding Lead for consideration of a Prevent referral. The national police Prevent advice line is 0800 011 3764.</li><li>Record the specific behaviour or words that caused concern, without labels or assumptions.</li></ol><div class="must-notify">Notify Sam Kinsey-Briggs in all terrorism or radicalisation scenarios.</div></div>
+<div class="journey" id="journey-historic"><h3>Historic or non-immediate disclosure</h3><ol><li>Listen without investigating and check whether anyone is currently at risk.</li><li>Explain that ACSIS may need to share information to protect the client or another person.</li><li>Consult the Safeguarding Lead before deciding no further action is needed.</li><li>Record what was disclosed, current risk considerations and the decision made.</li></ol><div class="must-notify">Notify Sam Kinsey-Briggs and complete the report.</div></div>
+<div class="journey" id="journey-unsure"><h3>Unsure, serious welfare concern or outside coaching scope</h3><ol><li>Pause coaching and clarify what support is needed now.</li><li>Check for immediate risk to self, others, a child or an adult at risk.</li><li>Signpost or refer to an appropriate clinical, statutory or specialist service.</li><li>Seek safeguarding advice rather than holding the uncertainty alone.</li></ol><div class="must-notify">Notify Sam Kinsey-Briggs, including when the decision is that no referral is required.</div></div>
+</div></details></section>
+<section><div class="sec-head"><h2>Safeguarding report</h2><span class="tag">Complete and email to sam@acsis.co.uk</span></div><div class="card"><div class="card-body"><div class="grid three"><div class="field first"><label>Client</label><input name="sgClient" type="text"/></div><div class="field first"><label>Coach</label><input name="sgCoach" type="text"/></div><div class="field first"><label>Date and time</label><input name="sgDateTime" type="datetime-local"/></div></div><div class="field"><label>Type of concern</label><select name="sgType"><option></option><option>Immediate danger</option><option>Suicide or suicidal thoughts</option><option>Self-harm</option><option>Risk to others</option><option>Child physical abuse</option><option>Child sexual abuse or exploitation</option><option>Child emotional abuse</option><option>Child neglect</option><option>Adult physical abuse</option><option>Adult sexual abuse</option><option>Domestic abuse or coercive control</option><option>Psychological or emotional abuse</option><option>Financial or material abuse</option><option>Neglect or acts of omission</option><option>Discriminatory abuse or hate crime</option><option>Organisational abuse</option><option>Modern slavery or exploitation</option><option>Radicalisation or terrorism risk</option><option>Serious welfare concern</option><option>Outside coaching scope</option><option>Other</option></select></div><div class="field"><label>What was said or observed?</label><textarea name="sgFacts" placeholder="Use the person’s own words where possible. Separate facts, observations and professional concerns." style="min-height:170px"></textarea></div><div class="grid"><div class="field"><label>Immediate risk?</label><select name="sgImmediate"><option></option><option>Yes</option><option>No</option><option>Unclear</option></select></div><div class="field"><label>Client location, if relevant</label><input name="sgLocation" type="text"/></div></div><div class="field"><label>Questions asked and responses</label><textarea name="sgQuestions"></textarea></div><div class="field"><label>Immediate and onward action taken</label><textarea name="sgAction" placeholder="Include emergency services, NHS 111, local authority, police, Prevent, signposting, safety planning or referral."></textarea></div><div class="grid"><div class="field"><label>Safeguarding Lead notified?</label><select name="sgLead"><option></option><option>Yes</option><option>No</option></select></div><div class="field"><label>Date and time Sam was notified</label><input name="sgWhen" type="datetime-local"/></div></div><div class="field"><label>Other people or agencies informed</label><textarea name="sgInformed"></textarea></div><div class="field"><label>Follow-up required, owner and date</label><textarea name="sgFollow"></textarea></div><div class="grid"><div class="field"><label>Report completed by</label><input name="sgCompleted" type="text"/></div><div class="field"><label>Date completed</label><input name="sgCompletedDate" type="date"/></div></div><div class="email-box"><strong>After completing this report:</strong> export the Safeguarding tab as a PDF and email it securely to <strong>sam@acsis.co.uk</strong>. Keep disclosure to those who need the information to protect the person or others.</div></div></div></section>
+</section><section class="panel" id="offboarding"><div class="notice"><strong>Simple auditable record.</strong> Complete this when a coaching engagement closes, pauses or transfers. Client records should be retained securely for 7 years in line with ACSIS policy.</div><section><div class="sec-head"><h2>Client and engagement details</h2><span class="tag">Key business record</span></div><div class="card"><div class="card-body"><div class="grid three"><div class="field first"><label>Client name</label><input name="obClient" type="text"/></div><div class="field first"><label>Email</label><input name="obEmail" type="email"/></div><div class="field first"><label>Telephone</label><input name="obPhone" type="tel"/></div></div><div class="grid three"><div class="field"><label>Coach</label><input name="obCoach" type="text"/></div><div class="field"><label>Engagement start date</label><input name="obStart" type="date"/></div><div class="field"><label>Engagement end date</label><input name="obEnd" type="date"/></div></div><div class="field"><label>Reason for offboarding</label><select name="obReason"><option></option><option>Coaching completed as planned</option><option>Client chose to end</option><option>Client paused</option><option>Not suitable for coaching</option><option>Referred or signposted elsewhere</option><option>No further contact</option><option>Other</option></select></div></div></div></section><section><div class="sec-head"><h2>Session summary</h2><span class="tag">Add one short line for each session</span></div><table class="session-log-table"><thead><tr><th style="width:18%">Session</th><th style="width:20%">Date</th><th>Short summary of what was covered</th><th class="no-print" style="width:6%"></th></tr></thead><tbody id="offboardSessions"></tbody></table><div class="actions-footer no-print"><button class="btn-add" id="addOffboardSession" type="button"><span class="plus">+</span>Add another session</button></div></section><section><div class="sec-head"><h2>Closure and next steps</h2><span class="tag">What happens now</span></div><div class="card"><div class="card-body"><div class="field first"><label>Overall progress or outcomes</label><textarea name="obOutcome"></textarea></div><div class="field"><label>What is to happen next?</label><textarea name="obNext"></textarea></div><div class="grid"><div class="field"><label>Safeguarding concerns during the engagement?</label><select name="obSafeguarding"><option></option><option>No</option><option>Yes</option></select></div><div class="field"><label>Safeguarding Lead aware?</label><select name="obLeadAware"><option></option><option>Not applicable</option><option>Yes</option><option>No</option></select></div></div><div class="field"><label>Safeguarding reference or brief note</label><textarea name="obSafeguardingNote" placeholder="Do not duplicate sensitive detail. Refer to the separate safeguarding report where possible."></textarea></div><div class="field"><label>Records checked and stored securely</label><select name="obStored"><option></option><option>Yes</option><option>No</option></select></div><div class="record-note">ACSIS policy requires client records to be retained securely for 7 years. Access should be limited to those who need it for safeguarding, supervision, service delivery, legal or audit purposes.</div><div class="email-box"><strong>After completion:</strong> export this tab as a PDF and email it securely to <strong>sam@acsis.co.uk</strong> and <strong>contact@acsis.co.uk</strong>.</div></div></div></section></section><footer><span class="footer-brand"><img alt="ACSIS" src="../coaching-tools/assets/acsis-mark.png"/>ACSIS · Confidential when completed</span><span>Clarity · Courage · Connection · Sustainable coaching</span></footer>
+</main>
+<script>
+const RUNSHEET=[
+{mins:"0 to 3 mins",title:"Welcome and rapport",items:["Warm greeting, light check-in","Checked they are somewhere quiet and able to talk","Explained my role: I will not be giving advice or telling you what to do"],say:"“Hi [Name], thanks for joining me today. How are you arriving into this space right now?”"},
+{mins:"3 to 7 mins",title:"Framing and boundaries",items:["Explained this is a taster, not a full coaching session","Set out what we will cover in the 30 minutes","Covered confidentiality, and the agreement signed before ongoing work","Clarified the purpose: a fit check, both ways"],say:"“Everything you share with me stays between us, except where there is a serious concern about safety or safeguarding. Before ongoing coaching we sign a simple agreement so the boundaries are clear.”"},
+{mins:"7 to 15 mins",title:"What coaching is, and is not",items:["Coaching IS: future-focused, non-judgemental, unlocks their thinking, builds awareness","Coaching IS NOT: therapy, mentoring, or consultancy","Used the walking alongside metaphor","Checked they understood, rather than assuming"],say:"“Think of me as someone walking alongside you. Not carrying your pack, not dragging you forward, but helping you notice the path, the obstacles and the choices.”"},
+{mins:"15 to 22 mins",title:"Client exploration",items:["Asked what brought them to coaching right now","Asked what they would want from this space if it gave them exactly what they need","Asked how they would know coaching was making a difference","Reflected their own words back to them","Landed on the one thing that feels most important to focus on first"],say:"“From what we have talked about, what feels most important to focus on first?”"},
+{mins:"22 to 25 mins",title:"Summarise and invite",items:["Summarised what I heard, and named the insight they reached today","Explained the process: 60-minute sessions, every 2 to 4 weeks, confidential","Invited them to hear the options for continuing","Did not push"],say:"“What I am hearing is that coaching could support you with [x]. Today you have already identified [y]. Would you like me to share the options for how we could continue?”"},
+{mins:"25 to 30 mins",title:"Close and buffer",items:["Asked for final questions","Thanked them for being open","Warm exit, no pressure, gave them time to reflect","Offered the next booking if it felt right"],say:"“Take your time. This is about what feels right for you.”"}
+];
+const CORE=["Check how they are arriving and whether anything urgent needs space first","Review what has changed and what happened with the previous actions","Agree what would make this session useful today","Explore before trying to fix, advise or move to action","Reflect their words and notice patterns, assumptions or shifts","Turn insight into a realistic next step","Check confidence, likely barriers and support needed","Summarise in the client’s words and confirm actions and follow-up","Complete the Session Output and safeguarding report if required"];
+const TYPES={
+"Goal setting":["Reviewed the step agreed last time","Named the goal in the client's own words","Tested it: is it theirs, is it real, is it within their control","Broke it into steps small enough to actually do","Identified the first action","Named the obstacle most likely to stop them","Agreed how they will track it","Agreed what support they need, and from whom"],
+"Working session":["Checked in on what has changed since last time","Reviewed the agreed actions: done, part done, not done, and why","Held the review without judgement","Picked one thing to work on today","Explored it rather than fixing it","Tested the client's own solution before offering anything","Agreed the next action","Client said the next step out loud"],
+"Review session":["Looked back across the sessions so far","Named what has actually changed","Named what has not changed","Asked whether it is still the right goal","Asked what they have learned about themselves","Rescored any useful baseline measure","Recalibrated the plan","Agreed what the remaining sessions are for"],
+"Military transition":["Established where they are in the resettlement timeline","Explored identity: who they were, who they are now","Worked on translating skills into civilian language","Covered relevant practical priorities without turning the session into advice-giving","Mapped their support network outside the Service","Signposted to specialist support where needed","Agreed the next practical step"],
+"Walk and talk / outdoor":["Route, weather and kit agreed in advance","Talked through confidentiality outdoors: who else might hear","Safety covered: phone, water, timing and turnaround point","Agreed the question we are walking with","Used a pause point for the harder part of the conversation","Captured the actions before we parted","Wrote the notes up promptly"],
+"Closing session":["Revisited where they started","Client named the change in their own words","Reviewed any useful baseline measure","Explored what will keep the progress going without the coach","Named warning signs and what to do about them","Signposted to ongoing support","Asked for feedback for ACSIS","Closed the relationship properly rather than letting it drift"]
+};
+const MODELS=[
+{id:"grow",name:"GROW",desc:"Goal, Reality, Options and Way Forward",icon:"G",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">G</span><div><strong>GROW conversation map</strong><p>Move through the stages flexibly. The conversation does not need to be linear.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Goal</h4><p class="prompt">What would make this conversation useful?</p><textarea name="growGoal"></textarea></div><div class="phase-card"><h4>Reality</h4><p class="prompt">What is happening now?</p><textarea name="growReality"></textarea></div><div class="phase-card"><h4>Options</h4><p class="prompt">What could they do?</p><textarea name="growOptions"></textarea></div><div class="phase-card"><h4>Way Forward</h4><p class="prompt">What will they do, and by when?</p><textarea name="growWay"></textarea></div></div></div>`},
+{id:"wheel",name:"Wheel of Life",desc:"Score key life areas and identify the focus",icon:"W",body:`<div class="tool-shell wheel-tool"><div class="tool-intro"><span class="tool-badge">W</span><div><strong>Wheel of Life</strong><p>Score each area as it is today, then mark the one or two areas to focus on.</p></div></div><div class="wheelwrap"><div class="wheelcard"><svg class="wheel" id="toolWheel" viewBox="-10 -10 360 360" role="img" aria-label="Wheel of Life"></svg></div><div><div class="areas" id="toolWheelAreas"></div><div class="focus-summary"><b>Working on</b><span id="toolWheelFocus">Nothing marked yet.</span></div></div></div><div class="model-notes"><div class="field first"><label>What the scores revealed, in the client’s words</label><textarea name="wheelNotes"></textarea></div></div></div>`},
+{id:"oscar",name:"OSCAR",desc:"Outcome, Situation, Choices, Actions and Review",icon:"O",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">O</span><div><strong>OSCAR conversation map</strong><p>Clarify the desired outcome, explore the current situation and agree clear actions.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Outcome</h4><p class="prompt">What would they like to achieve?</p><textarea name="oscarOutcome"></textarea></div><div class="phase-card"><h4>Situation</h4><p class="prompt">What is happening now?</p><textarea name="oscarSituation"></textarea></div><div class="phase-card"><h4>Choices</h4><p class="prompt">What options and consequences can they see?</p><textarea name="oscarChoices"></textarea></div><div class="phase-card"><h4>Actions</h4><p class="prompt">What will they do next?</p><textarea name="oscarActions"></textarea></div><div class="phase-card"><h4>Review</h4><p class="prompt">How and when will progress be reviewed?</p><textarea name="oscarReview"></textarea></div></div></div>`},
+{id:"smart",name:"SMART action",desc:"Make an action specific and workable",icon:"S",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">S</span><div><strong>SMART action builder</strong><p>Use only as much structure as the action needs.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Specific</h4><p class="prompt">What exactly will happen?</p><textarea name="smartSpecific"></textarea></div><div class="phase-card"><h4>Measurable</h4><p class="prompt">How will they know it is done?</p><textarea name="smartMeasurable"></textarea></div><div class="phase-card"><h4>Achievable</h4><p class="prompt">Is it realistic and within their control?</p><textarea name="smartAchievable"></textarea></div><div class="phase-card"><h4>Relevant</h4><p class="prompt">Why does it matter?</p><textarea name="smartRelevant"></textarea></div><div class="phase-card"><h4>Time-bound</h4><p class="prompt">By when?</p><input type="date" name="smartTime"></div></div></div>`},
+{id:"scaling",name:"Scaling questions",desc:"Use a 0 to 10 scale to notice movement",icon:"10",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">10</span><div><strong>Scaling questions</strong><p>Use the scale to make progress, confidence or readiness more visible.</p></div></div><div class="scale-visual"><label class="lbl">Current score</label><input type="hidden" name="scaleCurrent" id="scaleCurrent"><div class="scale-track" id="scaleTrack"></div><div class="grid"><div class="field first"><label>Desired score</label><input type="number" min="0" max="10" name="scaleDesired"></div><div class="field first"><label>What makes it that score and not lower?</label><textarea name="scaleWhy"></textarea></div></div><div class="field"><label>What would one point higher look like?</label><textarea name="scaleNext"></textarea></div></div></div>`},
+{id:"values",name:"Values check",desc:"Explore what matters and whether choices align",icon:"V",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">V</span><div><strong>Values check</strong><p>Explore what matters, where life feels aligned and where there is tension.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Values</h4><p class="prompt">What matters most to the client?</p><textarea name="valuesNamed"></textarea></div><div class="phase-card"><h4>Alignment</h4><p class="prompt">Where are they living in line with those values?</p><textarea name="valuesAligned"></textarea></div><div class="phase-card"><h4>Tension</h4><p class="prompt">Where is there misalignment?</p><textarea name="valuesTension"></textarea></div><div class="phase-card"><h4>Choice</h4><p class="prompt">What choice would feel more aligned?</p><textarea name="valuesChoice"></textarea></div></div></div>`},
+{id:"swot",name:"Personal SWOT",desc:"Strengths, limitations, opportunities and threats",icon:"4",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">4</span><div><strong>Personal SWOT</strong><p>Build a balanced view of internal strengths and limitations, and external opportunities and threats.</p></div></div><div class="matrix-grid"><div class="matrix-card"><h4>Strengths</h4><textarea name="swotStrengths"></textarea></div><div class="matrix-card"><h4>Limitations</h4><textarea name="swotWeaknesses"></textarea></div><div class="matrix-card"><h4>Opportunities</h4><textarea name="swotOpportunities"></textarea></div><div class="matrix-card"><h4>Threats or barriers</h4><textarea name="swotThreats"></textarea></div></div></div>`},
+{id:"balance",name:"Decision balance",desc:"Compare the gains and costs of a choice",icon:"±",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">±</span><div><strong>Decision balance</strong><p>Compare the benefits and costs of changing with the benefits and costs of staying the same.</p></div></div><div class="matrix-grid"><div class="matrix-card"><h4>Benefits of change</h4><textarea name="balanceChangeBenefits"></textarea></div><div class="matrix-card"><h4>Costs of change</h4><textarea name="balanceChangeCosts"></textarea></div><div class="matrix-card"><h4>Benefits of staying the same</h4><textarea name="balanceStayBenefits"></textarea></div><div class="matrix-card"><h4>Costs of staying the same</h4><textarea name="balanceStayCosts"></textarea></div></div><div class="model-notes"><div class="field first"><label>What does the client notice?</label><textarea name="balanceNotice"></textarea></div></div></div>`},
+{id:"perma",name:"PERMA",desc:"Wellbeing through positive emotion, engagement, relationships, meaning and accomplishment",icon:"P",help:"PERMA is a wellbeing framework. Use it to explore which areas are supporting the client and which may need attention. It is a conversation aid, not a diagnostic assessment.",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">P</span><div><strong>PERMA wellbeing map</strong><p>Explore five building blocks of sustainable wellbeing.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Positive emotion</h4><p class="prompt">What brings moments of hope, interest, calm or enjoyment?</p><textarea name="permaPositive"></textarea></div><div class="phase-card"><h4>Engagement</h4><p class="prompt">Where do they become absorbed or use their strengths?</p><textarea name="permaEngagement"></textarea></div><div class="phase-card"><h4>Relationships</h4><p class="prompt">Who provides connection, trust and support?</p><textarea name="permaRelationships"></textarea></div><div class="phase-card"><h4>Meaning</h4><p class="prompt">What feels purposeful or bigger than the self?</p><textarea name="permaMeaning"></textarea></div><div class="phase-card"><h4>Accomplishment</h4><p class="prompt">What progress or mastery matters to them?</p><textarea name="permaAccomplishment"></textarea></div></div><div class="model-notes"><label>One sustainable action</label><textarea name="permaAction"></textarea></div></div>`},
+{id:"threec",name:"ACSIS 3C",desc:"Clarity, Courage and Connection",icon:"3C",help:"The ACSIS 3C model helps a client understand what is true and important, identify the courageous step available, and strengthen the connections that will support sustainable change.",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">3C</span><div><strong>ACSIS 3C model</strong><p>Move from understanding to brave action, supported by connection.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Clarity</h4><p class="prompt">What is happening, what matters and what needs to change?</p><textarea name="threecClarity"></textarea></div><div class="phase-card"><h4>Courage</h4><p class="prompt">What honest conversation, choice or action is needed?</p><textarea name="threecCourage"></textarea></div><div class="phase-card"><h4>Connection</h4><p class="prompt">Who, what or where will provide support and accountability?</p><textarea name="threecConnection"></textarea></div><div class="phase-card"><h4>Sustainability</h4><p class="prompt">What makes the change realistic and maintainable?</p><textarea name="threecSustain"></textarea></div></div></div>`},
+{id:"clear",name:"CLEAR",desc:"Contract, Listen, Explore, Action and Review",icon:"C",help:"CLEAR is useful for structuring a coaching relationship or a substantial conversation. The contracting stage includes purpose, boundaries, confidentiality and desired outcomes.",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">C</span><div><strong>CLEAR model</strong><p>Contract well, listen deeply, explore, act and review.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Contract</h4><textarea name="clearContract"></textarea></div><div class="phase-card"><h4>Listen</h4><textarea name="clearListen"></textarea></div><div class="phase-card"><h4>Explore</h4><textarea name="clearExplore"></textarea></div><div class="phase-card"><h4>Action</h4><textarea name="clearAction"></textarea></div><div class="phase-card"><h4>Review</h4><textarea name="clearReview"></textarea></div></div></div>`},
+{id:"tgro",name:"T-GROW",desc:"Topic, Goal, Reality, Options and Way Forward",icon:"T",help:"T-GROW adds a Topic stage before GROW. It is helpful when the client arrives with several competing issues and needs to decide what the session is really about.",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">T</span><div><strong>T-GROW conversation map</strong><p>Choose the topic before moving through GROW.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Topic</h4><textarea name="tgrowTopic"></textarea></div><div class="phase-card"><h4>Goal</h4><textarea name="tgrowGoal"></textarea></div><div class="phase-card"><h4>Reality</h4><textarea name="tgrowReality"></textarea></div><div class="phase-card"><h4>Options</h4><textarea name="tgrowOptions"></textarea></div><div class="phase-card"><h4>Way Forward</h4><textarea name="tgrowWay"></textarea></div></div></div>`},
+{id:"solution",name:"Solution-focused",desc:"Preferred future, exceptions, strengths and next step",icon:"SF",help:"Solution-focused coaching spends less time analysing the problem and more time identifying the preferred future, times when the problem is less present, existing strengths and the smallest useful next step.",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">SF</span><div><strong>Solution-focused coaching</strong><p>Build from what already works toward a preferred future.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Preferred future</h4><textarea name="sfFuture"></textarea></div><div class="phase-card"><h4>Exceptions</h4><textarea name="sfExceptions"></textarea></div><div class="phase-card"><h4>Strengths and resources</h4><textarea name="sfStrengths"></textarea></div><div class="phase-card"><h4>Small next step</h4><textarea name="sfStep"></textarea></div></div></div>`},
+
+{id:"gestalt",name:"Gestalt Cycle",desc:"Notice where awareness or action may be getting stuck",icon:"G",help:"Use the Gestalt Cycle as a light-touch awareness aid when a client seems stuck between noticing a need and completing an action. Listen to the client’s language, stay curious and avoid presenting the model as a diagnosis.",body:'<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">G</span><div><strong>Gestalt Cycle awareness map</strong><p>Notice where energy, awareness or action may be pausing.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>What is being noticed?</h4><p class="prompt">Sensations, thoughts, feelings or repeated language.</p><textarea name="gestaltNotice"></textarea></div><div class="phase-card"><h4>Where might the client be stuck?</h4><p class="prompt">What seems difficult to acknowledge, choose, begin or complete?</p><textarea name="gestaltStuck"></textarea></div><div class="phase-card"><h4>What is needed now?</h4><p class="prompt">What support, clarity or permission might help?</p><textarea name="gestaltNeed"></textarea></div><div class="phase-card"><h4>Small movement forward</h4><p class="prompt">What is one realistic step that moves the cycle on?</p><textarea name="gestaltStep"></textarea></div></div></div>'},
+{id:"stokers",name:"STOKeRS",desc:"Open and right-size the session conversation",icon:"S",help:"STOKeRS is a session-opening structure associated with Clare Pedrick’s Simplifying Coaching approach. It helps the coach and client agree the subject, available time, desired outcome, signs of progress, the issue’s essence, the coach’s role and where to start.",body:'<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">S</span><div><strong>STOKeRS session opener</strong><p>Agree what matters and right-size the conversation before exploring it.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Subject</h4><p class="prompt">What do we need to think about today?</p><textarea name="stokersSubject"></textarea></div><div class="phase-card"><h4>Time</h4><p class="prompt">Given the time available, what should we focus on?</p><textarea name="stokersTime"></textarea></div><div class="phase-card"><h4>Outcome</h4><p class="prompt">What would the client like to be different by the end?</p><textarea name="stokersOutcome"></textarea></div><div class="phase-card"><h4>Know</h4><p class="prompt">How will they know this time has been useful?</p><textarea name="stokersKnow"></textarea></div><div class="phase-card"><h4>Essence</h4><p class="prompt">What makes this meaningful or important?</p><textarea name="stokersEssence"></textarea></div><div class="phase-card"><h4>Role</h4><p class="prompt">How should coach and client approach this together?</p><textarea name="stokersRole"></textarea></div><div class="phase-card"><h4>Start</h4><p class="prompt">Where shall we begin?</p><textarea name="stokersStart"></textarea></div></div></div>'},
+{id:"oskar",name:"OSKAR",desc:"Outcome, Scale, Know-how, Affirm and Action, Review",icon:"O",help:"OSKAR is a solution-focused model. Use it when the client has a reasonably clear outcome and would benefit from recognising existing capability, identifying progress already made and choosing a practical next step.",body:'<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">O</span><div><strong>OSKAR coaching model</strong><p>Focus on the desired outcome, existing know-how and movement forward.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Outcome</h4><p class="prompt">What would the client like to achieve?</p><textarea name="oskarOutcome"></textarea></div><div class="phase-card"><h4>Scale</h4><p class="prompt">On a scale of 1 to 10, where are they now?</p><textarea name="oskarScale"></textarea></div><div class="phase-card"><h4>Know-how</h4><p class="prompt">What skills, strengths and resources already exist?</p><textarea name="oskarKnowHow"></textarea></div><div class="phase-card"><h4>Affirm and Action</h4><p class="prompt">What is working, and what action will move them forward?</p><textarea name="oskarAction"></textarea></div><div class="phase-card"><h4>Review</h4><p class="prompt">What changed and what should happen next?</p><textarea name="oskarReview"></textarea></div></div></div>'},
+{id:"johari",name:"Johari Window",desc:"Build self-awareness through what is known and unknown",icon:"J",help:"Use the Johari Window to explore self-awareness, feedback and communication. Take care with confidentiality and psychological safety, especially when the client is considering what to share with others.",body:'<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">J</span><div><strong>Johari Window</strong><p>Explore what is open, hidden, noticed by others or not yet understood.</p></div></div><div class="matrix-grid"><div class="matrix-card"><h4>Open area</h4><p class="prompt">Known to the client and to others.</p><textarea name="johariOpen"></textarea></div><div class="matrix-card"><h4>Blind spot</h4><p class="prompt">What feedback or outside perspective may help?</p><textarea name="johariBlind"></textarea></div><div class="matrix-card"><h4>Hidden area</h4><p class="prompt">What is known to the client but not shared?</p><textarea name="johariHidden"></textarea></div><div class="matrix-card"><h4>Unknown area</h4><p class="prompt">What might be discovered through safe exploration?</p><textarea name="johariUnknown"></textarea></div></div></div>'},
+{id:"ladder",name:"Ladder of Inference",desc:"Separate observed facts from meaning, assumptions and action",icon:"L",help:"Use the Ladder of Inference when a client has reached a conclusion quickly, is reacting strongly or wants to examine a difficult interaction. Work back from action to observable information, then test the meanings and assumptions that were added.",body:'<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">L</span><div><strong>Ladder of Inference</strong><p>Slow the thinking down and check what happened at each step.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Observed data</h4><p class="prompt">What was actually seen or heard?</p><textarea name="ladderData"></textarea></div><div class="phase-card"><h4>Selected details</h4><p class="prompt">What did the client focus on or leave out?</p><textarea name="ladderSelected"></textarea></div><div class="phase-card"><h4>Meaning</h4><p class="prompt">What meaning did they give the information?</p><textarea name="ladderMeaning"></textarea></div><div class="phase-card"><h4>Assumptions and conclusion</h4><p class="prompt">What did they assume was true, and what conclusion followed?</p><textarea name="ladderAssumption"></textarea></div><div class="phase-card"><h4>Action and test</h4><p class="prompt">What action followed, and what else could be checked?</p><textarea name="ladderAction"></textarea></div></div></div>'},
+{id:"stepppa",name:"STEPPPA",desc:"Subject, Target, Emotion, Perception, Plan, Pace and Action",icon:"S",help:"STEPPPA gives emotion and perception an explicit place in the coaching conversation. It can be useful where stress, mindset or emotional barriers affect progress. Stay within coaching boundaries and signpost when support beyond coaching is needed.",body:'<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">S</span><div><strong>STEPPPA coaching model</strong><p>Connect the goal with emotion, perspective, pace and action.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Subject</h4><p class="prompt">What does the client need coaching on?</p><textarea name="stepppaSubject"></textarea></div><div class="phase-card"><h4>Target</h4><p class="prompt">What outcome are they working toward?</p><textarea name="stepppaTarget"></textarea></div><div class="phase-card"><h4>Emotion</h4><p class="prompt">What emotions are influencing the situation?</p><textarea name="stepppaEmotion"></textarea></div><div class="phase-card"><h4>Perception</h4><p class="prompt">What wider perspective or alternative view is available?</p><textarea name="stepppaPerception"></textarea></div><div class="phase-card"><h4>Plan</h4><p class="prompt">What approach will they take?</p><textarea name="stepppaPlan"></textarea></div><div class="phase-card"><h4>Pace</h4><p class="prompt">What timing and pace are realistic?</p><textarea name="stepppaPace"></textarea></div><div class="phase-card"><h4>Action</h4><p class="prompt">What will they do first?</p><textarea name="stepppaAction"></textarea></div></div></div>'},
+{id:"achieve",name:"ACHIEVE",desc:"Assess, brainstorm, hone, initiate, evaluate and encourage",icon:"A",help:"ACHIEVE is a detailed model for complex goals. It helps the coach assess the situation, generate alternatives, refine goals, create options, validate the plan and maintain momentum.",body:`<div class="tool-shell"><div class="tool-intro"><span class="tool-badge">A</span><div><strong>ACHIEVE model</strong><p>A fuller structure for complex or longer-term goals.</p></div></div><div class="phase-grid"><div class="phase-card"><h4>Assess</h4><textarea name="achieveAssess"></textarea></div><div class="phase-card"><h4>Creative alternatives</h4><textarea name="achieveAlternatives"></textarea></div><div class="phase-card"><h4>Hone the goal</h4><textarea name="achieveHone"></textarea></div><div class="phase-card"><h4>Initiate options</h4><textarea name="achieveInitiate"></textarea></div><div class="phase-card"><h4>Evaluate options</h4><textarea name="achieveEvaluate"></textarea></div><div class="phase-card"><h4>Valid action plan</h4><textarea name="achievePlan"></textarea></div><div class="phase-card"><h4>Encourage momentum</h4><textarea name="achieveEncourage"></textarea></div></div></div>`}
+];
+const panels=[...document.querySelectorAll('.panel')],tabs=[...document.querySelectorAll('.tab')];let active='clarity';
+
+const PRACTICAL_TOOLS=[
+{
+ id:"eisenhower",name:"Eisenhower Matrix",desc:"Sort tasks by urgency and importance",icon:"E",
+ help:"Use the Eisenhower Matrix when the client feels overwhelmed, busy or unsure what to tackle first. Sort each task into one of four areas. Do now, schedule, delegate, or remove. The aim is to protect time for important work rather than treating every task as equally urgent.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">E</span><div><strong>Eisenhower Matrix</strong><p>Decide what to do, plan, delegate or remove.</p></div></div>
+   <div class="tool-grid-4">
+     <div class="client-tool-card urgent"><h4>Urgent and important</h4><p>Do these first.</p><textarea name="eisenhowerDo" placeholder="What needs attention now?"></textarea></div>
+     <div class="client-tool-card plan"><h4>Important, not urgent</h4><p>Schedule protected time.</p><textarea name="eisenhowerPlan" placeholder="What needs planning or focused time?"></textarea></div>
+     <div class="client-tool-card delegate"><h4>Urgent, not important</h4><p>Delegate, automate or ask for support.</p><textarea name="eisenhowerDelegate" placeholder="What could someone else help with?"></textarea></div>
+     <div class="client-tool-card remove"><h4>Not urgent or important</h4><p>Stop, reduce or remove.</p><textarea name="eisenhowerRemove" placeholder="What is taking time without adding value?"></textarea></div>
+   </div>
+   <div class="model-notes"><label>First decision or action</label><textarea name="eisenhowerFirst"></textarea></div>
+ </div>`
+},
+{
+ id:"frog",name:"Eat That Frog",desc:"Identify and complete the most important difficult task",icon:"F",
+ help:"Eat That Frog helps a client stop avoiding the task that matters most. The 'frog' is usually the important task they are most likely to procrastinate on. Define it clearly, make the first step small, remove friction and decide when it will be started.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">F</span><div><strong>Eat That Frog</strong><p>Do the most important avoided task before lower-value activity takes over.</p></div></div>
+   <div class="frog-card"><p><span class="frog-number">1</span><strong>What is the frog?</strong></p><textarea name="frogTask" placeholder="The important task I am avoiding is..."></textarea></div>
+   <div class="phase-grid">
+     <div class="phase-card"><h4>Why it matters</h4><textarea name="frogWhy"></textarea></div>
+     <div class="phase-card"><h4>Smallest first bite</h4><textarea name="frogFirstStep"></textarea></div>
+     <div class="phase-card"><h4>When I will start</h4><input type="datetime-local" name="frogWhen"></div>
+     <div class="phase-card"><h4>What I will remove first</h4><textarea name="frogRemove" placeholder="Distraction, preparation or obstacle"></textarea></div>
+   </div>
+ </div>`
+},
+{
+ id:"pomodoro",name:"Pomodoro",desc:"Use focused work periods and planned breaks",icon:"P",
+ help:"Pomodoro is useful when starting feels difficult, attention drifts or a task feels too large. A common cycle is 25 minutes of focused work followed by a five-minute break. Adapt the length to the client's needs rather than treating 25 minutes as a rule.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">P</span><div><strong>Pomodoro focus plan</strong><p>Work in a short focused block, then take a deliberate break.</p></div></div>
+   <div class="timer-plan">
+     <div class="timer-step"><strong>Choose</strong><small>One clear task</small></div>
+     <div class="timer-step"><strong>Focus</strong><small>Work without switching</small></div>
+     <div class="timer-step"><strong>Pause</strong><small>Take a short break</small></div>
+     <div class="timer-step"><strong>Repeat</strong><small>Review after each cycle</small></div>
+   </div>
+   <div class="grid" style="padding:0 14px 14px">
+     <div class="field first"><label>Task</label><input type="text" name="pomodoroTask"></div>
+     <div class="field first"><label>Number of focus cycles</label><input type="number" min="1" max="12" name="pomodoroCycles"></div>
+     <div class="field"><label>Focus period in minutes</label><input type="number" min="5" max="90" name="pomodoroFocus" value="25"></div>
+     <div class="field"><label>Break in minutes</label><input type="number" min="1" max="30" name="pomodoroBreak" value="5"></div>
+   </div>
+   <div class="model-notes"><label>Distractions to park rather than follow</label><textarea name="pomodoroParking"></textarea></div>
+ </div>`
+},
+{
+ id:"pareto",name:"80/20 Review",desc:"Find the small number of actions creating most value",icon:"80",
+ help:"The 80/20 or Pareto review helps the client identify which small number of activities creates most of the progress, impact or stress. It is not a precise calculation. It is a prompt to focus effort, reduce low-value activity and protect what works.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">80</span><div><strong>80/20 review</strong><p>Put more effort into what creates the greatest useful result.</p></div></div>
+   <div class="phase-grid">
+     <div class="phase-card"><h4>The useful 20%</h4><p class="prompt">Which activities create most progress, value or energy?</p><textarea name="paretoUseful"></textarea></div>
+     <div class="phase-card"><h4>The costly 20%</h4><p class="prompt">Which small number of issues creates most frustration, delay or stress?</p><textarea name="paretoCostly"></textarea></div>
+     <div class="phase-card"><h4>Do more of</h4><textarea name="paretoMore"></textarea></div>
+     <div class="phase-card"><h4>Reduce or stop</h4><textarea name="paretoLess"></textarea></div>
+   </div>
+ </div>`
+},
+{
+ id:"timeblock",name:"Time Blocking",desc:"Give important actions a specific place in the diary",icon:"T",
+ help:"Time blocking turns an intention into protected diary space. Use it when the client knows what to do but struggles to make time for it. Include preparation and recovery time where needed, and keep blocks realistic.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">T</span><div><strong>Time-blocking plan</strong><p>Decide exactly when important work will happen.</p></div></div>
+   <div class="model-notes">
+     <table class="simple-table">
+       <thead><tr><th>Action</th><th>Date</th><th>Start</th><th>Finish</th><th>Protect the block by</th></tr></thead>
+       <tbody>
+         <tr><td><input type="text" name="tbAction1"></td><td><input type="date" name="tbDate1"></td><td><input type="time" name="tbStart1"></td><td><input type="time" name="tbEnd1"></td><td><input type="text" name="tbProtect1"></td></tr>
+         <tr><td><input type="text" name="tbAction2"></td><td><input type="date" name="tbDate2"></td><td><input type="time" name="tbStart2"></td><td><input type="time" name="tbEnd2"></td><td><input type="text" name="tbProtect2"></td></tr>
+         <tr><td><input type="text" name="tbAction3"></td><td><input type="date" name="tbDate3"></td><td><input type="time" name="tbStart3"></td><td><input type="time" name="tbEnd3"></td><td><input type="text" name="tbProtect3"></td></tr>
+       </tbody>
+     </table>
+   </div>
+ </div>`
+},
+{
+ id:"ifthen",name:"If-Then Plan",desc:"Pre-decide what to do when a barrier or trigger appears",icon:"IF",
+ help:"An If-Then plan, also called an implementation intention, links a predictable situation to a chosen response. It is useful for habits, difficult conversations, stress triggers and barriers that repeatedly interrupt progress.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">IF</span><div><strong>If-Then planning</strong><p>Make the helpful response easier to access in the moment.</p></div></div>
+   <div class="implementation-line"><span>If</span><input type="text" name="ifThenTrigger1" placeholder="this situation or barrier happens"><span>then I will</span><input type="text" name="ifThenAction1" placeholder="take this specific action"></div>
+   <div class="implementation-line"><span>If</span><input type="text" name="ifThenTrigger2"><span>then I will</span><input type="text" name="ifThenAction2"></div>
+   <div class="implementation-line"><span>If</span><input type="text" name="ifThenTrigger3"><span>then I will</span><input type="text" name="ifThenAction3"></div>
+ </div>`
+},
+{
+ id:"habitstack",name:"Habit Stacking",desc:"Attach a new behaviour to an established routine",icon:"H",
+ help:"Habit stacking makes a new action easier to remember by placing it immediately before or after something the client already does reliably. Keep the new action small and make the cue specific.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">H</span><div><strong>Habit stacking</strong><p>Use an existing routine as the cue for a new behaviour.</p></div></div>
+   <div class="implementation-line"><span>After I</span><input type="text" name="habitExisting" placeholder="existing routine"><span>I will</span><input type="text" name="habitNew" placeholder="small new action"></div>
+   <div class="phase-grid">
+     <div class="phase-card"><h4>Make it obvious</h4><textarea name="habitObvious"></textarea></div>
+     <div class="phase-card"><h4>Make it easy</h4><textarea name="habitEasy"></textarea></div>
+     <div class="phase-card"><h4>How I will track it</h4><textarea name="habitTrack"></textarea></div>
+     <div class="phase-card"><h4>What happens after a missed day</h4><textarea name="habitRestart"></textarea></div>
+   </div>
+ </div>`
+},
+{
+ id:"woop",name:"WOOP",desc:"Wish, Outcome, Obstacle and Plan",icon:"W",
+ help:"WOOP combines a desired outcome with realistic obstacle planning. It is useful when motivation is high but follow-through is uncertain. The internal obstacle is often a thought, feeling, habit or response within the client's influence.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">W</span><div><strong>WOOP</strong><p>Connect a meaningful wish to a realistic plan.</p></div></div>
+   <div class="phase-grid">
+     <div class="phase-card"><h4>Wish</h4><textarea name="woopWish"></textarea></div>
+     <div class="phase-card"><h4>Best outcome</h4><textarea name="woopOutcome"></textarea></div>
+     <div class="phase-card"><h4>Main internal obstacle</h4><textarea name="woopObstacle"></textarea></div>
+     <div class="phase-card"><h4>Plan</h4><p class="prompt">If the obstacle appears, what will you do?</p><textarea name="woopPlan"></textarea></div>
+   </div>
+ </div>`
+},
+{
+ id:"premortem",name:"Pre-Mortem",desc:"Imagine the plan failed and identify preventable risks",icon:"PM",
+ help:"A pre-mortem reduces overconfidence by asking the client to imagine that the plan has failed, then work backwards to identify why. It supports realistic preparation without assuming that failure is inevitable.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">PM</span><div><strong>Pre-mortem</strong><p>Anticipate likely failure points before they become problems.</p></div></div>
+   <div class="phase-grid">
+     <div class="phase-card"><h4>Imagine it failed</h4><p class="prompt">What went wrong?</p><textarea name="pmFailed"></textarea></div>
+     <div class="phase-card"><h4>Most likely causes</h4><textarea name="pmCauses"></textarea></div>
+     <div class="phase-card"><h4>Early warning signs</h4><textarea name="pmWarning"></textarea></div>
+     <div class="phase-card"><h4>Preventive actions</h4><textarea name="pmPrevent"></textarea></div>
+   </div>
+ </div>`
+},
+{
+ id:"decisionmatrix",name:"Decision Matrix",desc:"Compare options against the factors that matter",icon:"D",
+ help:"A simple decision matrix helps when several options seem equally plausible. Agree the criteria first, then compare each option consistently. The numbers support the conversation but should not replace judgement.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">D</span><div><strong>Decision matrix</strong><p>Compare choices using agreed criteria.</p></div></div>
+   <div class="model-notes">
+     <table class="simple-table">
+       <thead><tr><th>Option</th><th>Benefits</th><th>Costs or risks</th><th>Fit with priorities</th><th>Overall view</th></tr></thead>
+       <tbody>
+         <tr><td><input type="text" name="dmOption1"></td><td><textarea name="dmBenefits1"></textarea></td><td><textarea name="dmRisks1"></textarea></td><td><textarea name="dmFit1"></textarea></td><td><input type="text" name="dmView1"></td></tr>
+         <tr><td><input type="text" name="dmOption2"></td><td><textarea name="dmBenefits2"></textarea></td><td><textarea name="dmRisks2"></textarea></td><td><textarea name="dmFit2"></textarea></td><td><input type="text" name="dmView2"></td></tr>
+         <tr><td><input type="text" name="dmOption3"></td><td><textarea name="dmBenefits3"></textarea></td><td><textarea name="dmRisks3"></textarea></td><td><textarea name="dmFit3"></textarea></td><td><input type="text" name="dmView3"></td></tr>
+       </tbody>
+     </table>
+   </div>
+ </div>`
+},
+{
+ id:"ssc",name:"Start, Stop, Continue",desc:"Review what to begin, remove and retain",icon:"3",
+ help:"Start, Stop, Continue is a quick review tool. It helps the client identify one useful new behaviour, one unhelpful behaviour to reduce, and one existing strength or routine to maintain.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">3</span><div><strong>Start, Stop, Continue</strong><p>A simple review that turns reflection into action.</p></div></div>
+   <div class="three-column-tool">
+     <div class="client-tool-card delegate"><h4>Start</h4><p>What would help to begin?</p><textarea name="sscStart"></textarea></div>
+     <div class="client-tool-card urgent"><h4>Stop</h4><p>What is no longer helping?</p><textarea name="sscStop"></textarea></div>
+     <div class="client-tool-card plan"><h4>Continue</h4><p>What is already working?</p><textarea name="sscContinue"></textarea></div>
+   </div>
+ </div>`
+},
+{
+ id:"energyaudit",name:"Energy Audit",desc:"Notice what drains, sustains and restores energy",icon:"EA",
+ help:"An energy audit helps clients distinguish between time and capacity. It is useful for overload, burnout prevention, work-life balance and planning demanding tasks around periods of higher energy.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">EA</span><div><strong>Energy audit</strong><p>Plan around what drains, sustains and restores energy.</p></div></div>
+   <div class="areas">
+     <div class="energy-row"><input type="text" name="energyActivity1" placeholder="Activity or commitment"><select name="energyEffect1"><option></option><option>Drains me</option><option>Neutral</option><option>Sustains me</option><option>Restores me</option></select><input type="text" name="energyChange1" placeholder="Keep, change, reduce or protect"></div>
+     <div class="energy-row"><input type="text" name="energyActivity2"><select name="energyEffect2"><option></option><option>Drains me</option><option>Neutral</option><option>Sustains me</option><option>Restores me</option></select><input type="text" name="energyChange2"></div>
+     <div class="energy-row"><input type="text" name="energyActivity3"><select name="energyEffect3"><option></option><option>Drains me</option><option>Neutral</option><option>Sustains me</option><option>Restores me</option></select><input type="text" name="energyChange3"></div>
+     <div class="energy-row"><input type="text" name="energyActivity4"><select name="energyEffect4"><option></option><option>Drains me</option><option>Neutral</option><option>Sustains me</option><option>Restores me</option></select><input type="text" name="energyChange4"></div>
+   </div>
+ </div>`
+},
+{
+ id:"fivefour",name:"5-4-3-2-1 Action",desc:"Use a short countdown to interrupt hesitation",icon:"5",
+ help:"The 5-4-3-2-1 tool can help interrupt hesitation long enough to begin a small safe action. It is not a treatment for anxiety or distress. Use it as a practical starting cue when the client already knows what action they want to take.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">5</span><div><strong>5-4-3-2-1 action cue</strong><p>Count down, then begin the smallest agreed action.</p></div></div>
+   <div class="scale-visual">
+     <div class="scale-track"><span class="scale-step selected">5</span><span class="scale-step">4</span><span class="scale-step">3</span><span class="scale-step">2</span><span class="scale-step">1</span></div>
+   </div>
+   <div class="phase-grid">
+     <div class="phase-card"><h4>The action I will start</h4><textarea name="fiveAction"></textarea></div>
+     <div class="phase-card"><h4>The smallest first movement</h4><textarea name="fiveMovement"></textarea></div>
+     <div class="phase-card"><h4>Where I will use it</h4><textarea name="fiveWhere"></textarea></div>
+     <div class="phase-card"><h4>What I will do next</h4><textarea name="fiveNext"></textarea></div>
+   </div>
+ </div>`
+},
+{
+ id:"supportmap",name:"Support Network Map",desc:"Identify people, services and types of support",icon:"S",
+ help:"A support network map makes support more specific. It helps the client identify who can offer emotional, practical, professional or emergency help. It should not imply that one person must meet every need.",
+ body:`<div class="tool-shell">
+   <div class="tool-intro"><span class="tool-badge">S</span><div><strong>Support network map</strong><p>Match the right kind of support to the right person or service.</p></div></div>
+   <div class="tool-grid-4">
+     <div class="client-tool-card plan"><h4>Emotional support</h4><textarea name="supportEmotional"></textarea></div>
+     <div class="client-tool-card delegate"><h4>Practical support</h4><textarea name="supportPractical"></textarea></div>
+     <div class="client-tool-card remove"><h4>Professional or specialist support</h4><textarea name="supportProfessional"></textarea></div>
+     <div class="client-tool-card urgent"><h4>Urgent or crisis support</h4><textarea name="supportUrgent"></textarea></div>
+   </div>
+   <div class="model-notes"><label>One support request the client will make</label><textarea name="supportRequest"></textarea></div>
+ </div>`
+}
+];
+
+const titles={clarity:'Clarity Call',coaching:'Coaching Call',output:'Session Output',safeguarding:'Safeguarding',offboarding:'Offboarding'};
+function showTab(id){active=id;panels.forEach(p=>p.classList.toggle('active',p.id===id));tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.tab===id)));document.getElementById('docTitle').textContent=titles[id]||'Coaches Handbook';window.scrollTo({top:0,behavior:'smooth'});}tabs.forEach(t=>t.addEventListener('click',()=>showTab(t.dataset.tab)));
+function makeCheck(text,attrs=''){const l=document.createElement('label');l.className='check';l.innerHTML=`<input type="checkbox" ${attrs}><span></span>`;l.querySelector('span').textContent=text;return l;}
+const runHost=document.getElementById('clarityRunsheet');RUNSHEET.forEach((b,bi)=>{const d=document.createElement('details');d.className='guide-block';d.open=true;d.innerHTML=`<summary><span class="mins"></span><h3></h3></summary><div class="guide-body"><div class="checklist"></div><div class="say"><b>Try saying</b><em></em></div></div>`;d.querySelector('.mins').textContent=b.mins;d.querySelector('h3').textContent=b.title;d.querySelector('em').textContent=b.say;const list=d.querySelector('.checklist');b.items.forEach((it,ii)=>list.appendChild(makeCheck(it,`data-cc="${bi}-${ii}"`)));runHost.appendChild(d)});
+function tally(selector,countId,barId){const all=document.querySelectorAll(selector),done=document.querySelectorAll(selector+':checked');document.getElementById(countId).textContent=`${done.length} of ${all.length}`;document.getElementById(barId).style.width=all.length?(done.length/all.length*100)+'%':'0%';}
+document.addEventListener('change',e=>{if(e.target.matches('[data-cc]'))tally('[data-cc]','ccCount','ccBar');if(e.target.matches('[data-coach]'))tally('[data-coach]','coachCount','coachBar');});tally('[data-cc]','ccCount','ccBar');
+const core=document.getElementById('coreChecklist');CORE.forEach((x,i)=>core.appendChild(makeCheck(x,`data-core="${i}"`)));
+const typeSel=document.getElementById('sessionType');Object.keys(TYPES).forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;typeSel.appendChild(o)});
+function renderType(saved=[]){const t=typeSel.value,box=document.getElementById('typeChecklist');box.innerHTML='';TYPES[t].forEach((x,i)=>{const l=makeCheck(x,`data-coach="${i}"`);l.querySelector('input').checked=!!saved[i];box.appendChild(l)});document.getElementById('typeTitle').textContent=t;document.getElementById('typeSummary').textContent=t+' prompts';document.getElementById('typeCount').textContent=TYPES[t].length+' reminders';tally('[data-coach]','coachCount','coachBar');}typeSel.addEventListener('change',()=>renderType());renderType();
+const actions=document.getElementById('actions');let actionIndex=0;
+function addActionRow(values={}){const i=actionIndex++;const tr=document.createElement('tr');tr.innerHTML=`<td><input type="text" name="action${i}" aria-label="Action"></td><td><select name="owner${i}" aria-label="Owner"><option></option><option>Client</option><option>Coach</option><option>Shared</option><option>Other</option></select></td><td><input type="date" name="when${i}" aria-label="By when"></td><td class="no-print"><button type="button" class="remove-action" title="Remove action" aria-label="Remove action">×</button></td>`;actions.appendChild(tr);tr.querySelector(`[name="action${i}"]`).value=values.action||'';tr.querySelector(`[name="owner${i}"]`).value=values.owner||'';tr.querySelector(`[name="when${i}"]`).value=values.when||'';tr.querySelector('.remove-action').onclick=()=>{if(actions.rows.length>1)tr.remove();};return tr}
+for(let i=0;i<3;i++)addActionRow();document.getElementById('addAction').onclick=()=>addActionRow();
+const bank=document.getElementById('modelBank'),modules=document.getElementById('modelModules');MODELS.forEach(m=>{const lab=document.createElement('label');lab.className='model-toggle';lab.innerHTML=`<input type="checkbox" data-model-toggle="${m.id}"><span><strong>${m.name}</strong><small>${m.desc}</small></span>`;bank.appendChild(lab);const sec=document.createElement('div');sec.className='model-module';sec.dataset.model=m.id;sec.innerHTML=`<details class="output-section" open><summary>${m.name}<span class="help-toggle no-print" title="Open explanation">?</span></summary><div class="details-body">${m.help?`<details class="model-help no-print"><summary>What is this model and when might I use it?</summary><div class="help-body">${m.help}</div></details>`:''}${m.body}</div></details>`;modules.appendChild(sec)});
+const practicalBank=document.getElementById('practicalBank'),practicalModules=document.getElementById('practicalModules');
+PRACTICAL_TOOLS.forEach(t=>{
+  const lab=document.createElement('label');
+  lab.className='practical-toggle';
+  lab.innerHTML=`<input type="checkbox" data-practical-toggle="${t.id}"><span><strong>${t.name}</strong><small>${t.desc}</small></span>`;
+  practicalBank.appendChild(lab);
+  const sec=document.createElement('div');
+  sec.className='practical-module';
+  sec.dataset.practical=t.id;
+  sec.innerHTML=`<details class="output-section" open><summary>${t.name}<span class="help-toggle no-print" title="Open explanation">?</span></summary><div class="details-body"><details class="model-help no-print"><summary>What is this tool and when might I use it?</summary><div class="help-body">${t.help}</div></details>${t.body}</div></details>`;
+  practicalModules.appendChild(sec);
+});
+
+
+
+const WHEEL_AREAS=["Purpose and direction","Work and career","Money","Health and fitness","Family and relationships","Friends and connection","Personal growth","Fun and downtime"];
+const wheelState={scores:WHEEL_AREAS.map(()=>5),focus:WHEEL_AREAS.map(()=>false)};
+function drawToolWheel(){const svg=document.getElementById('toolWheel');if(!svg)return;const CX=170,CY=170,R=118,N=WHEEL_AREAS.length,STEP=360/N;const pt=(a,r)=>{const rad=(a-90)*Math.PI/180;return[CX+r*Math.cos(rad),CY+r*Math.sin(rad)]};const wedge=(a0,a1,r)=>{const p0=pt(a0,r),p1=pt(a1,r);return `M ${CX} ${CY} L ${p0[0].toFixed(1)} ${p0[1].toFixed(1)} A ${r.toFixed(1)} ${r.toFixed(1)} 0 0 1 ${p1[0].toFixed(1)} ${p1[1].toFixed(1)} Z`};const out=[];for(let i=1;i<=10;i++)out.push(`<circle cx="${CX}" cy="${CY}" r="${(R*i/10).toFixed(1)}" fill="none" stroke="#E7EAF0" stroke-width="${i===5?1:.6}"/>`);WHEEL_AREAS.forEach((name,i)=>{const sc=wheelState.scores[i];if(sc>0){const fill=wheelState.focus[i]?'#E50941':'#1F2A4F';out.push(`<path d="${wedge(i*STEP+1,i*STEP+STEP-1,R*sc/10)}" fill="${fill}" fill-opacity="${wheelState.focus[i]?.8:.3}" stroke="${fill}" stroke-width=".9"/>`)}});for(let i=0;i<N;i++){const p=pt(i*STEP,R);out.push(`<line x1="${CX}" y1="${CY}" x2="${p[0]}" y2="${p[1]}" stroke="#D5D9E2" stroke-width=".7"/>`)}out.push(`<circle cx="${CX}" cy="${CY}" r="${R}" fill="none" stroke="#1F2A4F" stroke-width="1.2"/>`);WHEEL_AREAS.forEach((name,i)=>{const mid=i*STEP+STEP/2,p=pt(mid,R+10),anchor=(mid>8&&mid<172)?'start':(mid>188&&mid<352)?'end':'middle',words=name.split(' '),lines=[];let cur='';words.forEach(w=>{if((cur+' '+w).trim().length>11){lines.push(cur.trim());cur=w}else cur=(cur+' '+w).trim()});if(cur)lines.push(cur);const y=p[1]-((lines.length-1)*4.6),col=wheelState.focus[i]?'#E50941':'#5C6580',weight=wheelState.focus[i]?'700':'400';lines.forEach((ln,k)=>out.push(`<text x="${p[0]}" y="${y+k*10.5}" text-anchor="${anchor}" font-family="Karla,sans-serif" font-size="9.5" font-weight="${weight}" fill="${col}">${ln}</text>`));out.push(`<text x="${p[0]}" y="${y+lines.length*10.5+1}" text-anchor="${anchor}" font-family="IBM Plex Mono,monospace" font-size="9" fill="#1F2A4F">${wheelState.scores[i]}/10</text>`)});svg.innerHTML=out.join('')}
+function buildToolWheel(){const host=document.getElementById('toolWheelAreas');if(!host||host.children.length)return;WHEEL_AREAS.forEach((name,i)=>{const row=document.createElement('div');row.className='area';row.innerHTML=`<span class="nm">${name}</span><input type="range" min="0" max="10" step="1" name="wheelScore${i}" value="5"><span class="val">5</span><button type="button" class="focus-btn" aria-pressed="false">Focus</button>`;const r=row.querySelector('input'),v=row.querySelector('.val'),f=row.querySelector('button');r.oninput=()=>{wheelState.scores[i]=+r.value;v.textContent=r.value;drawToolWheel()};f.onclick=()=>{wheelState.focus[i]=!wheelState.focus[i];f.setAttribute('aria-pressed',String(wheelState.focus[i]));document.getElementById('toolWheelFocus').textContent=WHEEL_AREAS.filter((_,j)=>wheelState.focus[j]).join(', ')||'Nothing marked yet.';drawToolWheel()};host.appendChild(row)});drawToolWheel()}
+function buildScale(){const host=document.getElementById('scaleTrack');if(!host||host.children.length)return;for(let i=0;i<=10;i++){const b=document.createElement('button');b.type='button';b.className='scale-step';b.textContent=i;b.onclick=()=>{document.getElementById('scaleCurrent').value=i;host.querySelectorAll('.scale-step').forEach(x=>x.classList.toggle('selected',x===b))};host.appendChild(b)}}
+buildToolWheel();buildScale();
+function setModel(id,on){const mod=document.querySelector(`[data-model="${id}"]`);if(mod)mod.classList.toggle('enabled',on)}
+function setPractical(id,on){const mod=document.querySelector(`[data-practical="${id}"]`);if(mod)mod.classList.toggle('enabled',on)}
+document.addEventListener('change',e=>{
+  if(e.target.matches('[data-model-toggle]'))setModel(e.target.dataset.modelToggle,e.target.checked);
+  if(e.target.matches('[data-practical-toggle]'))setPractical(e.target.dataset.practicalToggle,e.target.checked);
+});
+
+document.querySelectorAll('.flow-choice').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.flow-choice').forEach(x=>x.classList.toggle('active',x===btn));document.querySelectorAll('.journey').forEach(x=>{x.classList.toggle('active',x.id==='journey-'+btn.dataset.flow);x.classList.toggle('selected-print',x.id==='journey-'+btn.dataset.flow)});}));
+const offboardSessions=document.getElementById('offboardSessions');let offboardIndex=0;function addOffboardRow(values={}){const i=offboardIndex++;const tr=document.createElement('tr');tr.innerHTML=`<td><select name="obSession${i}"><option></option><option>Clarity Call</option>${Array.from({length:20},(_,j)=>`<option>${j+1}</option>`).join('')}<option>Other</option></select></td><td><input type="date" name="obSessionDate${i}"></td><td><input type="text" name="obSessionSummary${i}" placeholder="One short factual sentence"></td><td class="no-print"><button type="button" class="remove-action" aria-label="Remove session">×</button></td>`;offboardSessions.appendChild(tr);tr.querySelector(`[name="obSession${i}"]`).value=values.session||'';tr.querySelector(`[name="obSessionDate${i}"]`).value=values.date||'';tr.querySelector(`[name="obSessionSummary${i}"]`).value=values.summary||'';tr.querySelector('.remove-action').onclick=()=>{if(offboardSessions.rows.length>1)tr.remove()};return tr}for(let i=0;i<3;i++)addOffboardRow();document.getElementById('addOffboardSession').onclick=()=>addOffboardRow();
+const KEY='acsis-coaches-handbook-v17-browser-only',LEGACY_KEY='acsis-coaches-handbook-v4-tools',status=document.getElementById('status');
+function collect(){
+  const d={active,fields:{},checks:{},details:{},sessionType:typeSel.value,actionRows:actions.rows.length,offboardRows:offboardSessions.rows.length,wheelState:JSON.parse(JSON.stringify(wheelState)),selectedFlow:document.querySelector('.flow-choice.active')?.dataset.flow||''};
+  document.querySelectorAll('input,select,textarea').forEach((e,i)=>{const key=e.name||e.dataset.cc||e.dataset.coach||e.dataset.core||e.dataset.modelToggle||e.dataset.practicalToggle||('field'+i);if(e.type==='checkbox')d.checks[key]=e.checked;else d.fields[key]=e.value});
+  document.querySelectorAll('details').forEach((e,i)=>d.details[i]=e.open);
+  return d;
+}
+function restoreData(d){
+  if(!d)return;
+  if(d.actionRows){while(actions.rows.length<d.actionRows)addActionRow();while(actions.rows.length>d.actionRows&&actions.rows.length>1)actions.deleteRow(-1)}
+  if(d.offboardRows){while(offboardSessions.rows.length<d.offboardRows)addOffboardRow();while(offboardSessions.rows.length>d.offboardRows&&offboardSessions.rows.length>1)offboardSessions.deleteRow(-1)}
+  if(d.wheelState){wheelState.scores=d.wheelState.scores||wheelState.scores;wheelState.focus=d.wheelState.focus||wheelState.focus;buildToolWheel();document.querySelectorAll('#toolWheelAreas .area').forEach((row,i)=>{row.querySelector('input').value=wheelState.scores[i];row.querySelector('.val').textContent=wheelState.scores[i];row.querySelector('button').setAttribute('aria-pressed',String(wheelState.focus[i]))});document.getElementById('toolWheelFocus').textContent=WHEEL_AREAS.filter((_,i)=>wheelState.focus[i]).join(', ')||'Nothing marked yet.';drawToolWheel()}
+  if(d.sessionType){typeSel.value=d.sessionType;renderType()}
+  document.querySelectorAll('input,select,textarea').forEach((e,i)=>{const key=e.name||e.dataset.cc||e.dataset.coach||e.dataset.core||e.dataset.modelToggle||e.dataset.practicalToggle||('field'+i);if(e.type==='checkbox'){e.checked=!!(d.checks&&d.checks[key]);if(e.dataset.modelToggle)setModel(e.dataset.modelToggle,e.checked);if(e.dataset.practicalToggle)setPractical(e.dataset.practicalToggle,e.checked)}else if(d.fields&&d.fields[key]!==undefined)e.value=d.fields[key]});
+  document.querySelectorAll('details').forEach((e,i)=>{if(d.details&&d.details[i]!==undefined)e.open=d.details[i]});
+  if(d.selectedFlow){const flowButton=document.querySelector(`.flow-choice[data-flow="${d.selectedFlow}"]`);if(flowButton)flowButton.click()}
+  showTab(d.active||'clarity');tally('[data-cc]','ccCount','ccBar');tally('[data-coach]','coachCount','coachBar');
+}
+let statusTimer,autosaveTimer,draftCleared=false;
+function say(t){clearTimeout(statusTimer);status.textContent=t||'';if(t)statusTimer=setTimeout(()=>status.textContent='',4200)}
+function savedDraft(){return localStorage.getItem(KEY)||localStorage.getItem(LEGACY_KEY)}
+function persistDraft(message='Autosaved on this device'){if(draftCleared)return false;try{localStorage.setItem(KEY,JSON.stringify(collect()));localStorage.removeItem(LEGACY_KEY);if(message)say(message);return true}catch(e){if(message)say('This browser could not save the draft');return false}}
+function queueAutosave(){draftCleared=false;clearTimeout(autosaveTimer);autosaveTimer=setTimeout(()=>persistDraft(),450)}
+document.getElementById('save').onclick=()=>{draftCleared=false;persistDraft('Saved on this device')};
+document.getElementById('restore').onclick=()=>{const raw=savedDraft();if(!raw)return say('No saved draft found on this device');try{restoreData(JSON.parse(raw));draftCleared=false;say('Saved draft restored')}catch(e){say('The saved draft could not be restored')}};
+document.getElementById('clear').onclick=()=>{if(!confirm('Clear all fields and the saved draft from this browser?'))return;clearTimeout(autosaveTimer);draftCleared=true;localStorage.removeItem(KEY);localStorage.removeItem(LEGACY_KEY);document.querySelectorAll('input,textarea').forEach(e=>{if(e.type==='checkbox'){e.checked=false;if(e.dataset.modelToggle)setModel(e.dataset.modelToggle,false);if(e.dataset.practicalToggle)setPractical(e.dataset.practicalToggle,false)}else e.value=''});document.querySelectorAll('select').forEach(e=>e.selectedIndex=0);while(actions.rows.length>3)actions.deleteRow(-1);while(offboardSessions.rows.length>3)offboardSessions.deleteRow(-1);typeSel.selectedIndex=0;renderType();tally('[data-cc]','ccCount','ccBar');tally('[data-coach]','coachCount','coachBar');say('Cleared from this browser')};
+document.addEventListener('input',queueAutosave);
+document.addEventListener('change',queueAutosave);
+document.addEventListener('toggle',queueAutosave,true);
+document.addEventListener('click',e=>{if(e.target.closest('.tab,.flow-choice,#addAction,#addOffboardSession,.remove-action,.focus-btn,.scale-step'))setTimeout(queueAutosave)});
+window.addEventListener('load',()=>{const raw=savedDraft();if(!raw){say('Nothing saved yet on this device');return}try{restoreData(JSON.parse(raw));draftCleared=false;say('Saved draft restored from this device')}catch(e){say('The saved draft could not be restored')}});
+window.addEventListener('pagehide',()=>persistDraft(null));
+function resetPrint(){panels.forEach(p=>p.classList.remove('print-me','print-all'))}document.getElementById('printPage').onclick=()=>{resetPrint();document.getElementById(active).classList.add('print-me');window.print();setTimeout(resetPrint,200)};document.getElementById('printAll').onclick=()=>{resetPrint();panels.forEach(p=>p.classList.add('print-all'));window.print();setTimeout(resetPrint,200)};
+function grow(el){el.style.height='auto';el.style.height=el.scrollHeight+'px'}
+document.querySelectorAll('textarea').forEach(t=>t.addEventListener('input',()=>grow(t)));
+
+function formatPrintValue(el){
+  let value='';
+  if(el.tagName==='SELECT'){
+    value=el.options[el.selectedIndex]?.text||'';
+  }else{
+    value=el.value||'';
+  }
+  if(el.type==='date' && /^\d{4}-\d{2}-\d{2}$/.test(value)){
+    const [y,m,d]=value.split('-'); value=`${d}/${m}/${y}`;
+  }
+  if(el.type==='datetime-local' && value){
+    const [date,time='']=value.split('T');
+    if(/^\d{4}-\d{2}-\d{2}$/.test(date)){
+      const [y,m,d]=date.split('-'); value=`${d}/${m}/${y}${time?' · '+time:''}`;
+    }
+  }
+  return value;
+}
+function cleanupPrintFields(){
+  document.querySelectorAll('.print-field-value').forEach(e=>e.remove());
+  document.querySelectorAll('.print-control-source').forEach(e=>e.classList.remove('print-control-source'));document.querySelectorAll('.print-empty-row').forEach(e=>e.classList.remove('print-empty-row'));
+}
+function preparePrintFields(){
+  cleanupPrintFields();
+  document.querySelectorAll('#actions tr,#offboardSessions tr').forEach(row=>{const controls=[...row.querySelectorAll('input,select,textarea')];row.classList.toggle('print-empty-row',controls.length>0&&controls.every(control=>!control.value))});
+  document.querySelectorAll('input[type="text"],input[type="email"],input[type="tel"],input[type="url"],input[type="date"],input[type="time"],input[type="datetime-local"],input[type="number"],select,textarea').forEach(el=>{
+    if(el.closest('.no-print'))return;
+    const printable=document.createElement('div');
+    printable.className='print-field-value';
+    printable.textContent=formatPrintValue(el) || '';
+    el.classList.add('print-control-source');
+    el.insertAdjacentElement('afterend',printable);
+  });
+}
+window.addEventListener('beforeprint',()=>{
+  document.querySelectorAll('textarea').forEach(grow);
+  preparePrintFields();
+});
+window.addEventListener('afterprint',cleanupPrintFields);
+</script>
+<script src="../shared/tool-catalogue.js"></script>
+<script>
+document.documentElement.classList.toggle('is-embedded',new URLSearchParams(location.search).get('embed')==='1');
+(function renderSharedToolbox(){
+  const host=document.getElementById('sharedToolCatalogue');
+  const catalogue=window.ACSIS_TOOL_CATALOGUE||[];
+  catalogue.forEach(tool=>{
+    const link=document.createElement('a');
+    link.className='shared-tool-card';
+    link.href='../coaching-tools/'+tool.href;
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    const name=document.createElement('strong');name.textContent=tool.name;
+    const description=document.createElement('small');description.textContent=tool.description;
+    const pillar=document.createElement('span');pillar.textContent=tool.pillar;
+    link.append(name,description,pillar);host.appendChild(link);
+  });
+})();
+</script>
+</body></html>

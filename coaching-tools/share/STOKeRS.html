@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>STOKeRS | ACSIS Coaching Toolbox</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/acsis-tools.css">
+<script src="../support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#1C2B4B"/><text x="100" y="118" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="52" fill="#fff">A</text><rect x="60" y="140" width="24" height="6" rx="3" fill="#E51B3F"/><rect x="88" y="140" width="24" height="6" rx="3" fill="#5BC8E0"/><rect x="116" y="140" width="24" height="6" rx="3" fill="#fff"/></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Libre Franklin',sans-serif;color:#22283A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:#1C2B4B}a:hover{color:#E51B3F}
+textarea:focus,input:focus{outline:none;border-color:#5BC8E0 !important;box-shadow:0 0 0 2px rgba(91,200,224,.35)}
+input[type=range]{accent-color:#E51B3F}
+input[type=checkbox]{accent-color:#1C2B4B;width:4.2mm;height:4.2mm;margin:0;flex:none}
+textarea::placeholder,input::placeholder{color:#A3ABB8}
+textarea{field-sizing:content}
+@media print{textarea,section>div{break-inside:avoid}[data-noprint]{display:none !important}textarea,input{background:transparent !important;box-shadow:none !important}}
+</style>
+</helmet>
+<a data-noprint href="../Toolbox.dc.html" style="position:fixed;top:14px;left:14px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#1C2B4B;border:1.5px solid #1C2B4B;padding:8px 14px 8px 10px;border-radius:999px;text-decoration:none;font:700 13px 'Montserrat',sans-serif;box-shadow:0 4px 14px rgba(28,43,75,.15)" style-hover="background:#1C2B4B;color:#fff"><span style="font-size:16px;line-height:1">&larr;</span>All tools</a>
+<div data-noprint style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;background:#1C2B4B;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(28,43,75,.35);font:500 13px 'Libre Franklin',sans-serif;white-space:nowrap">
+  <span style="opacity:.8">Answers save only in this browser</span>
+  <a href="../Toolbox.dc.html" style="color:#fff;text-decoration:none;font:600 13px 'Montserrat',sans-serif;padding:8px 12px;border-radius:999px" style-hover="background:rgba(255,255,255,.12)">All tools</a>
+  <button type="button">Clear</button>
+  <button type="button">Save as PDF</button>
+</div>
+<doc-page size="a4" margin="0">
+<section data-screen-label="STOKeRS" style="padding:12mm 13mm 10mm;display:flex;flex-direction:column;gap:5mm;font-family:'Libre Franklin',sans-serif;color:#22283A;background:#fff">
+
+<header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">Session opener · Clarity</div>
+      <h1 style="margin:0;font:800 24pt/1.05 'Montserrat',sans-serif;color:#1C2B4B;letter-spacing:-.02em">STOKeRS</h1>
+      <p style="margin:0;font-size:10pt;line-height:1.45;max-width:118mm;text-wrap:pretty">The first five minutes decide the next fifty-five. Seven questions that bound the conversation and right-size it to the time available. From Claire Pedrick, Simplifying Coaching.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:14mm;width:auto;margin-top:1mm">
+  </header>
+  <details class="acsis-help"><summary>Why this may help</summary><p>Helps open and right-size a coaching conversation so both client and coach know what would make the session useful.</p></details>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6mm"><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Client</label><input type="text" value="{{ v.name }}" onChange="{{ set.name }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="name"></div><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date</label><input type="text" value="{{ v.date }}" onChange="{{ set.date }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="date"></div><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Minutes available</label><input type="text" value="{{ v.mins }}" onChange="{{ set.mins }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="mins"></div></div>
+<div style="display:grid;grid-template-columns:14mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:14mm;height:14mm;border-radius:3mm;background:#1C2B4B;color:#fff;display:grid;place-items:center;font:800 8.68pt 'Montserrat',sans-serif;letter-spacing:-.02em">S</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:1mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Subject</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">What do we need to think about today?</div></div>
+    <textarea value="{{ v.sub }}" onChange="{{ set.sub }}" style="width:100%;box-sizing:border-box;min-height:19mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2mm 3mm;font:10pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="sub"></textarea>
+  </div><div style="display:grid;grid-template-columns:14mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:14mm;height:14mm;border-radius:3mm;background:#E51B3F;color:#fff;display:grid;place-items:center;font:800 8.68pt 'Montserrat',sans-serif;letter-spacing:-.02em">T</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:1mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Time</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">Given we have X minutes, what about that should we focus on?</div></div>
+    <textarea value="{{ v.time }}" onChange="{{ set.time }}" style="width:100%;box-sizing:border-box;min-height:19mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2mm 3mm;font:10pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="time"></textarea>
+  </div><div style="display:grid;grid-template-columns:14mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:14mm;height:14mm;border-radius:3mm;background:#5BC8E0;color:#1C2B4B;display:grid;place-items:center;font:800 8.68pt 'Montserrat',sans-serif;letter-spacing:-.02em">O</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:1mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Outcome</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">What would you like to be different by the end of our session?</div></div>
+    <textarea value="{{ v.out }}" onChange="{{ set.out }}" style="width:100%;box-sizing:border-box;min-height:19mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2mm 3mm;font:10pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="out"></textarea>
+  </div><div style="display:grid;grid-template-columns:14mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:14mm;height:14mm;border-radius:3mm;background:#6DAF4B;color:#fff;display:grid;place-items:center;font:800 8.68pt 'Montserrat',sans-serif;letter-spacing:-.02em">K</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:1mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Know</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">How will you know you’ve achieved what you needed from this time?</div></div>
+    <textarea value="{{ v.know }}" onChange="{{ set.know }}" style="width:100%;box-sizing:border-box;min-height:19mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2mm 3mm;font:10pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="know"></textarea>
+  </div><div style="display:grid;grid-template-columns:14mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:14mm;height:14mm;border-radius:3mm;background:#1C2B4B;color:#fff;display:grid;place-items:center;font:800 8.68pt 'Montserrat',sans-serif;letter-spacing:-.02em">e</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:1mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Essence</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">What makes this meaningful or important? What is at the heart of this issue?</div></div>
+    <textarea value="{{ v.ess }}" onChange="{{ set.ess }}" style="width:100%;box-sizing:border-box;min-height:19mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2mm 3mm;font:10pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="ess"></textarea>
+  </div><div style="display:grid;grid-template-columns:14mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:14mm;height:14mm;border-radius:3mm;background:#E51B3F;color:#fff;display:grid;place-items:center;font:800 8.68pt 'Montserrat',sans-serif;letter-spacing:-.02em">R</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:1mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Role</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">How should we approach this together?</div></div>
+    <textarea value="{{ v.role }}" onChange="{{ set.role }}" style="width:100%;box-sizing:border-box;min-height:19mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2mm 3mm;font:10pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="role"></textarea>
+  </div><div style="display:grid;grid-template-columns:14mm 46mm 1fr;gap:4mm;align-items:start">
+    <div style="flex:none;width:14mm;height:14mm;border-radius:3mm;background:#5BC8E0;color:#1C2B4B;display:grid;place-items:center;font:800 8.68pt 'Montserrat',sans-serif;letter-spacing:-.02em">S</div>
+    <div style="display:flex;flex-direction:column;gap:.5mm;padding-top:1mm"><div style="font:800 10.5pt 'Montserrat',sans-serif;color:#1C2B4B">Start</div><div style="font-size:8.5pt;line-height:1.4;color:#4B5566">Where shall we begin?</div></div>
+    <textarea value="{{ v.start }}" onChange="{{ set.start }}" style="width:100%;box-sizing:border-box;min-height:19mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2mm 3mm;font:10pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none" aria-label="start"></textarea>
+  </div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:auto">
+  <div style="display:flex;flex-direction:column;gap:1.5mm"><label style="font:700 8pt/1.35 'Montserrat',sans-serif;letter-spacing:.01em;color:#7A8394">Notes you want to share with your coach for the next session</label><textarea value="{{ v.coach }}" onChange="{{ set.coach }}" placeholder="Add anything you would like your coach to read before your next session." style="width:100%;box-sizing:border-box;min-height:14mm;overflow:hidden;border:1px dashed #B9C2CE;border-radius:2.5mm;padding:2mm 3mm;font:9.5pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#fff;resize:none" aria-label="Notes you want to share with your coach for the next session"></textarea></div>
+  <p style="margin:0;font-size:8.5pt;line-height:1.4;color:#4B5566;text-wrap:pretty"><strong style="font-family:'Montserrat',sans-serif;color:#1C2B4B">Tip.</strong> Ask, then wait. The client’s first answer to Subject is rarely the real one; Essence usually finds it. If Time and Outcome do not fit together, renegotiate the Outcome, not the Time.</p>
+</div>
+<footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2.5mm;font:600 8pt 'Montserrat',sans-serif;color:#1C2B4B">
+    <span style="display:flex;gap:2mm;align-items:center"><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#1C2B4B;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#E51B3F;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#5BC8E0;display:inline-block"></span><span style="margin-left:2mm">Clarity · Courage · Connection</span></span>
+    <span>www.acsis.co.uk</span>
+  </footer>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.key='acsis-stokers';
+    this.defaults={};
+    let s={}; try{ s=JSON.parse(localStorage.getItem(this.key)||'{}') }catch(e){}
+    this.state={v:s};
+    this._h={};
+    this.set=new Proxy({},{get:(_,k)=>this._h[k]||(this._h[k]=(e)=>{const t=e.target;const val=t.type==='checkbox'?t.checked:t.value;this.setState(st=>{const v={...st.v,[k]:val};try{localStorage.setItem(this.key,JSON.stringify(v))}catch(e){}return {v}})})});
+  }
+  val(k){ const x=this.state.v[k]; return x===undefined||x===null ? (this.defaults[k]!==undefined?this.defaults[k]:'') : x; }
+  extra(){ return {}; }
+  renderVals(){
+    const v=new Proxy({},{get:(_,k)=>this.val(k)});
+    return Object.assign({v,set:this.set,print:()=>window.print(),
+      clear:()=>{ if(confirm('Clear all your answers on this sheet?')){ try{localStorage.removeItem(this.key)}catch(e){} this.setState({v:{}}) } }}, this.extra(v));
+  }
+}
+</script>
+</body>
+</html>

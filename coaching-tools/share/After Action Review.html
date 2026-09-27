@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>After Action Review | ACSIS Coaching Toolbox</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/acsis-tools.css">
+<link rel="stylesheet" href="../assets/acsis-reflection-tools.css">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet><script src="../doc-page.js"></script></helmet>
+<a data-noprint href="../Toolbox.dc.html" style="position:fixed;top:14px;left:14px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#1C2B4B;border:1.5px solid #1C2B4B;padding:8px 14px 8px 10px;border-radius:999px;text-decoration:none;font:700 13px 'Montserrat',Arial,sans-serif;box-shadow:0 4px 14px rgba(28,43,75,.15)"><span aria-hidden="true" style="font-size:16px">&larr;</span>All tools</a>
+<div data-noprint style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;background:#1C2B4B;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(28,43,75,.35);font:500 13px 'Libre Franklin',Arial,sans-serif;white-space:nowrap"><span style="opacity:.85">Answers save only in this browser</span><a href="../Toolbox.dc.html" style="color:#fff;text-decoration:none;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px">All tools</a><button type="button" onClick="{{ clear }}" style="border:0;background:transparent;color:#fff;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px;cursor:pointer">Clear</button><button type="button" onClick="{{ print }}" style="border:0;background:#E51B3F;color:#fff;font:700 13px 'Montserrat',Arial,sans-serif;padding:9px 16px;border-radius:999px;cursor:pointer">Save as PDF</button></div>
+<doc-page size="a4" margin="0">
+<section data-screen-label="After Action Review" class="acsis-tool-page">
+  <header class="acsis-header"><div class="acsis-header-copy"><div class="acsis-eyebrow">Learning review · Clarity &amp; Courage</div><h1 class="acsis-title">After Action Review <span style="color:#7A8394;font-weight:500">(AAR)</span></h1><p class="acsis-intro">Turn an experience into useful learning without blame. Use this after a project, decision, event or difficult moment while the detail is still fresh.</p></div><img class="acsis-logo" src="../assets/acsis-logo.png" alt="ACSIS Life Coaching"></header>
+  <details class="acsis-help"><summary>Why this may help</summary><p>A structured review helps turn experience into learning while protecting what worked and avoiding blame.</p></details>
+  <div class="acsis-guide-grid"><div class="acsis-guide"><strong>Use facts first.</strong><br>Separate what happened from interpretation.</div><div class="acsis-guide"><strong>Keep strengths.</strong><br>Notice what worked and why it worked.</div><div class="acsis-guide"><strong>Finish with action.</strong><br>Choose what to sustain or change next time.</div></div>
+  <div class="acsis-grid-2">
+    <div class="acsis-card"><h2>1. What was supposed to happen?</h2><p>What was the intended outcome, plan or expectation?</p><textarea class="acsis-answer" value="{{ v.intended }}" onChange="{{ set.intended }}" aria-label="What was supposed to happen" placeholder="The intention was..."></textarea></div>
+    <div class="acsis-card"><h2>2. What actually happened?</h2><p>Record observable events and results before judging them.</p><textarea class="acsis-answer" value="{{ v.actual }}" onChange="{{ set.actual }}" aria-label="What actually happened" placeholder="The facts are..."></textarea></div>
+    <div class="acsis-card"><h2>3. What worked well, and why?</h2><p>Which choices, behaviours or conditions helped?</p><textarea class="acsis-answer" value="{{ v.worked }}" onChange="{{ set.worked }}" aria-label="What worked well and why" placeholder="We should sustain..."></textarea></div>
+    <div class="acsis-card"><h2>4. What could work better, and why?</h2><p>Look for causes, gaps and conditions, not people to blame.</p><textarea class="acsis-answer" value="{{ v.better }}" onChange="{{ set.better }}" aria-label="What could work better and why" placeholder="A useful change would be..."></textarea></div>
+  </div>
+  <div class="acsis-grid-2">
+    <div class="acsis-card"><h2>5. What have I learned?</h2><textarea class="acsis-answer acsis-answer-sm" value="{{ v.learning }}" onChange="{{ set.learning }}" aria-label="Learning from the review" placeholder="The lesson I want to carry forward is..."></textarea></div>
+    <div class="acsis-card"><h2>6. What will I do next time?</h2><textarea class="acsis-answer acsis-answer-sm" value="{{ v.next }}" onChange="{{ set.next }}" aria-label="Action for next time" placeholder="Next time I will..."></textarea></div>
+  </div>
+  <div class="acsis-highlight" style="display:grid;grid-template-columns:1fr 45mm;gap:4mm"><label style="font:700 8pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">FIRST ACTION<input class="acsis-line" type="text" value="{{ v.action }}" onChange="{{ set.action }}" aria-label="First action" placeholder="What will happen now?"></label><label style="font:700 8pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">BY WHEN<input class="acsis-line" type="text" value="{{ v.when }}" onChange="{{ set.when }}" aria-label="Action due date"></label></div>
+  <div class="acsis-bottom"><div style="display:flex;flex-direction:column;gap:1.2mm"><label class="acsis-coach-label">Notes you want to share with your coach for the next session</label><textarea class="acsis-coach-notes" value="{{ v.coach }}" onChange="{{ set.coach }}" aria-label="Notes you want to share with your coach for the next session" placeholder="Add anything you would like your coach to read before your next session."></textarea></div><div class="acsis-meta"><label>Name<input class="acsis-line" type="text" value="{{ v.name }}" onChange="{{ set.name }}" aria-label="Name"></label><label>Date<input class="acsis-line" type="text" value="{{ v.date }}" onChange="{{ set.date }}" aria-label="Date"></label><p style="grid-column:1/-1;margin:1mm 0 0;font-size:7.6pt;line-height:1.4;color:#4B5566">An AAR is a learning conversation, not a post-mortem or blame exercise. Adapted for coaching from established after-action review practice.</p></div></div>
+  <footer class="acsis-footer"><span>Notice · Learn · Adapt</span><span>www.acsis.co.uk</span></footer>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p){super(p);this.key='acsis-after-action-review';let s={};try{s=JSON.parse(localStorage.getItem(this.key)||'{}')}catch(e){}this.state={v:s};this._h={};this.set=new Proxy({},{get:(_,k)=>this._h[k]||(this._h[k]=(e)=>{const t=e.target;const val=t.type==='checkbox'?t.checked:t.value;this.setState(st=>{const v={...st.v,[k]:val};try{localStorage.setItem(this.key,JSON.stringify(v))}catch(e){}return {v}})})});}
+  val(k){const x=this.state.v[k];return x===undefined||x===null?'':x}
+  renderVals(){const v=new Proxy({},{get:(_,k)=>this.val(k)});return {v,set:this.set,print:()=>window.print(),clear:()=>{if(confirm('Clear all your answers on this After Action Review?')){try{localStorage.removeItem(this.key)}catch(e){}this.setState({v:{}})}}};}
+}
+</script>
+</body>
+</html>

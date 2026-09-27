@@ -1,4 +1,14 @@
-# ACSIS Clarity
+# ACSIS Life Coaching web applications
+
+This repository publishes three separate browser applications from one GitHub Pages source:
+
+- ACSIS Clarity at the repository root
+- ACSIS Coaches Handbook at `/coaches-handbook/`
+- ACSIS Coaching Toolbox at `/coaching-tools/`
+
+The handbook and toolbox share the same 31 worksheet files. They can also be opened and embedded independently. Client and session entries stay in the current browser unless the user chooses to download and share a PDF.
+
+## ACSIS Clarity
 
 ACSIS Clarity is a free, installable wellbeing web app from ACSIS Life Coaching. This first beta includes:
 

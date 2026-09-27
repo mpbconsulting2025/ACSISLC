@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>WOOP | ACSIS Coaching Toolbox</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/acsis-tools.css">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Libre Franklin',Arial,sans-serif;color:#22283A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:#1C2B4B}a:hover{color:#E51B3F}
+textarea:focus,input:focus,button:focus-visible{outline:none;border-color:#5BC8E0!important;box-shadow:0 0 0 2px rgba(91,200,224,.35)}
+textarea::placeholder,input::placeholder{color:#7A8394}
+textarea{field-sizing:content}
+.woop-step{display:grid;grid-template-columns:15mm 50mm minmax(0,1fr);gap:3mm;align-items:start;border:1px solid #DDE3EA;border-radius:3mm;padding:3.2mm;background:#FAFBFD}
+.woop-letter{width:12mm;height:12mm;border-radius:50%;display:grid;place-items:center;font:800 15pt 'Montserrat',Arial,sans-serif}
+.woop-copy{display:flex;flex-direction:column;gap:1mm}.woop-copy h2{margin:0;font:800 11pt 'Montserrat',Arial,sans-serif;color:#1C2B4B}.woop-copy p{margin:0;font-size:8.3pt;line-height:1.4;color:#4B5566}
+.woop-step textarea{width:100%;min-height:22mm;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.4mm 2.8mm;font:9.5pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none}
+@media screen and (max-width:720px){.woop-step{grid-template-columns:44px minmax(0,1fr)!important}.woop-step textarea{grid-column:1/-1}}
+@media print{.woop-step{break-inside:avoid}[data-noprint]{display:none!important}textarea,input{background:transparent!important;box-shadow:none!important}}
+</style>
+</helmet>
+<a data-noprint href="../Toolbox.dc.html" style="position:fixed;top:14px;left:14px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#1C2B4B;border:1.5px solid #1C2B4B;padding:8px 14px 8px 10px;border-radius:999px;text-decoration:none;font:700 13px 'Montserrat',Arial,sans-serif;box-shadow:0 4px 14px rgba(28,43,75,.15)"><span aria-hidden="true" style="font-size:16px;line-height:1">&larr;</span>All tools</a>
+<div data-noprint style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;background:#1C2B4B;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(28,43,75,.35);font:500 13px 'Libre Franklin',Arial,sans-serif;white-space:nowrap">
+  <span style="opacity:.85">Answers save only in this browser</span>
+  <a href="../Toolbox.dc.html" style="color:#fff;text-decoration:none;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px;border-radius:999px">All tools</a>
+  <button type="button" onClick="{{ clear }}" style="border:0;background:transparent;color:#fff;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px;border-radius:999px;cursor:pointer">Clear</button>
+  <button type="button" onClick="{{ print }}" style="border:0;background:#E51B3F;color:#fff;font:700 13px 'Montserrat',Arial,sans-serif;padding:9px 16px;border-radius:999px;cursor:pointer">Save as PDF</button>
+</div>
+<doc-page size="a4" margin="0">
+<section data-screen-label="WOOP" style="padding:10mm 12mm 9mm;display:flex;flex-direction:column;gap:4mm;font-family:'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff">
+  <header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">Goal and behaviour tool · Clarity &amp; Courage</div>
+      <h1 style="margin:0;font:800 24pt/1.05 'Montserrat',Arial,sans-serif;color:#1C2B4B;letter-spacing:-.02em">WOOP</h1>
+      <p style="margin:0;font-size:9.7pt;line-height:1.45;max-width:126mm;text-wrap:pretty">Turn an important wish into a realistic response to the main inner obstacle. Complete the four steps in order and pause long enough to picture the outcome and obstacle before writing.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:13mm;width:auto;margin-top:1mm">
+  </header>
+  <details class="acsis-help"><summary>Why this may help</summary><p>Helps connect an important wish with the inner obstacle most likely to interrupt it, then creates a practical if-then response.</p></details>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm">
+    <div style="background:#F3F6FA;border-radius:3mm;padding:3mm;font-size:8.4pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Choose one wish.</strong><br>It should matter, stretch you and still feel possible.</div>
+    <div style="background:#F3F6FA;border-radius:3mm;padding:3mm;font-size:8.4pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Look inward for the obstacle.</strong><br>Name the habit, feeling, thought or response within you.</div>
+    <div style="background:#F3F6FA;border-radius:3mm;padding:3mm;font-size:8.4pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Make one if-then plan.</strong><br>Choose a specific response you can use when the obstacle appears.</div>
+  </div>
+
+  <div class="woop-step">
+    <div class="woop-letter" style="background:#1C2B4B;color:#fff">W</div>
+    <div class="woop-copy"><h2>Wish</h2><p>What do you really want to do or experience? Choose something important, challenging and achievable.</p></div>
+    <textarea value="{{ v.wish }}" onChange="{{ set.wish }}" aria-label="Wish" placeholder="My wish is..."></textarea>
+  </div>
+  <div class="woop-step">
+    <div class="woop-letter" style="background:#E51B3F;color:#fff">O</div>
+    <div class="woop-copy"><h2>Outcome</h2><p>What would be the best result, and how would it feel? Picture it vividly before writing.</p></div>
+    <textarea value="{{ v.outcome }}" onChange="{{ set.outcome }}" aria-label="Best outcome" placeholder="The best result would be... I would feel..."></textarea>
+  </div>
+  <div class="woop-step">
+    <div class="woop-letter" style="background:#5BC8E0;color:#1C2B4B">O</div>
+    <div class="woop-copy"><h2>Obstacle</h2><p>What is the main inner obstacle? Look beneath external barriers for a habit, belief, emotion or impulse you can influence.</p></div>
+    <textarea value="{{ v.obstacle }}" onChange="{{ set.obstacle }}" aria-label="Main inner obstacle" placeholder="Within me, the main thing that may get in the way is..."></textarea>
+  </div>
+  <div class="woop-step">
+    <div class="woop-letter" style="background:#6DAF4B;color:#fff">P</div>
+    <div class="woop-copy"><h2>Plan</h2><p>Choose one short, concrete and doable action or helpful thought. Link it directly to the obstacle.</p></div>
+    <textarea value="{{ v.action }}" onChange="{{ set.action }}" aria-label="Action to overcome the obstacle" placeholder="The action or helpful thought I will use is..."></textarea>
+  </div>
+
+  <div style="display:grid;grid-template-columns:34mm 1fr 17mm 1fr;gap:2.5mm;align-items:end;background:#FFF6E8;border:1px solid #E6C98A;border-radius:3mm;padding:3.5mm">
+    <div style="font:800 10pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">My if-then plan</div>
+    <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;color:#4B5566">IF this obstacle appears<input type="text" value="{{ v.ifpart }}" onChange="{{ set.ifpart }}" aria-label="If this obstacle appears" placeholder="If..." style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;background:transparent;color:#22283A;width:100%"></label>
+    <div style="font:800 10pt 'Montserrat',Arial,sans-serif;color:#E51B3F;text-align:center">THEN</div>
+    <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;color:#4B5566">I will use this response<input type="text" value="{{ v.thenpart }}" onChange="{{ set.thenpart }}" aria-label="Then I will use this response" placeholder="Then I will..." style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;background:transparent;color:#22283A;width:100%"></label>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:auto">
+    <div style="display:flex;flex-direction:column;gap:1.2mm"><label style="font:700 8pt/1.35 'Montserrat',Arial,sans-serif;letter-spacing:.01em;color:#7A8394">Notes you want to share with your coach for the next session</label><textarea value="{{ v.coach }}" onChange="{{ set.coach }}" aria-label="Notes you want to share with your coach for the next session" placeholder="Add anything you would like your coach to read before your next session." style="width:100%;min-height:17mm;border:1px dashed #B9C2CE;border-radius:2.5mm;padding:2.3mm 3mm;font:9.3pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none"></textarea></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;align-content:end">
+      <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Name<input type="text" value="{{ v.name }}" onChange="{{ set.name }}" aria-label="Name" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',Arial,sans-serif;color:#22283A;background:transparent;width:100%"></label>
+      <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date<input type="text" value="{{ v.date }}" onChange="{{ set.date }}" aria-label="Date" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',Arial,sans-serif;color:#22283A;background:transparent;width:100%"></label>
+      <p style="grid-column:1/-1;margin:1mm 0 0;font-size:7.8pt;line-height:1.4;color:#4B5566">WOOP was developed by psychologist Gabriele Oettingen. For the full method and practice guidance, visit <a href="https://woopmylife.org/en/practice" target="_blank" rel="noopener">WOOP my life</a>.</p>
+    </div>
+  </div>
+
+  <footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2.5mm;font:600 8pt 'Montserrat',Arial,sans-serif;color:#1C2B4B"><span>Wish · Outcome · Obstacle · Plan</span><span>www.acsis.co.uk</span></footer>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.key='acsis-woop';
+    let s={}; try{s=JSON.parse(localStorage.getItem(this.key)||'{}')}catch(e){}
+    this.state={v:s};
+    this._h={};
+    this.set=new Proxy({},{get:(_,k)=>this._h[k]||(this._h[k]=(e)=>{const val=e.target.value;this.setState(st=>{const v={...st.v,[k]:val};try{localStorage.setItem(this.key,JSON.stringify(v))}catch(e){}return {v}})})});
+  }
+  val(k){const x=this.state.v[k];return x===undefined||x===null?'':x}
+  renderVals(){
+    const v=new Proxy({},{get:(_,k)=>this.val(k)});
+    return {v,set:this.set,print:()=>window.print(),clear:()=>{if(confirm('Clear all your answers on this WOOP worksheet?')){try{localStorage.removeItem(this.key)}catch(e){}this.setState({v:{}})}}};
+  }
+}
+</script>
+</body>
+</html>

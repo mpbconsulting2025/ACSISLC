@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>Pomodoro | ACSIS Coaching Toolbox</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/acsis-tools.css">
+<script src="../support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#1C2B4B"/><text x="100" y="118" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="52" fill="#fff">A</text><rect x="60" y="140" width="24" height="6" rx="3" fill="#E51B3F"/><rect x="88" y="140" width="24" height="6" rx="3" fill="#5BC8E0"/><rect x="116" y="140" width="24" height="6" rx="3" fill="#fff"/></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Libre Franklin',sans-serif;color:#22283A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:#1C2B4B}a:hover{color:#E51B3F}
+textarea:focus,input:focus{outline:none;border-color:#5BC8E0 !important;box-shadow:0 0 0 2px rgba(91,200,224,.35)}
+input[type=range]{accent-color:#E51B3F}
+input[type=checkbox]{accent-color:#1C2B4B;width:4.2mm;height:4.2mm;margin:0;flex:none}
+textarea::placeholder,input::placeholder{color:#A3ABB8}
+textarea{field-sizing:content}
+@media print{textarea,section>div{break-inside:avoid}[data-noprint]{display:none !important}textarea,input{background:transparent !important;box-shadow:none !important}}
+</style>
+</helmet>
+<a data-noprint href="../Toolbox.dc.html" style="position:fixed;top:14px;left:14px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#1C2B4B;border:1.5px solid #1C2B4B;padding:8px 14px 8px 10px;border-radius:999px;text-decoration:none;font:700 13px 'Montserrat',sans-serif;box-shadow:0 4px 14px rgba(28,43,75,.15)" style-hover="background:#1C2B4B;color:#fff"><span style="font-size:16px;line-height:1">&larr;</span>All tools</a>
+<div data-noprint style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;background:#1C2B4B;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(28,43,75,.35);font:500 13px 'Libre Franklin',sans-serif;white-space:nowrap">
+  <span style="opacity:.8">Answers save only in this browser</span>
+  <a href="../Toolbox.dc.html" style="color:#fff;text-decoration:none;font:600 13px 'Montserrat',sans-serif;padding:8px 12px;border-radius:999px" style-hover="background:rgba(255,255,255,.12)">All tools</a>
+  <button type="button">Clear</button>
+  <button type="button">Save as PDF</button>
+</div>
+<doc-page size="a4" margin="0">
+<section data-screen-label="Pomodoro" style="padding:12mm 13mm 10mm;display:flex;flex-direction:column;gap:5mm;font-family:'Libre Franklin',sans-serif;color:#22283A;background:#fff">
+
+<header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">Focus tool · Clarity</div>
+      <h1 style="margin:0;font:800 24pt/1.05 'Montserrat',sans-serif;color:#1C2B4B;letter-spacing:-.02em">Pomodoro planner</h1>
+      <p style="margin:0;font-size:10pt;line-height:1.45;max-width:118mm;text-wrap:pretty">Attention is a muscle: it works in sets. Twenty-five minutes on one task, five off, four times, then a proper break. This sheet plans a two-hour block and catches the distractions.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:14mm;width:auto;margin-top:1mm">
+  </header>
+  <details class="acsis-help"><summary>Why this may help</summary><p>Short focus periods can make a task easier to start and help you notice distractions without demanding hours of concentration.</p></details>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4mm"><div style="display:flex;gap:3mm;align-items:flex-start;background:#F3F6FA;border-radius:3mm;padding:3.5mm 4mm"><span style="flex:none;width:7mm;height:7mm;border-radius:50%;background:#1C2B4B;color:#fff;display:grid;place-items:center;font:800 10pt 'Montserrat',sans-serif">1</span><p style="margin:0;font-size:9pt;line-height:1.4;text-wrap:pretty"><strong style="font-family:'Montserrat',sans-serif;color:#1C2B4B">Choose one task per pomodoro</strong> and write it down. If it is bigger than 25 minutes, split it; if smaller, batch it.</p></div><div style="display:flex;gap:3mm;align-items:flex-start;background:#F3F6FA;border-radius:3mm;padding:3.5mm 4mm"><span style="flex:none;width:7mm;height:7mm;border-radius:50%;background:#E51B3F;color:#fff;display:grid;place-items:center;font:800 10pt 'Montserrat',sans-serif">2</span><p style="margin:0;font-size:9pt;line-height:1.4;text-wrap:pretty"><strong style="font-family:'Montserrat',sans-serif;color:#1C2B4B">Set a timer and work only on that.</strong> Anything else that comes to mind goes in the parking lot, not in your head.</p></div><div style="display:flex;gap:3mm;align-items:flex-start;background:#F3F6FA;border-radius:3mm;padding:3.5mm 4mm"><span style="flex:none;width:7mm;height:7mm;border-radius:50%;background:#5BC8E0;color:#1C2B4B;display:grid;place-items:center;font:800 10pt 'Montserrat',sans-serif">3</span><p style="margin:0;font-size:9pt;line-height:1.4;text-wrap:pretty"><strong style="font-family:'Montserrat',sans-serif;color:#1C2B4B">Break properly.</strong> Stand up, move, no screens. Tick the pomodoro and start the next.</p></div></div>
+<div style="display:flex;flex-direction:column;gap:2mm">
+  <div style="display:flex;gap:1.5mm"><div style="flex:25;background:#1C2B4B;color:#fff;border-radius:2mm;display:grid;place-items:center;font:800 8pt 'Montserrat',sans-serif;height:9mm;text-align:center;line-height:1.1">25 focus</div><div style="flex:5;background:#5BC8E0;color:#1C2B4B;border-radius:2mm;display:grid;place-items:center;font:800 8pt 'Montserrat',sans-serif;height:9mm;text-align:center;line-height:1.1">5</div><div style="flex:25;background:#1C2B4B;color:#fff;border-radius:2mm;display:grid;place-items:center;font:800 8pt 'Montserrat',sans-serif;height:9mm;text-align:center;line-height:1.1">25 focus</div><div style="flex:5;background:#5BC8E0;color:#1C2B4B;border-radius:2mm;display:grid;place-items:center;font:800 8pt 'Montserrat',sans-serif;height:9mm;text-align:center;line-height:1.1">5</div><div style="flex:25;background:#1C2B4B;color:#fff;border-radius:2mm;display:grid;place-items:center;font:800 8pt 'Montserrat',sans-serif;height:9mm;text-align:center;line-height:1.1">25 focus</div><div style="flex:5;background:#5BC8E0;color:#1C2B4B;border-radius:2mm;display:grid;place-items:center;font:800 8pt 'Montserrat',sans-serif;height:9mm;text-align:center;line-height:1.1">5</div><div style="flex:25;background:#1C2B4B;color:#fff;border-radius:2mm;display:grid;place-items:center;font:800 8pt 'Montserrat',sans-serif;height:9mm;text-align:center;line-height:1.1">25 focus</div><div style="flex:20;background:#E51B3F;color:#fff;border-radius:2mm;display:grid;place-items:center;font:800 8pt 'Montserrat',sans-serif;height:9mm;text-align:center;line-height:1.1">Long break</div></div>
+  <div style="display:flex;justify-content:space-between;font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394;font-size:6.5pt"><span>Start</span><span>One set · four pomodoros · about two hours · long break 20–30 min</span><span>Finish</span></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6mm"><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date</label><input type="text" value="{{ v.date }}" onChange="{{ set.date }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="date"></div><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Start time</label><input type="text" value="{{ v.start }}" onChange="{{ set.start }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="start"></div><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">What will be true at the end of this set?</label><textarea rows="1" value="{{ v.goal }}" onChange="{{ set.goal }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box;min-height:0;resize:none;overflow:hidden;line-height:1.4" aria-label="goal"></textarea></div></div>
+<div style="display:flex;flex-direction:column;gap:1mm">
+  <div style="display:grid;grid-template-columns:8mm 1fr 34mm 5mm;gap:3mm;font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394;font-size:6.5pt"><span></span><span>Task</span><span>Interruptions</span><span>Done</span></div>
+  <div style="display:grid;grid-template-columns:8mm 1fr 34mm 5mm;gap:3mm;align-items:center;border-bottom:1px solid #EDF0F4;padding:1.5mm 0">
+    <div style="width:7mm;height:7mm;border-radius:50%;background:#1C2B4B;color:#fff;display:grid;place-items:center;font:800 9pt 'Montserrat',sans-serif">1</div>
+    <textarea rows="1" value="{{ v.task1 }}" onChange="{{ set.task1 }}" placeholder="Task for this pomodoro" style="border:0;border-bottom:1px solid #C9D1DC;padding:1.5mm 1mm;font:10pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box;;min-height:0;resize:none;overflow:hidden;line-height:1.4" aria-label="Task for this pomodoro"></textarea>
+    <textarea rows="1" value="{{ v.int1 }}" onChange="{{ set.int1 }}" placeholder="Interruptions (tally)" style="border:0;border-bottom:1px solid #C9D1DC;padding:1.5mm 1mm;font:10pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box;;min-height:0;resize:none;overflow:hidden;line-height:1.4" aria-label="Interruptions (tally)"></textarea>
+    <input type="checkbox" checked="{{ v.done1 }}" onChange="{{ set.done1 }}" title="Completed" aria-label="Completed">
+  </div><div style="display:grid;grid-template-columns:8mm 1fr 34mm 5mm;gap:3mm;align-items:center;border-bottom:1px solid #EDF0F4;padding:1.5mm 0">
+    <div style="width:7mm;height:7mm;border-radius:50%;background:#E51B3F;color:#fff;display:grid;place-items:center;font:800 9pt 'Montserrat',sans-serif">2</div>
+    <textarea rows="1" value="{{ v.task2 }}" onChange="{{ set.task2 }}" placeholder="Task for this pomodoro" style="border:0;border-bottom:1px solid #C9D1DC;padding:1.5mm 1mm;font:10pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box;;min-height:0;resize:none;overflow:hidden;line-height:1.4" aria-label="Task for this pomodoro"></textarea>
+    <textarea rows="1" value="{{ v.int2 }}" onChange="{{ set.int2 }}" placeholder="Interruptions (tally)" style="border:0;border-bottom:1px solid #C9D1DC;padding:1.5mm 1mm;font:10pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box;;min-height:0;resize:none;overflow:hidden;line-height:1.4" aria-label="Interruptions (tally)"></textarea>
+    <input type="checkbox" checked="{{ v.done2 }}" onChange="{{ set.done2 }}" title="Completed" aria-label="Completed">
+  </div><div style="display:grid;grid-template-columns:8mm 1fr 34mm 5mm;gap:3mm;align-items:center;border-bottom:1px solid #EDF0F4;padding:1.5mm 0">
+    <div style="width:7mm;height:7mm;border-radius:50%;background:#5BC8E0;color:#1C2B4B;display:grid;place-items:center;font:800 9pt 'Montserrat',sans-serif">3</div>
+    <textarea rows="1" value="{{ v.task3 }}" onChange="{{ set.task3 }}" placeholder="Task for this pomodoro" style="border:0;border-bottom:1px solid #C9D1DC;padding:1.5mm 1mm;font:10pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box;;min-height:0;resize:none;overflow:hidden;line-height:1.4" aria-label="Task for this pomodoro"></textarea>
+    <textarea rows="1" value="{{ v.int3 }}" onChange="{{ set.int3 }}" placeholder="Interruptions (tally)" style="border:0;border-bottom:1px solid #C9D1DC;padding:1.5mm 1mm;font:10pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box;;min-height:0;resize:none;overflow:hidden;line-height:1.4" aria-label="Interruptions (tally)"></textarea>
+    <input type="checkbox" checked="{{ v.done3 }}" onChange="{{ set.done3 }}" title="Completed" aria-label="Completed">
+  </div><div style="display:grid;grid-template-columns:8mm 1fr 34mm 5mm;gap:3mm;align-items:center;border-bottom:1px solid #EDF0F4;padding:1.5mm 0">
+    <div style="width:7mm;height:7mm;border-radius:50%;background:#6DAF4B;color:#fff;display:grid;place-items:center;font:800 9pt 'Montserrat',sans-serif">4</div>
+    <textarea rows="1" value="{{ v.task4 }}" onChange="{{ set.task4 }}" placeholder="Task for this pomodoro" style="border:0;border-bottom:1px solid #C9D1DC;padding:1.5mm 1mm;font:10pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box;;min-height:0;resize:none;overflow:hidden;line-height:1.4" aria-label="Task for this pomodoro"></textarea>
+    <textarea rows="1" value="{{ v.int4 }}" onChange="{{ set.int4 }}" placeholder="Interruptions (tally)" style="border:0;border-bottom:1px solid #C9D1DC;padding:1.5mm 1mm;font:10pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box;;min-height:0;resize:none;overflow:hidden;line-height:1.4" aria-label="Interruptions (tally)"></textarea>
+    <input type="checkbox" checked="{{ v.done4 }}" onChange="{{ set.done4 }}" title="Completed" aria-label="Completed">
+  </div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm">
+  <div style="display:flex;flex-direction:column;gap:1.5mm;"><label style="font:700 9.5pt 'Montserrat',sans-serif;color:#1C2B4B;">Parking lot - things that popped into my head</label><p style="margin:0;font-size:8.5pt;line-height:1.4;color:#4B5566;text-wrap:pretty">Emails, things to look up, worries, ideas.</p><textarea value="{{ v.parking }}" onChange="{{ set.parking }}" placeholder="Write it, drop it, deal with it after the set…" style="width:100%;box-sizing:border-box;min-height:30mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none;" aria-label="Write it, drop it, deal with it after the set…"></textarea></div>
+  <div style="display:flex;flex-direction:column;gap:1.5mm;"><label style="font:700 9.5pt 'Montserrat',sans-serif;color:#1C2B4B;">After the set - what got done?</label><p style="margin:0;font-size:8.5pt;line-height:1.4;color:#4B5566;text-wrap:pretty">What got in the way, and was it internal or external?</p><textarea value="{{ v.review }}" onChange="{{ set.review }}" placeholder="" style="width:100%;box-sizing:border-box;min-height:30mm;overflow:hidden;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',sans-serif;color:#22283A;background:#FAFBFD;resize:none;" aria-label="review"></textarea></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:auto">
+    <div style="display:flex;flex-direction:column;gap:1.5mm">
+      <label style="font:700 8pt/1.35 'Montserrat',sans-serif;letter-spacing:.01em;color:#7A8394">Notes you want to share with your coach for the next session</label>
+      <textarea value="{{ v.coach }}" onChange="{{ set.coach }}" placeholder="Add anything you would like your coach to read before your next session." style="width:100%;box-sizing:border-box;min-height:12mm;overflow:hidden;border:1px dashed #B9C2CE;border-radius:2.5mm;padding:2mm 3mm;font:9.5pt/1.45 'Libre Franklin',sans-serif;color:#22283A;background:#fff;resize:none" aria-label="Notes you want to share with your coach for the next session"></textarea>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;align-content:end">
+      <div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Name</label><input type="text" value="{{ v.name }}" onChange="{{ set.name }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="name"></div><div style="display:flex;flex-direction:column;gap:1mm;"><label style="font:700 7.5pt 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date</label><input type="text" value="{{ v.date }}" onChange="{{ set.date }}" placeholder="" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',sans-serif;color:#22283A;background:transparent;width:100%;box-sizing:border-box" aria-label="date"></div>
+      <p style="grid-column:1/-1;margin:1mm 0 0;font-size:8.5pt;color:#4B5566;line-height:1.4;text-wrap:pretty">Francesco Cirillo, late 1980s. If a client can’t start, one pomodoro is a smaller ask than “do the task”.</p>
+    </div>
+  </div>
+<footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2.5mm;font:600 8pt 'Montserrat',sans-serif;color:#1C2B4B">
+    <span style="display:flex;gap:2mm;align-items:center"><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#1C2B4B;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#E51B3F;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#5BC8E0;display:inline-block"></span><span style="margin-left:2mm">Clarity · Courage · Connection</span></span>
+    <span>www.acsis.co.uk</span>
+  </footer>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.key='acsis-pomodoro';
+    this.defaults={};
+    let s={}; try{ s=JSON.parse(localStorage.getItem(this.key)||'{}') }catch(e){}
+    this.state={v:s};
+    this._h={};
+    this.set=new Proxy({},{get:(_,k)=>this._h[k]||(this._h[k]=(e)=>{const t=e.target;const val=t.type==='checkbox'?t.checked:t.value;this.setState(st=>{const v={...st.v,[k]:val};try{localStorage.setItem(this.key,JSON.stringify(v))}catch(e){}return {v}})})});
+  }
+  val(k){ const x=this.state.v[k]; return x===undefined||x===null ? (this.defaults[k]!==undefined?this.defaults[k]:'') : x; }
+  extra(){ return {}; }
+  renderVals(){
+    const v=new Proxy({},{get:(_,k)=>this.val(k)});
+    return Object.assign({v,set:this.set,print:()=>window.print(),
+      clear:()=>{ if(confirm('Clear all your answers on this sheet?')){ try{localStorage.removeItem(this.key)}catch(e){} this.setState({v:{}}) } }}, this.extra(v));
+  }
+}
+</script>
+</body>
+</html>

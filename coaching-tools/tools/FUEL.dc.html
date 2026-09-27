@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>FUEL | ACSIS Coaching Toolbox</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/acsis-tools.css">
+<script src="../support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Libre Franklin',Arial,sans-serif;color:#22283A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:#1C2B4B}a:hover{color:#E51B3F}
+textarea:focus,input:focus,button:focus-visible{outline:none;border-color:#5BC8E0!important;box-shadow:0 0 0 2px rgba(91,200,224,.35)}
+textarea::placeholder,input::placeholder{color:#7A8394}
+textarea{field-sizing:content}
+.fuel-step{display:grid;grid-template-columns:15mm 54mm minmax(0,1fr);gap:3mm;align-items:start;border:1px solid #DDE3EA;border-radius:3mm;padding:3.2mm;background:#FAFBFD}
+.fuel-letter{width:12mm;height:12mm;border-radius:3mm;display:grid;place-items:center;font:800 15pt 'Montserrat',Arial,sans-serif}
+.fuel-copy{display:flex;flex-direction:column;gap:1mm}.fuel-copy h2{margin:0;font:800 10.5pt 'Montserrat',Arial,sans-serif;color:#1C2B4B}.fuel-copy p{margin:0;font-size:8.2pt;line-height:1.4;color:#4B5566}
+.fuel-step textarea{width:100%;min-height:23mm;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.4mm 2.8mm;font:9.4pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none}
+@media screen and (max-width:720px){.fuel-step{grid-template-columns:44px minmax(0,1fr)!important}.fuel-step textarea{grid-column:1/-1}}
+@media print{.fuel-step{break-inside:avoid}[data-noprint]{display:none!important}textarea,input{background:transparent!important;box-shadow:none!important}}
+</style>
+</helmet>
+<a data-noprint href="../Toolbox.dc.html" style="position:fixed;top:14px;left:14px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#1C2B4B;border:1.5px solid #1C2B4B;padding:8px 14px 8px 10px;border-radius:999px;text-decoration:none;font:700 13px 'Montserrat',Arial,sans-serif;box-shadow:0 4px 14px rgba(28,43,75,.15)"><span aria-hidden="true" style="font-size:16px;line-height:1">&larr;</span>All tools</a>
+<div data-noprint style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;background:#1C2B4B;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(28,43,75,.35);font:500 13px 'Libre Franklin',Arial,sans-serif;white-space:nowrap">
+  <span style="opacity:.85">Answers save only in this browser</span>
+  <a href="../Toolbox.dc.html" style="color:#fff;text-decoration:none;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px;border-radius:999px">All tools</a>
+  <button type="button" onClick="{{ clear }}" style="border:0;background:transparent;color:#fff;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px;border-radius:999px;cursor:pointer">Clear</button>
+  <button type="button" onClick="{{ print }}" style="border:0;background:#E51B3F;color:#fff;font:700 13px 'Montserrat',Arial,sans-serif;padding:9px 16px;border-radius:999px;cursor:pointer">Save as PDF</button>
+</div>
+<doc-page size="a4" margin="0">
+<section data-screen-label="FUEL" style="padding:10mm 12mm 9mm;display:flex;flex-direction:column;gap:4mm;font-family:'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff">
+  <header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">Coaching framework · Clarity &amp; Connection</div>
+      <h1 style="margin:0;font:800 24pt/1.05 'Montserrat',Arial,sans-serif;color:#1C2B4B;letter-spacing:-.02em">FUEL</h1>
+      <p style="margin:0;font-size:9.7pt;line-height:1.45;max-width:126mm;text-wrap:pretty">Use FUEL when a topic needs space and depth before moving to action. The coach holds the structure; the client supplies the meaning, choices and decisions.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:13mm;width:auto;margin-top:1mm">
+  </header>
+  <details class="acsis-help"><summary>Why this may help</summary><p>Helps explore an issue in depth before rushing to solutions, then turns the desired future into a success plan.</p></details>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm">
+    <div style="background:#F3F6FA;border-radius:3mm;padding:3mm;font-size:8.4pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Agree the focus.</strong><br>Do not assume that the first issue named is the real topic.</div>
+    <div style="background:#F3F6FA;border-radius:3mm;padding:3mm;font-size:8.4pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Stay curious.</strong><br>Use open questions, reflections and pauses before offering ideas.</div>
+    <div style="background:#F3F6FA;border-radius:3mm;padding:3mm;font-size:8.4pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Build ownership.</strong><br>The success plan should belong to the client, not the worksheet.</div>
+  </div>
+
+  <div class="fuel-step">
+    <div class="fuel-letter" style="background:#1C2B4B;color:#fff">F</div>
+    <div class="fuel-copy"><h2>Frame the conversation</h2><p>Agree the topic, purpose, boundaries and what would make this conversation useful.</p><p><strong>Prompts:</strong> What matters most today? What outcome do you want from our time?</p></div>
+    <textarea value="{{ v.frame }}" onChange="{{ set.frame }}" aria-label="Frame the conversation" placeholder="The topic, purpose and useful outcome..."></textarea>
+  </div>
+  <div class="fuel-step">
+    <div class="fuel-letter" style="background:#E51B3F;color:#fff">U</div>
+    <div class="fuel-copy"><h2>Understand the current state</h2><p>Explore facts, perspectives, feelings, patterns, impact and what has already been tried.</p><p><strong>Prompts:</strong> What is happening now? What is working? What assumptions need testing?</p></div>
+    <textarea value="{{ v.understand }}" onChange="{{ set.understand }}" aria-label="Understand the current state" placeholder="What is happening, and how is it affecting you and others?"></textarea>
+  </div>
+  <div class="fuel-step">
+    <div class="fuel-letter" style="background:#5BC8E0;color:#1C2B4B">E</div>
+    <div class="fuel-copy"><h2>Explore the desired state</h2><p>Describe success and generate more than one path towards it, including barriers and support.</p><p><strong>Prompts:</strong> What would be different? What options exist? What might get in the way?</p></div>
+    <textarea value="{{ v.explore }}" onChange="{{ set.explore }}" aria-label="Explore the desired state" placeholder="The desired state, signs of success and possible routes..."></textarea>
+  </div>
+  <div class="fuel-step">
+    <div class="fuel-letter" style="background:#6DAF4B;color:#fff">L</div>
+    <div class="fuel-copy"><h2>Lay out a success plan</h2><p>Turn the chosen route into specific actions, ownership, timing, support and review.</p><p><strong>Prompts:</strong> What will you do first? By when? Who can help? How will you review progress?</p></div>
+    <textarea value="{{ v.layout }}" onChange="{{ set.layout }}" aria-label="Lay out a success plan" placeholder="Actions, dates, support and review points..."></textarea>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:auto">
+    <div style="display:flex;flex-direction:column;gap:1.2mm"><label style="font:700 8pt/1.35 'Montserrat',Arial,sans-serif;letter-spacing:.01em;color:#7A8394">Notes you want to share with your coach for the next session</label><textarea value="{{ v.coach }}" onChange="{{ set.coach }}" aria-label="Notes you want to share with your coach for the next session" placeholder="Add anything you would like your coach to read before your next session." style="width:100%;min-height:18mm;border:1px dashed #B9C2CE;border-radius:2.5mm;padding:2.3mm 3mm;font:9.3pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none"></textarea></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;align-content:end">
+      <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Name<input type="text" value="{{ v.name }}" onChange="{{ set.name }}" aria-label="Name" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',Arial,sans-serif;color:#22283A;background:transparent;width:100%"></label>
+      <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date<input type="text" value="{{ v.date }}" onChange="{{ set.date }}" aria-label="Date" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',Arial,sans-serif;color:#22283A;background:transparent;width:100%"></label>
+      <p style="grid-column:1/-1;margin:1mm 0 0;font-size:7.8pt;line-height:1.4;color:#4B5566">FUEL was developed by John Zenger and Kathleen Stinnett and published in <em>The Extraordinary Coach</em>. See the <a href="https://zengerfolkman.com/wp-content/uploads/2024/02/Extraordinary-Coach-eBook_022724.pdf" target="_blank" rel="noopener">Zenger Folkman overview</a>.</p>
+    </div>
+  </div>
+
+  <footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2.5mm;font:600 8pt 'Montserrat',Arial,sans-serif;color:#1C2B4B"><span>Frame · Understand · Explore · Lay out</span><span>www.acsis.co.uk</span></footer>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.key='acsis-fuel';
+    let s={}; try{s=JSON.parse(localStorage.getItem(this.key)||'{}')}catch(e){}
+    this.state={v:s};
+    this._h={};
+    this.set=new Proxy({},{get:(_,k)=>this._h[k]||(this._h[k]=(e)=>{const val=e.target.value;this.setState(st=>{const v={...st.v,[k]:val};try{localStorage.setItem(this.key,JSON.stringify(v))}catch(e){}return {v}})})});
+  }
+  val(k){const x=this.state.v[k];return x===undefined||x===null?'':x}
+  renderVals(){
+    const v=new Proxy({},{get:(_,k)=>this.val(k)});
+    return {v,set:this.set,print:()=>window.print(),clear:()=>{if(confirm('Clear all your answers on this FUEL worksheet?')){try{localStorage.removeItem(this.key)}catch(e){}this.setState({v:{}})}}};
+  }
+}
+</script>
+</body>
+</html>

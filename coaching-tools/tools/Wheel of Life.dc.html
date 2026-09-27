@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="data:,">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<title>Wheel of Life | ACSIS Coaching Toolbox</title>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<link rel="stylesheet" href="../assets/acsis-tools.css">
+<script src="../support.js"></script>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#1C2B4B"/><text x="100" y="118" text-anchor="middle" font-family="Montserrat,Arial,sans-serif" font-weight="800" font-size="52" fill="#fff">A</text><rect x="60" y="140" width="24" height="6" rx="3" fill="#E51B3F"/><rect x="88" y="140" width="24" height="6" rx="3" fill="#5BC8E0"/><rect x="116" y="140" width="24" height="6" rx="3" fill="#fff"/></svg></template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<script src="../doc-page.js"></script>
+<style>
+doc-page:not(:defined){visibility:hidden}
+body{margin:0;font-family:'Libre Franklin',Arial,sans-serif;color:#22283A;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:#1C2B4B}a:hover{color:#E51B3F}
+textarea:focus,input:focus,button:focus-visible{outline:none;border-color:#5BC8E0 !important;box-shadow:0 0 0 2px rgba(91,200,224,.35)}
+input[type=range]{accent-color:#E51B3F}
+textarea::placeholder,input::placeholder{color:#7A8394}
+textarea{field-sizing:content}
+.wheel-page{padding:10mm 12mm 9mm;display:flex;flex-direction:column;gap:4mm;font-family:'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff}
+.wheel-row{display:flex;flex-direction:column;gap:1.5mm;border:1px solid #DDE3EA;border-radius:2.5mm;padding:2.2mm 2.5mm;background:#FAFBFD}
+.wheel-row-head{display:grid;grid-template-columns:7mm minmax(0,1fr) auto;gap:2mm;align-items:center}
+.wheel-sliders{display:grid;grid-template-columns:1fr 1fr;gap:3mm}
+.wheel-slider{display:grid;grid-template-columns:auto minmax(44px,1fr) 7mm;gap:1.5mm;align-items:center}
+.wheel-slider label{font:700 7pt 'Montserrat',Arial,sans-serif;color:#4B5566;white-space:nowrap}
+.wheel-slider output{font:800 9.5pt 'Montserrat',Arial,sans-serif;color:#1C2B4B;text-align:right}
+.remove-area{border:0;background:transparent;color:#7A8394;font:700 8pt 'Montserrat',Arial,sans-serif;cursor:pointer;padding:1mm}
+.remove-area:hover,.remove-area:focus-visible{color:#B91C36}
+@media screen and (max-width:720px){
+  .wheel-page{padding-bottom:108px!important}
+  .wheel-builder{grid-template-columns:1fr!important}
+  .wheel-canvas{width:min(82mm,100%)!important;height:auto!important;aspect-ratio:1;margin:0 auto}
+  .wheel-controls{max-height:none!important}
+  .wheel-row-head{grid-template-columns:28px minmax(0,1fr) auto!important}
+  .wheel-sliders{grid-template-columns:1fr!important}
+}
+@media print{
+  .wheel-page{break-after:page}
+  .wheel-page:last-child{break-after:auto}
+  textarea,input{background:transparent!important;box-shadow:none!important}
+  [data-noprint]{display:none!important}
+}
+</style>
+</helmet>
+<a data-noprint href="../Toolbox.dc.html" style="position:fixed;top:14px;left:14px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#1C2B4B;border:1.5px solid #1C2B4B;padding:8px 14px 8px 10px;border-radius:999px;text-decoration:none;font:700 13px 'Montserrat',Arial,sans-serif;box-shadow:0 4px 14px rgba(28,43,75,.15)"><span aria-hidden="true" style="font-size:16px;line-height:1">&larr;</span>All tools</a>
+<div data-noprint style="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:50;display:flex;gap:8px;align-items:center;background:#1C2B4B;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(28,43,75,.35);font:500 13px 'Libre Franklin',Arial,sans-serif;white-space:nowrap">
+  <span style="opacity:.85">Answers save only in this browser</span>
+  <a href="../Toolbox.dc.html" style="color:#fff;text-decoration:none;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px;border-radius:999px">All tools</a>
+  <button type="button" onClick="{{ clear }}" style="border:0;background:transparent;color:#fff;font:600 13px 'Montserrat',Arial,sans-serif;padding:8px 12px;border-radius:999px;cursor:pointer">Clear</button>
+  <button type="button" onClick="{{ print }}" style="border:0;background:#E51B3F;color:#fff;font:700 13px 'Montserrat',Arial,sans-serif;padding:9px 16px;border-radius:999px;cursor:pointer">Save as PDF</button>
+</div>
+<doc-page size="a4" margin="0">
+<section data-screen-label="Wheel of Life builder" class="wheel-page">
+  <header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">Coaching tool · Clarity &amp; Connection</div>
+      <h1 style="margin:0;font:800 23pt/1.05 'Montserrat',Arial,sans-serif;color:#1C2B4B;letter-spacing:-.02em">Build your Wheel of Life</h1>
+      <p style="margin:0;font-size:9.5pt;line-height:1.45;max-width:124mm;text-wrap:pretty">Name the areas that matter in your life, then score each one twice: how satisfied you feel now and how important it is to you. The space between the two scores helps you choose where to focus.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:13mm;width:auto;margin-top:1mm">
+  </header>
+  <details class="acsis-help"><summary>Why this may help</summary><p>Seeing satisfaction beside importance highlights where a gap matters to you, rather than assuming the lowest score should always come first.</p></details>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:3mm">
+    <div style="display:flex;gap:2.5mm;align-items:flex-start;background:#F3F6FA;border-radius:3mm;padding:3mm"><span style="flex:none;width:7mm;height:7mm;border-radius:50%;background:#1C2B4B;color:#fff;display:grid;place-items:center;font:800 10pt 'Montserrat',Arial,sans-serif">1</span><p style="margin:0;font-size:8.7pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Choose your areas.</strong> Start with four, use the suggested eight, or add your own.</p></div>
+    <div style="display:flex;gap:2.5mm;align-items:flex-start;background:#F3F6FA;border-radius:3mm;padding:3mm"><span style="flex:none;width:7mm;height:7mm;border-radius:50%;background:#E51B3F;color:#fff;display:grid;place-items:center;font:800 10pt 'Montserrat',Arial,sans-serif">2</span><p style="margin:0;font-size:8.7pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Score both scales.</strong> Satisfaction is how life feels now. Importance is how much the area matters.</p></div>
+    <div style="display:flex;gap:2.5mm;align-items:flex-start;background:#F3F6FA;border-radius:3mm;padding:3mm"><span style="flex:none;width:7mm;height:7mm;border-radius:50%;background:#5BC8E0;color:#1C2B4B;display:grid;place-items:center;font:800 10pt 'Montserrat',Arial,sans-serif">3</span><p style="margin:0;font-size:8.7pt;line-height:1.4"><strong style="font-family:'Montserrat',Arial,sans-serif;color:#1C2B4B">Notice the gaps.</strong> A larger importance score can point towards a useful coaching focus.</p></div>
+  </div>
+
+  <div data-noprint style="display:flex;gap:2mm;align-items:center;flex-wrap:wrap">
+    <button type="button" class="acsis-secondary-button" onClick="{{ useCustom }}">Start a custom wheel</button>
+    <button type="button" class="acsis-secondary-button" onClick="{{ useSuggested }}">Use suggested areas</button>
+    <button type="button" class="acsis-secondary-button" onClick="{{ addArea }}" disabled="{{ addDisabled }}">Add area</button>
+    <span style="font-size:8pt;color:#4B5566">{{ areaCount }} areas · maximum 12</span>
+  </div>
+
+  <div class="wheel-builder" style="display:grid;grid-template-columns:84mm minmax(0,1fr);gap:6mm;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:2mm;align-items:center">
+      <div class="wheel-canvas" style="position:relative;width:82mm;height:82mm">
+        <svg viewBox="0 0 200 200" role="img" aria-label="Wheel comparing satisfaction and importance" style="width:100%;height:100%;display:block;overflow:visible">
+          <circle cx="100" cy="100" r="72" fill="#FAFBFD" stroke="#C9D1DC" stroke-width="1"></circle>
+          <circle cx="100" cy="100" r="57.6" fill="none" stroke="#DDE3EA" stroke-width="1"></circle>
+          <circle cx="100" cy="100" r="43.2" fill="none" stroke="#DDE3EA" stroke-width="1"></circle>
+          <circle cx="100" cy="100" r="28.8" fill="none" stroke="#DDE3EA" stroke-width="1"></circle>
+          <circle cx="100" cy="100" r="14.4" fill="none" stroke="#DDE3EA" stroke-width="1"></circle>
+          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+            <line x1="100" y1="100" x2="{{ a.ex }}" y2="{{ a.ey }}" stroke="#C9D1DC" stroke-width="1"></line>
+          </sc-for>
+          <polygon points="{{ importancePoints }}" fill="rgba(229,27,63,.08)" stroke="#E51B3F" stroke-width="2" stroke-dasharray="5 4" stroke-linejoin="round"></polygon>
+          <polygon points="{{ satisfactionPoints }}" fill="rgba(91,200,224,.42)" stroke="#1C2B4B" stroke-width="2" stroke-linejoin="round"></polygon>
+          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+            <circle cx="{{ a.sx }}" cy="{{ a.sy }}" r="3" fill="#1C2B4B"></circle>
+            <circle cx="{{ a.ix }}" cy="{{ a.iy }}" r="2.8" fill="#E51B3F"></circle>
+          </sc-for>
+        </svg>
+        <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none">
+          <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+            <span style="position:absolute;left:{{ a.labelLeft }}%;top:{{ a.labelTop }}%;transform:translate(-50%,-50%);width:7.5mm;height:7.5mm;border-radius:50%;background:#1C2B4B;color:#fff;display:grid;place-items:center;font:800 9pt 'Montserrat',Arial,sans-serif;box-shadow:0 0 0 1.5px #fff,0 0 0 2.5px #C9D1DC">{{ a.number }}</span>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;gap:5mm;align-items:center;font:700 7.5pt 'Montserrat',Arial,sans-serif;color:#4B5566">
+        <span style="display:flex;gap:1.5mm;align-items:center"><span style="width:8mm;height:2mm;background:#1C2B4B;display:inline-block"></span>Satisfaction</span>
+        <span style="display:flex;gap:1.5mm;align-items:center"><span style="width:8mm;border-top:2px dashed #E51B3F;display:inline-block"></span>Importance</span>
+      </div>
+      <p style="margin:0;text-align:center;font-size:8pt;line-height:1.4;color:#4B5566">The dark numbered markers match the numbered areas beside the sliders.</p>
+    </div>
+
+    <div class="wheel-controls" style="display:flex;flex-direction:column;gap:2mm;max-height:166mm;overflow:auto;padding-right:1mm">
+      <sc-for list="{{ areas }}" as="a" hint-placeholder-count="4">
+        <div class="wheel-row">
+          <div class="wheel-row-head">
+            <span style="width:7mm;height:7mm;border-radius:50%;background:#1C2B4B;color:#fff;display:grid;place-items:center;font:800 8.5pt 'Montserrat',Arial,sans-serif">{{ a.number }}</span>
+            <label><span class="acsis-visually-hidden">Area {{ a.number }} heading</span><input type="text" value="{{ a.label }}" onChange="{{ a.onLabel }}" aria-label="Area {{ a.number }} heading" placeholder="Name this area" style="width:100%;border:0;border-bottom:1px dashed #9AA5B4;background:transparent;padding:1mm 0;font:700 9.5pt 'Montserrat',Arial,sans-serif;color:#1C2B4B"></label>
+            <sc-if value="{{ a.canRemove }}"><button type="button" class="remove-area" onClick="{{ a.onRemove }}" aria-label="Remove area {{ a.number }}">Remove</button></sc-if>
+          </div>
+          <div class="wheel-sliders">
+            <div class="wheel-slider"><label>Satisfaction</label><input type="range" min="1" max="10" step="1" value="{{ a.satisfaction }}" onChange="{{ a.onSatisfaction }}" aria-label="Satisfaction score for area {{ a.number }}"><output>{{ a.satisfaction }}</output></div>
+            <div class="wheel-slider"><label>Importance</label><input type="range" min="1" max="10" step="1" value="{{ a.importance }}" onChange="{{ a.onImportance }}" aria-label="Importance score for area {{ a.number }}"><output style="color:#E51B3F">{{ a.importance }}</output></div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2mm;font:600 8pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">
+    <span>Page 1 · Build and score your wheel</span><span>www.acsis.co.uk</span>
+  </footer>
+</section>
+
+<section data-screen-label="Wheel of Life reflection" class="wheel-page">
+  <header style="display:flex;justify-content:space-between;align-items:flex-start;gap:8mm">
+    <div style="display:flex;flex-direction:column;gap:2mm">
+      <div style="font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#E51B3F">Wheel of Life · Reflection</div>
+      <h2 style="margin:0;font:800 22pt/1.05 'Montserrat',Arial,sans-serif;color:#1C2B4B">What is the wheel telling you?</h2>
+      <p style="margin:0;font-size:9.5pt;line-height:1.45;max-width:125mm">There is no perfect shape and no correct score. Use the wheel to notice what matters, what is working, and where one small change could help.</p>
+    </div>
+    <img src="../assets/acsis-logo.png" alt="ACSIS Life Coaching" style="height:13mm;width:auto;margin-top:1mm">
+  </header>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm">
+    <div style="display:flex;flex-direction:column;gap:1.5mm"><label style="font:700 9.5pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">What stands out when you compare the two shapes?</label><textarea value="{{ v.q1 }}" onChange="{{ set.q1 }}" aria-label="What stands out when you compare the two shapes" placeholder="Gaps, surprises, areas that feel steady..." style="width:100%;min-height:34mm;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#FAFBFD;resize:none"></textarea></div>
+    <div style="display:flex;flex-direction:column;gap:1.5mm"><label style="font:700 9.5pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">Where is the biggest gap between importance and satisfaction?</label><textarea value="{{ v.q2 }}" onChange="{{ set.q2 }}" aria-label="Biggest gap between importance and satisfaction" placeholder="Name the area and what the gap means to you..." style="width:100%;min-height:34mm;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#FAFBFD;resize:none"></textarea></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm">
+    <div style="display:flex;flex-direction:column;gap:1.5mm"><label style="font:700 9.5pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">Which area feels most useful to focus on now, and why?</label><textarea value="{{ v.q3 }}" onChange="{{ set.q3 }}" aria-label="Area to focus on now" placeholder="It may not be the lowest score..." style="width:100%;min-height:34mm;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#FAFBFD;resize:none"></textarea></div>
+    <div style="display:flex;flex-direction:column;gap:1.5mm"><label style="font:700 9.5pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">What is already helping in that area?</label><textarea value="{{ v.q4 }}" onChange="{{ set.q4 }}" aria-label="What is already helping" placeholder="People, habits, strengths, resources..." style="width:100%;min-height:34mm;border:1px solid #C9D1DC;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#FAFBFD;resize:none"></textarea></div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:1.5mm"><label style="font:700 10pt 'Montserrat',Arial,sans-serif;color:#1C2B4B">What small change could move satisfaction up by one point?</label><textarea value="{{ v.q5 }}" onChange="{{ set.q5 }}" aria-label="Small change to raise satisfaction" placeholder="Choose something small enough to begin this week..." style="width:100%;min-height:29mm;border:1.5px solid #1C2B4B;border-radius:2.5mm;padding:2.5mm 3mm;font:10pt/1.5 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none"></textarea></div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:auto">
+    <div style="display:flex;flex-direction:column;gap:1.5mm"><label style="font:700 8pt/1.35 'Montserrat',Arial,sans-serif;letter-spacing:.01em;color:#7A8394">Notes you want to share with your coach for the next session</label><textarea value="{{ v.coach }}" onChange="{{ set.coach }}" aria-label="Notes you want to share with your coach for the next session" placeholder="Add anything you would like your coach to read before your next session." style="width:100%;min-height:18mm;border:1px dashed #B9C2CE;border-radius:2.5mm;padding:2mm 3mm;font:9.5pt/1.45 'Libre Franklin',Arial,sans-serif;color:#22283A;background:#fff;resize:none"></textarea></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3mm;align-content:end">
+      <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Name<input type="text" value="{{ v.name }}" onChange="{{ set.name }}" aria-label="Name" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',Arial,sans-serif;color:#22283A;background:transparent;width:100%"></label>
+      <label style="display:flex;flex-direction:column;gap:1mm;font:700 7.5pt 'Montserrat',Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#7A8394">Date<input type="text" value="{{ v.date }}" onChange="{{ set.date }}" aria-label="Date" style="border:0;border-bottom:1.5px solid #1C2B4B;padding:1.5mm 0;font:10.5pt 'Libre Franklin',Arial,sans-serif;color:#22283A;background:transparent;width:100%"></label>
+      <p style="grid-column:1/-1;margin:1mm 0 0;font-size:8.5pt;color:#4B5566;line-height:1.4">Revisit the wheel after 60 to 90 days. Score it again before looking back at this version.</p>
+    </div>
+  </div>
+  <footer style="display:flex;justify-content:space-between;align-items:center;border-top:1.5px solid #1C2B4B;padding-top:2.5mm;font:600 8pt 'Montserrat',Arial,sans-serif;color:#1C2B4B"><span style="display:flex;gap:2mm;align-items:center"><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#1C2B4B;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#E51B3F;display:inline-block"></span><span style="width:5mm;height:1.6mm;border-radius:1mm;background:#5BC8E0;display:inline-block"></span><span style="margin-left:2mm">Clarity · Courage · Connection</span></span><span>www.acsis.co.uk</span></footer>
+</section>
+</doc-page>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  constructor(p){
+    super(p);
+    this.key='acsis-wheel-of-life-v5';
+    this.suggested=['Career','Money','Health','Family & Friends','Relationships','Personal Growth','Fun & Leisure','Home & Environment'];
+    let saved={};
+    try{ saved=JSON.parse(localStorage.getItem(this.key)||'{}') }catch(e){}
+    if(!Array.isArray(saved.areas)){
+      let legacy={};
+      try{ legacy=JSON.parse(localStorage.getItem('acsis-wheel-of-life')||'{}') }catch(e){}
+      const hasLegacy=Object.keys(legacy).some(k=>/^l[0-7]$/.test(k)||/^s[0-7]$/.test(k));
+      saved.areas=hasLegacy
+        ? this.suggested.map((label,i)=>({id:'legacy'+i,label:legacy['l'+i]||label,satisfaction:Number(legacy['s'+i])||5,importance:5}))
+        : this.customAreas();
+    }
+    this.state={v:saved};
+    this._h={};
+    this.set=new Proxy({},{get:(_,k)=>this._h[k]||(this._h[k]=(e)=>{
+      const t=e.target;
+      const val=t.type==='checkbox'?t.checked:t.value;
+      this.update(v=>({...v,[k]:val}));
+    })});
+  }
+  customAreas(){ return Array.from({length:4},(_,i)=>({id:'custom'+i,label:'Area '+(i+1),satisfaction:5,importance:5})); }
+  suggestedAreas(){ return this.suggested.map((label,i)=>({id:'suggested'+i,label,satisfaction:5,importance:5})); }
+  val(k){ const x=this.state.v[k]; return x===undefined||x===null?'':x; }
+  update(make){
+    this.setState(st=>{
+      const v=make(st.v);
+      try{ localStorage.setItem(this.key,JSON.stringify(v)) }catch(e){}
+      return {v};
+    });
+  }
+  replaceAreas(areas,message){
+    if(confirm(message)) this.update(v=>({...v,areas}));
+  }
+  renderVals(){
+    const v=new Proxy({},{get:(_,k)=>this.val(k)});
+    const source=Array.isArray(this.state.v.areas)?this.state.v.areas:this.customAreas();
+    const n=Math.max(4,source.length),R=72,C=100;
+    const areas=source.map((area,i)=>{
+      const angle=-Math.PI/2+i*2*Math.PI/n;
+      const cos=Math.cos(angle),sin=Math.sin(angle);
+      const satisfaction=Math.min(10,Math.max(1,Number(area.satisfaction)||1));
+      const importance=Math.min(10,Math.max(1,Number(area.importance)||1));
+      const updateField=field=>(e)=>{
+        const value=field==='label'?e.target.value:Number(e.target.value);
+        this.update(current=>({...current,areas:current.areas.map(x=>x.id===area.id?{...x,[field]:value}:x)}));
+      };
+      return {
+        ...area,
+        number:i+1,
+        satisfaction,
+        importance,
+        ex:C+R*cos,
+        ey:C+R*sin,
+        sx:C+R*satisfaction/10*cos,
+        sy:C+R*satisfaction/10*sin,
+        ix:C+R*importance/10*cos,
+        iy:C+R*importance/10*sin,
+        labelLeft:((C+(R+17)*cos)/2).toFixed(2),
+        labelTop:((C+(R+17)*sin)/2).toFixed(2),
+        canRemove:source.length>4,
+        onLabel:updateField('label'),
+        onSatisfaction:updateField('satisfaction'),
+        onImportance:updateField('importance'),
+        onRemove:()=>this.update(current=>({...current,areas:current.areas.filter(x=>x.id!==area.id)}))
+      };
+    });
+    const points=field=>areas.map(a=>a[field+'x'].toFixed(1)+','+a[field+'y'].toFixed(1)).join(' ');
+    return {
+      v,
+      set:this.set,
+      areas,
+      satisfactionPoints:points('s'),
+      importancePoints:points('i'),
+      areaCount:areas.length,
+      addDisabled:areas.length>=12,
+      addArea:()=>{
+        if(areas.length>=12) return;
+        this.update(current=>({...current,areas:[...current.areas,{id:'area'+Date.now().toString(36),label:'Area '+(current.areas.length+1),satisfaction:5,importance:5}]}));
+      },
+      useCustom:()=>this.replaceAreas(this.customAreas(),'Start a new four-area custom wheel? This will replace the current wheel scores and headings.'),
+      useSuggested:()=>this.replaceAreas(this.suggestedAreas(),'Use the eight suggested areas? This will replace the current wheel scores and headings.'),
+      print:()=>window.print(),
+      clear:()=>{
+        if(confirm('Clear all your answers on this Wheel of Life?')){
+          try{ localStorage.removeItem(this.key) }catch(e){}
+          this.setState({v:{areas:this.customAreas()}});
+        }
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
