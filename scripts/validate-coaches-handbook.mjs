@@ -15,8 +15,8 @@ const assert = (condition, message) => {
 
 assert((toolbox.match(/class="tool-card"/g) || []).length === 31, 'toolbox has 31 tool cards');
 assert((catalogue.match(/"href":/g) || []).length === 31, 'shared catalogue has 31 tool links');
-assert(handbook.includes('2026-09-27-v19-inline-tools'), 'handbook has the V19 build marker');
-assert(handbook.includes('assets/acsis-logo-white.png'), 'handbook uses the supplied visible white ACSIS logo');
+assert(handbook.includes('2026-09-27-v20-correct-logo'), 'handbook has the V20 build marker');
+assert(handbook.includes('assets/acsis-logo-03.png'), 'handbook uses the supplied ACSIS PNG-03 wordmark');
 assert(!handbook.includes('Private by design.'), 'requested privacy banner text is removed');
 assert(handbook.includes("connect-src 'none'"), 'handbook blocks all data connections');
 assert(!handbook.includes('fonts.googleapis.com'), 'handbook does not load Google Fonts');

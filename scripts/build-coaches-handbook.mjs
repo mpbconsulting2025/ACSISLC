@@ -41,8 +41,8 @@ function verifyHandbook(cards) {
   const handbook = fs.readFileSync(handbookPath, 'utf8');
   const support = fs.readFileSync(supportPath, 'utf8');
 
-  requireText(handbook, '2026-09-27-v19-inline-tools', 'The V19 build marker is missing');
-  requireText(handbook, 'assets/acsis-logo-white.png', 'The visible ACSIS header logo is missing');
+  requireText(handbook, '2026-09-27-v20-correct-logo', 'The V20 build marker is missing');
+  requireText(handbook, 'assets/acsis-logo-03.png', 'The supplied ACSIS wordmark is missing');
   requireText(handbook, '<textarea name="outcomeNotes"', 'Outcome notes must use an expanding textarea');
   requireText(handbook, '<strong>Practical tools bank</strong>', 'The original practical tools bank is missing');
   requireText(handbook, 'id="activeToolExercises"', 'The inline exercise output area is missing');
@@ -58,4 +58,4 @@ function verifyHandbook(cards) {
 
 const cards = buildCatalogue();
 verifyHandbook(cards);
-console.log(`Verified the V19 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);
+console.log(`Verified the V20 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);
