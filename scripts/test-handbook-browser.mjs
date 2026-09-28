@@ -85,8 +85,8 @@ await page.pdf({
   path: `${pdfDir}/acsis-handbook-output.pdf`,
   format: 'A4',
   printBackground: true,
-    displayHeaderFooter: true,
-margin: { top: '15mm', right: '13mm', bottom: '15mm', left: '13mm' }
+  displayHeaderFooter: true,
+  margin: { top: '15mm', right: '13mm', bottom: '15mm', left: '13mm' }
 });
 const pdf = await getDocument({ data: new Uint8Array(fs.readFileSync(`${pdfDir}/acsis-handbook-output.pdf`)), disableWorker: true }).promise;
 assert(pdf.numPages === 3, `session output PDF should be 3 pages, found ${pdf.numPages}`);
