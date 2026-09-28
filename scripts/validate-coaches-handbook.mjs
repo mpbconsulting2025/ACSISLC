@@ -33,6 +33,9 @@ assert(handbook.includes('<textarea name="outcomeNotes"'), 'outcome notes use an
 assert(handbook.includes('height:238mm!important'), 'embedded exercise PDF output fits one page');
 assert(handbook.includes("type:'acsis-handbook-height'"), 'handbook reports its height to the Wix wrapper');
 assert(wixEmbed.includes("customElements.define('acsis-coaches-handbook'"), 'Wix custom element is registered');
+assert(handbook.includes('@bottom-left{content:""}'), 'print CSS does not suppress the browser URL footer');
+assert(handbook.includes('prepareEmbeddedToolPrint()'), 'embedded tool footer URLs are not removed for handbook PDF output');
+assert(wixEmbed.includes('coaches-handbook/?embed=1&v=23'), 'Wix wrapper is not using the current handbook cache version');
 assert(wixEmbed.includes("event.data?.type !== 'acsis-handbook-height'"), 'Wix wrapper listens only for handbook height messages');
 assert(!wixEmbed.includes('localStorage'), 'Wix wrapper does not access client browser storage');
 assert(support.includes('zoom:.8!important'), 'embedded worksheet print scale is present');
