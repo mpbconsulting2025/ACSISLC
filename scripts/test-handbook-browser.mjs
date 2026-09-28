@@ -85,12 +85,21 @@ await page.pdf({
   path: `${pdfDir}/acsis-handbook-output.pdf`,
   format: 'A4',
   printBackground: true,
-  margin: { top: '15mm', right: '13mm', bottom: '15mm', left: '13mm' }
+    displayHeaderFooter: true,
+margin: { top: '15mm', right: '13mm', bottom: '15mm', left: '13mm' }
 });
 const pdf = await getDocument({ data: new Uint8Array(fs.readFileSync(`${pdfDir}/acsis-handbook-output.pdf`)), disableWorker: true }).promise;
 assert(pdf.numPages === 3, `session output PDF should be 3 pages, found ${pdf.numPages}`);
-const finalPageText = (await (await pdf.getPage(3)).getTextContent()).items.map((item) => item.str).join(' ');
+const pdfPageTexts = [];
+for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
+  const text = (await (await pdf.getPage(pageNumber)).getTextContent()).items.map((item) => item.str).join(' ');
+  pdfPageTexts.push(text);
+}
+const finalPageText = pdfPageTexts.at(-1);
+const completePdfText = pdfPageTexts.join(' ');
 assert(finalPageText.includes('WOOP') && finalPageText.includes('weekly wellbeing'), 'selected worksheet content is missing from the final PDF page');
+assert(!/https?:\/\//i.test(completePdfText), 'browser page URL is present in the handbook PDF');
+assert(!/www\.acsis\.co\.uk/i.test(completePdfText), 'ACSIS website URL is present in the handbook PDF');
 await page.emulateMedia({ media: 'screen' });
 
 for (const width of [390, 768, 1280]) {
