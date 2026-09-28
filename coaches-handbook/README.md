@@ -26,8 +26,8 @@ Use a Wix **Custom Element** so the Wix page can grow and shrink with the active
 
 The custom element loads:
 
-`https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1&v=22`
 `https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1&v=23`
+
 The handbook sends only its current pixel height to the Wix wrapper. Client and session content is never included in that message and remains in the handbook's local browser storage.
 
 ## Shared coaching tools
