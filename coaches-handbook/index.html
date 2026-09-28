@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="description" content="ACSIS Coaches Handbook with browser-only private saving and PDF export"/>
 <meta name="referrer" content="no-referrer"/>
-<meta name="acsis-build" content="2026-09-27-v20-correct-logo"/>
+<meta name="acsis-build" content="2026-09-27-v21-responsive-wix"/>
 <link rel="icon" href="data:,"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"/>
 <title>ACSIS Coaches Handbook</title>
@@ -1578,6 +1578,43 @@ document.documentElement.classList.toggle('is-embedded',new URLSearchParams(loca
     const pillar=document.createElement('span');pillar.textContent=tool.pillar;
     link.append(name,description,pillar);host.appendChild(link);
   });
+})();
+</script>
+<script>
+(function reportResponsiveEmbedHeight(){
+  const embedded=new URLSearchParams(location.search).get('embed')==='1';
+  if(!embedded||window.parent===window)return;
+  let targetOrigin='*';
+  try{
+    const parentUrl=new URL(document.referrer);
+    if(parentUrl.protocol==='https:'||parentUrl.protocol==='http:')targetOrigin=parentUrl.origin;
+  }catch(error){}
+  let lastHeight=0;
+  let pendingFrame=0;
+  function reportHeight(){
+    pendingFrame=0;
+    const main=document.querySelector('main.wrap');
+    const height=Math.ceil(main
+      ? main.getBoundingClientRect().bottom+window.scrollY
+      : Math.max(...[...document.body.children].map(element=>element.getBoundingClientRect().bottom+window.scrollY),0));
+    if(!height||Math.abs(height-lastHeight)<2)return;
+    lastHeight=height;
+    window.parent.postMessage({type:'acsis-handbook-height',height,build:'2026-09-27-v21-responsive-wix'},targetOrigin);
+  }
+  function queueHeightReport(){
+    if(pendingFrame)return;
+    pendingFrame=requestAnimationFrame(()=>requestAnimationFrame(reportHeight));
+  }
+  window.addEventListener('load',queueHeightReport);
+  window.addEventListener('resize',queueHeightReport);
+  document.addEventListener('input',queueHeightReport,true);
+  document.addEventListener('change',queueHeightReport,true);
+  document.addEventListener('toggle',queueHeightReport,true);
+  new ResizeObserver(queueHeightReport).observe(document.documentElement);
+  new MutationObserver(queueHeightReport).observe(document.body,{subtree:true,childList:true,attributes:true});
+  queueHeightReport();
+  setTimeout(queueHeightReport,250);
+  setTimeout(queueHeightReport,1000);
 })();
 </script>
 </body></html>

@@ -41,7 +41,7 @@ function verifyHandbook(cards) {
   const handbook = fs.readFileSync(handbookPath, 'utf8');
   const support = fs.readFileSync(supportPath, 'utf8');
 
-  requireText(handbook, '2026-09-27-v20-correct-logo', 'The V20 build marker is missing');
+  requireText(handbook, '2026-09-27-v21-responsive-wix', 'The V21 build marker is missing');
   requireText(handbook, 'assets/acsis-logo-03.png', 'The supplied ACSIS wordmark is missing');
   requireText(handbook, '<textarea name="outcomeNotes"', 'Outcome notes must use an expanding textarea');
   requireText(handbook, '<strong>Practical tools bank</strong>', 'The original practical tools bank is missing');
@@ -50,6 +50,7 @@ function verifyHandbook(cards) {
   requireText(handbook, '?embed=handbook&tool=', 'Embedded exercises are not using handbook mode');
   requireText(handbook, 'toolboxTools:', 'Selected exercises are not saved with the handbook draft');
   requireText(handbook, 'height:238mm!important', 'The one-page exercise PDF sizing is missing');
+  requireText(handbook, "type:'acsis-handbook-height'", 'The responsive Wix height message is missing');
   requireText(support, "params.get('embed') !== 'handbook'", 'The toolbox embed helper is missing');
   requireText(support, 'zoom:.8!important', 'The embedded exercise print scale is missing');
   if (handbook.includes('Private by design.')) throw new Error('The removed privacy notice is still present');
@@ -58,4 +59,4 @@ function verifyHandbook(cards) {
 
 const cards = buildCatalogue();
 verifyHandbook(cards);
-console.log(`Verified the V20 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);
+console.log(`Verified the V21 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);

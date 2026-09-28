@@ -17,11 +17,18 @@ If a device is shared, export the required PDF and then use **Clear** before lea
 
 ## Wix embed
 
-Use the standard Wix **Embed a site** element with this address:
+Use a Wix **Custom Element** so the Wix page can grow and shrink with the active handbook tab and any coaching exercises opened by the coach.
 
-`https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1`
+- Server URL: `https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/wix-handbook-embed.js?v=21`
+- Tag name: `acsis-coaches-handbook`
+- Stretch the element to the full available width on desktop and mobile.
+- Do not add a second mobile launcher. The same responsive handbook is used at both Wix breakpoints.
 
-Set the embed to the full available width. Start with a height of 1,200 pixels and enable scrolling. The handbook is responsive and has its own tab navigation.
+The custom element loads:
+
+`https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1&v=21`
+
+The handbook sends only its current pixel height to the Wix wrapper. Client and session content is never included in that message and remains in the handbook's local browser storage.
 
 ## Shared coaching tools
 

@@ -102,6 +102,41 @@ for (const width of [390, 768, 1280]) {
 await page.evaluate(() => localStorage.removeItem('acsis-coaches-handbook-v17-browser-only'));
 await page.evaluate(() => localStorage.removeItem('acsis-woop'));
 
+const embedPage = await context.newPage();
+embedPage.on('console', (message) => {
+  if (message.type() === 'error') errors.push(`Wix embed: ${message.text()}`);
+});
+embedPage.on('pageerror', (error) => errors.push(`Wix embed: ${error.message}`));
+embedPage.on('request', (request) => {
+  const url = new URL(request.url());
+  if (!['127.0.0.1', 'localhost'].includes(url.hostname)) externalRequests.push(request.url());
+});
+await embedPage.goto(baseUrl, { waitUntil: 'domcontentloaded' });
+await embedPage.setContent(`
+  <!doctype html>
+  <html><body style="margin:0">
+    <script src="${baseUrl}/coaches-handbook/wix-handbook-embed.js"></script>
+    <acsis-coaches-handbook handbook-url="${baseUrl}/coaches-handbook/?embed=1"></acsis-coaches-handbook>
+  </body></html>
+`, { waitUntil: 'networkidle' });
+const customElement = embedPage.locator('acsis-coaches-handbook');
+await embedPage.waitForFunction(() => {
+  const element = document.querySelector('acsis-coaches-handbook');
+  return element && parseInt(getComputedStyle(element).height, 10) > 1200;
+});
+const initialEmbedHeight = await customElement.evaluate((element) => parseInt(getComputedStyle(element).height, 10));
+const embeddedHandbookFrame = embedPage.frames().find((frame) => frame.url().includes('/coaches-handbook/?embed=1'));
+assert(embeddedHandbookFrame, 'responsive Wix wrapper did not load the handbook');
+await embeddedHandbookFrame.getByRole('button', { name: /Session Output/ }).click();
+await embedPage.waitForTimeout(350);
+const outputEmbedHeight = await customElement.evaluate((element) => parseInt(getComputedStyle(element).height, 10));
+assert(outputEmbedHeight !== initialEmbedHeight, `Wix wrapper did not follow the active handbook tab height (${initialEmbedHeight}px to ${outputEmbedHeight}px)`);
+await embeddedHandbookFrame.getByRole('button', { name: /^WOOP / }).click();
+await embedPage.waitForTimeout(900);
+const exerciseEmbedHeight = await customElement.evaluate((element) => parseInt(getComputedStyle(element).height, 10));
+assert(exerciseEmbedHeight > outputEmbedHeight, 'Wix wrapper did not expand for an opened coaching exercise');
+assert(await customElement.evaluate((element) => !element.shadowRoot.querySelector('iframe').hasAttribute('srcdoc')), 'Wix wrapper unexpectedly stores handbook content');
+
 const toolboxPage = await context.newPage();
 toolboxPage.on('console', (message) => {
   if (message.type() === 'error') errors.push(`Toolbox: ${message.text()}`);
@@ -140,6 +175,7 @@ console.log(JSON.stringify({
   originalPracticalBank: 'passed',
   pdfPages: pdf.numPages,
   responsiveWidths: [390, 768, 1280],
+  wixResponsiveHeights: [initialEmbedHeight, outputEmbedHeight, exerciseEmbedHeight],
   externalRequests,
   errors,
   pdf: `${pdfDir}/acsis-handbook-output.pdf`
