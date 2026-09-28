@@ -1,4 +1,4 @@
-const ACSIS_HANDBOOK_URL = 'https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1&v=21';
+const ACSIS_HANDBOOK_URL = 'https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1&v=22';
 class AcsisCoachesHandbook extends HTMLElement {
   constructor() {
     super();
@@ -46,7 +46,8 @@ class AcsisCoachesHandbook extends HTMLElement {
 
   handleMessage(event) {
     const handbookOrigin = new URL(this.frame.src).origin;
-    if (event.origin !== handbookOrigin || event.source !== this.frame?.contentWindow) return;
+    const originMatches = event.origin === handbookOrigin || event.origin === 'null';
+    if (!originMatches || event.source !== this.frame?.contentWindow) return;
     if (event.data?.type !== 'acsis-handbook-height') return;
     const requestedHeight = Number(event.data.height);
     if (!Number.isFinite(requestedHeight)) return;
