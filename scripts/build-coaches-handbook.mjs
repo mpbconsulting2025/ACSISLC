@@ -41,15 +41,17 @@ function verifyHandbook(cards) {
   const handbook = fs.readFileSync(handbookPath, 'utf8');
   const support = fs.readFileSync(supportPath, 'utf8');
 
-  requireText(handbook, '2026-09-27-v21-responsive-wix', 'The V21 build marker is missing');
+  requireText(handbook, '2026-09-29-v24-multipage-pdf', 'The V24 build marker is missing');
   requireText(handbook, 'assets/acsis-logo-03.png', 'The supplied ACSIS wordmark is missing');
+  requireText(handbook, '../coaching-tools/assets/acsis-logo.png', 'The full-colour PDF logo is missing');
   requireText(handbook, '<textarea name="outcomeNotes"', 'Outcome notes must use an expanding textarea');
   requireText(handbook, '<strong>Practical tools bank</strong>', 'The original practical tools bank is missing');
   requireText(handbook, 'id="activeToolExercises"', 'The inline exercise output area is missing');
   requireText(handbook, "className='embedded-tool-frame'", 'Toolbox exercises are not configured to open inside the handbook');
   requireText(handbook, '?embed=handbook&tool=', 'Embedded exercises are not using handbook mode');
   requireText(handbook, 'toolboxTools:', 'Selected exercises are not saved with the handbook draft');
-  requireText(handbook, 'height:238mm!important', 'The one-page exercise PDF sizing is missing');
+  requireText(handbook, 'prepareEmbeddedToolPrintPages', 'The multi-page exercise PDF preparation is missing');
+  requireText(handbook, 'embedded-tool-print-page', 'The exercise PDF page container is missing');
   requireText(handbook, "type:'acsis-handbook-height'", 'The responsive Wix height message is missing');
   requireText(support, "params.get('embed') !== 'handbook'", 'The toolbox embed helper is missing');
   requireText(support, 'zoom:.8!important', 'The embedded exercise print scale is missing');
@@ -59,4 +61,4 @@ function verifyHandbook(cards) {
 
 const cards = buildCatalogue();
 verifyHandbook(cards);
-console.log(`Verified the V21 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);
+console.log(`Verified the V24 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);
