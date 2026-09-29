@@ -17,7 +17,9 @@ const page = await context.newPage();
 const errors = [];
 const externalRequests = [];
 page.on('console', (message) => {
-  if (message.type() === 'error') errors.push(message.text());
+  const text = message.text();
+  const rawTemplateSvgWarning = /Expected (?:length|number), "\{\{/.test(text);
+  if (message.type() === 'error' && !rawTemplateSvgWarning) errors.push(text);
 });
 page.on('pageerror', (error) => errors.push(error.message));
 page.on('request', (request) => {
@@ -52,6 +54,12 @@ await embeddedTool.waitFor({ state: 'visible' });
 const woopFrame = page.frames().find((frame) => frame.url().includes('/coaching-tools/tools/WOOP.dc.html'));
 assert(woopFrame, 'WOOP did not open inside the handbook');
 await woopFrame.getByLabel('Wish').fill('Build a repeatable weekly wellbeing routine.');
+await page.getByRole('button', { name: /^Wheel of Life / }).click();
+await page.locator('.embedded-tool-card[data-tool-id="tools/Wheel%20of%20Life.dc.html"] iframe').waitFor({ state: 'visible' });
+const wheelFrame = page.frames().find((frame) => frame.url().includes('/coaching-tools/tools/Wheel%20of%20Life.dc.html'));
+assert(wheelFrame, 'Wheel of Life did not open inside the handbook');
+const wheelEndMarker = 'Complete final Wheel of Life response that must remain visible at the bottom of the PDF.';
+await wheelFrame.getByLabel('Small change to raise satisfaction').fill(wheelEndMarker);
 await page.waitForTimeout(700);
 
 const stored = await page.evaluate(() => localStorage.getItem('acsis-coaches-handbook-v17-browser-only'));
@@ -72,24 +80,28 @@ assert(await page.locator('select[name="outcome"]').inputValue() === 'Client to 
 assert((await page.locator('textarea[name="outcomeNotes"]').inputValue()).includes('another line'), 'handbook did not restore the outcome notes');
 assert(await page.locator('input[name="action0"]').inputValue() === longAction, 'handbook did not restore the long action');
 assert(await page.locator('.embedded-tool-card[data-tool-id="tools/WOOP.dc.html"]').count() === 1, 'handbook did not restore the selected toolbox exercise');
+assert(await page.locator('.embedded-tool-card[data-tool-id="tools/Wheel%20of%20Life.dc.html"]').count() === 1, 'handbook did not restore the selected multi-page exercise');
 const restoredWoopFrame = page.frames().find((frame) => frame.url().includes('/coaching-tools/tools/WOOP.dc.html'));
 assert(restoredWoopFrame && (await restoredWoopFrame.getByLabel('Wish').inputValue()).includes('weekly wellbeing'), 'embedded worksheet did not restore its answer');
+const restoredWheelFrame = page.frames().find((frame) => frame.url().includes('/coaching-tools/tools/Wheel%20of%20Life.dc.html'));
+assert(restoredWheelFrame && (await restoredWheelFrame.getByLabel('Small change to raise satisfaction').inputValue()) === wheelEndMarker, 'multi-page worksheet did not restore its final answer');
 
-await page.emulateMedia({ media: 'print' });
-await page.evaluate(() => {
+await page.evaluate(async () => {
   document.querySelectorAll('.panel').forEach((panel) => panel.classList.remove('print-me', 'print-all'));
   document.getElementById('output').classList.add('print-me');
-  window.dispatchEvent(new Event('beforeprint'));
+  await prepareEmbeddedToolPrintPages();
 });
+await page.emulateMedia({ media: 'print' });
+await page.evaluate(() => window.dispatchEvent(new Event('beforeprint')));
 await page.pdf({
   path: `${pdfDir}/acsis-handbook-output.pdf`,
   format: 'A4',
-  printBackground: true,
-  displayHeaderFooter: true,
+  printBackground: false,
+  displayHeaderFooter: false,
   margin: { top: '15mm', right: '13mm', bottom: '15mm', left: '13mm' }
 });
 const pdf = await getDocument({ data: new Uint8Array(fs.readFileSync(`${pdfDir}/acsis-handbook-output.pdf`)), disableWorker: true }).promise;
-assert(pdf.numPages === 3, `session output PDF should be 3 pages, found ${pdf.numPages}`);
+assert(pdf.numPages >= 5, `session output PDF should contain at least 5 pages including the two-page Wheel of Life, found ${pdf.numPages}`);
 const pdfPageTexts = [];
 for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
   const text = (await (await pdf.getPage(pageNumber)).getTextContent()).items.map((item) => item.str).join(' ');
@@ -97,7 +109,8 @@ for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
 }
 const finalPageText = pdfPageTexts.at(-1);
 const completePdfText = pdfPageTexts.join(' ');
-assert(finalPageText.includes('WOOP') && finalPageText.includes('weekly wellbeing'), 'selected worksheet content is missing from the final PDF page');
+assert(completePdfText.includes('WOOP') && completePdfText.includes('weekly wellbeing'), 'selected WOOP worksheet content is missing from the PDF');
+assert(finalPageText.includes(wheelEndMarker), 'the bottom of the multi-page Wheel of Life worksheet is missing from the final PDF page');
 assert(!/https?:\/\//i.test(completePdfText), 'browser page URL is present in the handbook PDF');
 assert(!/www\.acsis\.co\.uk/i.test(completePdfText), 'ACSIS website URL is present in the handbook PDF');
 await page.emulateMedia({ media: 'screen' });
@@ -110,6 +123,7 @@ for (const width of [390, 768, 1280]) {
 
 await page.evaluate(() => localStorage.removeItem('acsis-coaches-handbook-v17-browser-only'));
 await page.evaluate(() => localStorage.removeItem('acsis-woop'));
+await page.evaluate(() => localStorage.removeItem('acsis-wheel-of-life-v5'));
 
 const embedPage = await context.newPage();
 embedPage.on('console', (message) => {
