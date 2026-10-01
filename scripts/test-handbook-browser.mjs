@@ -86,6 +86,17 @@ assert(restoredWoopFrame && (await restoredWoopFrame.getByLabel('Wish').inputVal
 const restoredWheelFrame = page.frames().find((frame) => frame.url().includes('/coaching-tools/tools/Wheel%20of%20Life.dc.html'));
 assert(restoredWheelFrame && (await restoredWheelFrame.getByLabel('Small change to raise satisfaction').inputValue()) === wheelEndMarker, 'multi-page worksheet did not restore its final answer');
 
+const directDownloadPromise = page.waitForEvent('download', { timeout: 120000 });
+await page.getByRole('button', { name: 'Export this tab as PDF' }).click();
+const directDownload = await directDownloadPromise;
+const directDownloadPath = `${pdfDir}/acsis-handbook-direct-download.pdf`;
+await directDownload.saveAs(directDownloadPath);
+assert(directDownload.suggestedFilename().endsWith('.pdf'), 'direct export did not suggest a PDF filename');
+assert(fs.statSync(directDownloadPath).size > 50000, 'direct PDF download is unexpectedly small');
+const directPdf = await getDocument({ data: new Uint8Array(fs.readFileSync(directDownloadPath)), disableWorker: true }).promise;
+assert(directPdf.numPages >= 5, `direct session output PDF should contain at least 5 pages, found ${directPdf.numPages}`);
+assert(await page.getByText('PDF downloaded to this device').count() === 1, 'direct export did not confirm the download');
+
 await page.evaluate(async () => {
   document.querySelectorAll('.panel').forEach((panel) => panel.classList.remove('print-me', 'print-all'));
   document.getElementById('output').classList.add('print-me');
@@ -196,12 +207,14 @@ console.log(JSON.stringify({
   worksheetLocalSave: 'passed',
   inlineWorksheet: 'passed',
   originalPracticalBank: 'passed',
+  directDownloadPages: directPdf.numPages,
   pdfPages: pdf.numPages,
   responsiveWidths: [390, 768, 1280],
   wixResponsiveHeights: [initialEmbedHeight, outputEmbedHeight, exerciseEmbedHeight],
   externalRequests,
   errors,
-  pdf: `${pdfDir}/acsis-handbook-output.pdf`
+  pdf: `${pdfDir}/acsis-handbook-output.pdf`,
+  directDownloadPdf: directDownloadPath
 }, null, 2));
 
 await browser.close();

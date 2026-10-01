@@ -16,7 +16,7 @@ const assert = (condition, message) => {
 
 assert((toolbox.match(/class="tool-card"/g) || []).length === 31, 'toolbox has 31 tool cards');
 assert((catalogue.match(/"href":/g) || []).length === 31, 'shared catalogue has 31 tool links');
-assert(handbook.includes('2026-09-27-v21-responsive-wix'), 'handbook has the V21 build marker');
+assert(handbook.includes('2026-09-29-v25-direct-pdf-download'), 'handbook has the V25 build marker');
 assert(handbook.includes('assets/acsis-logo-03.png'), 'handbook uses the supplied ACSIS PNG-03 wordmark');
 assert(!handbook.includes('Private by design.'), 'requested privacy banner text is removed');
 assert(handbook.includes("connect-src 'none'"), 'handbook blocks all data connections');
@@ -33,9 +33,12 @@ assert(handbook.includes('<textarea name="outcomeNotes"'), 'outcome notes use an
 assert(handbook.includes('height:238mm!important'), 'embedded exercise PDF output fits one page');
 assert(handbook.includes("type:'acsis-handbook-height'"), 'handbook reports its height to the Wix wrapper');
 assert(wixEmbed.includes("customElements.define('acsis-coaches-handbook'"), 'Wix custom element is registered');
-assert(handbook.includes('@bottom-left{content:""}'), 'print CSS does not suppress the browser URL footer');
-assert(handbook.includes('prepareEmbeddedToolPrint()'), 'embedded tool footer URLs are not removed for handbook PDF output');
-assert(wixEmbed.includes('coaches-handbook/?embed=1&v=23'), 'Wix wrapper is not using the current handbook cache version');
+assert(handbook.includes('@bottom-left{content:""}'), 'print CSS suppresses the browser URL footer');
+assert(handbook.includes('prepareEmbeddedToolPrint()'), 'embedded tool footer URLs are removed for handbook PDF output');
+assert(handbook.includes('PDF downloaded to this device'), 'handbook confirms the direct PDF download');
+assert(handbook.includes('vendor/html2pdf.bundle.min.js'), 'handbook uses the local PDF renderer');
+assert(fs.existsSync(path.join(root, 'coaches-handbook', 'vendor', 'html2pdf.bundle.min.js')), 'local PDF renderer exists');
+assert(wixEmbed.includes('coaches-handbook/?embed=1&v=25'), 'Wix wrapper uses the current handbook cache version');
 assert(wixEmbed.includes("event.data?.type !== 'acsis-handbook-height'"), 'Wix wrapper listens only for handbook height messages');
 assert(!wixEmbed.includes('localStorage'), 'Wix wrapper does not access client browser storage');
 assert(support.includes('zoom:.8!important'), 'embedded worksheet print scale is present');

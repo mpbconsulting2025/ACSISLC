@@ -41,7 +41,7 @@ function verifyHandbook(cards) {
   const handbook = fs.readFileSync(handbookPath, 'utf8');
   const support = fs.readFileSync(supportPath, 'utf8');
 
-  requireText(handbook, '2026-09-29-v24-multipage-pdf', 'The V24 build marker is missing');
+  requireText(handbook, '2026-09-29-v25-direct-pdf-download', 'The V25 build marker is missing');
   requireText(handbook, 'assets/acsis-logo-03.png', 'The supplied ACSIS wordmark is missing');
   requireText(handbook, '../coaching-tools/assets/acsis-logo.png', 'The full-colour PDF logo is missing');
   requireText(handbook, '<textarea name="outcomeNotes"', 'Outcome notes must use an expanding textarea');
@@ -52,6 +52,9 @@ function verifyHandbook(cards) {
   requireText(handbook, 'toolboxTools:', 'Selected exercises are not saved with the handbook draft');
   requireText(handbook, 'prepareEmbeddedToolPrintPages', 'The multi-page exercise PDF preparation is missing');
   requireText(handbook, 'embedded-tool-print-page', 'The exercise PDF page container is missing');
+  requireText(handbook, 'vendor/html2pdf.bundle.min.js', 'The local PDF renderer is missing');
+  requireText(handbook, 'captureEmbeddedToolPrintFrames', 'The direct exercise PDF capture is missing');
+  requireText(handbook, 'PDF downloaded to this device', 'The direct PDF download confirmation is missing');
   requireText(handbook, "type:'acsis-handbook-height'", 'The responsive Wix height message is missing');
   requireText(support, "params.get('embed') !== 'handbook'", 'The toolbox embed helper is missing');
   requireText(support, 'zoom:.8!important', 'The embedded exercise print scale is missing');
@@ -61,4 +64,4 @@ function verifyHandbook(cards) {
 
 const cards = buildCatalogue();
 verifyHandbook(cards);
-console.log(`Verified the V24 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);
+console.log(`Verified the V25 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);
