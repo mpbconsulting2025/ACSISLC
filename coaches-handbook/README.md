@@ -10,7 +10,8 @@ Live address after GitHub Pages publishes:
 - The handbook has no server save, account sync, analytics, form submission or data API.
 - A restrictive browser policy blocks the handbook from making data connections.
 - Entries do not move to another device or coach automatically.
-- The coach chooses when to export a PDF, save it and email it.
+- The coach chooses when to download a PDF, save it and email it.
+- PDF creation runs entirely in the browser using the bundled local renderer. Session content is not sent to a PDF service.
 - The hosted application files are public. Completed client and session content is not part of those files.
 
 If a device is shared, export the required PDF and then use **Clear** before leaving the device.
@@ -19,14 +20,14 @@ If a device is shared, export the required PDF and then use **Clear** before lea
 
 Use a Wix **Custom Element** so the Wix page can grow and shrink with the active handbook tab and any coaching exercises opened by the coach.
 
-- Server URL: `https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/wix-handbook-embed.js?v=24`
+- Server URL: `https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/wix-handbook-embed.js?v=25`
 - Tag name: `acsis-coaches-handbook`
 - Stretch the element to the full available width on desktop and mobile.
 - Do not add a second mobile launcher. The same responsive handbook is used at both Wix breakpoints.
 
 The custom element loads:
 
-`https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1&v=24`
+`https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1&v=25`
 
 The handbook sends only its current pixel height to the Wix wrapper. Client and session content is never included in that message and remains in the handbook's local browser storage.
 

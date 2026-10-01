@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="description" content="ACSIS Coaches Handbook with browser-only private saving and PDF export"/>
 <meta name="referrer" content="no-referrer"/>
-<meta name="acsis-build" content="2026-09-29-v24-multipage-pdf"/>
+<meta name="acsis-build" content="2026-09-29-v25-direct-pdf-download"/>
 <link rel="icon" href="data:,"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"/>
 <title>ACSIS Coaches Handbook</title>
@@ -1072,6 +1072,8 @@ input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-ca
 .embedded-tool-print-pages{position:fixed;left:-200vw;top:0;width:210mm;height:1px;overflow:hidden;visibility:hidden;pointer-events:none}
 .embedded-tool-print-page{width:100%;height:238mm;overflow:hidden;background:#fff}
 .embedded-tool-print-frame{display:block;width:100%;height:238mm;border:0;background:#fff}
+.pdf-download-stage{position:fixed;left:-200vw;top:0;width:184mm;background:#fff;visibility:hidden;pointer-events:none;z-index:-1}
+.toolbar button[disabled]{cursor:wait;opacity:.62}
 .legacy-models{display:none!important}
 .is-embedded .band{padding-top:18px}
 .main-logo-tile .brand-logo-print{display:none!important}
@@ -1172,6 +1174,7 @@ input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-ca
 <section><div class="sec-head"><h2>Safeguarding report</h2><span class="tag">Complete and email to sam@acsis.co.uk</span></div><div class="card"><div class="card-body"><div class="grid three"><div class="field first"><label>Client</label><input name="sgClient" type="text"/></div><div class="field first"><label>Coach</label><input name="sgCoach" type="text"/></div><div class="field first"><label>Date and time</label><input name="sgDateTime" type="datetime-local"/></div></div><div class="field"><label>Type of concern</label><select name="sgType"><option></option><option>Immediate danger</option><option>Suicide or suicidal thoughts</option><option>Self-harm</option><option>Risk to others</option><option>Child physical abuse</option><option>Child sexual abuse or exploitation</option><option>Child emotional abuse</option><option>Child neglect</option><option>Adult physical abuse</option><option>Adult sexual abuse</option><option>Domestic abuse or coercive control</option><option>Psychological or emotional abuse</option><option>Financial or material abuse</option><option>Neglect or acts of omission</option><option>Discriminatory abuse or hate crime</option><option>Organisational abuse</option><option>Modern slavery or exploitation</option><option>Radicalisation or terrorism risk</option><option>Serious welfare concern</option><option>Outside coaching scope</option><option>Other</option></select></div><div class="field"><label>What was said or observed?</label><textarea name="sgFacts" placeholder="Use the person’s own words where possible. Separate facts, observations and professional concerns." style="min-height:170px"></textarea></div><div class="grid"><div class="field"><label>Immediate risk?</label><select name="sgImmediate"><option></option><option>Yes</option><option>No</option><option>Unclear</option></select></div><div class="field"><label>Client location, if relevant</label><input name="sgLocation" type="text"/></div></div><div class="field"><label>Questions asked and responses</label><textarea name="sgQuestions"></textarea></div><div class="field"><label>Immediate and onward action taken</label><textarea name="sgAction" placeholder="Include emergency services, NHS 111, local authority, police, Prevent, signposting, safety planning or referral."></textarea></div><div class="grid"><div class="field"><label>Safeguarding Lead notified?</label><select name="sgLead"><option></option><option>Yes</option><option>No</option></select></div><div class="field"><label>Date and time Sam was notified</label><input name="sgWhen" type="datetime-local"/></div></div><div class="field"><label>Other people or agencies informed</label><textarea name="sgInformed"></textarea></div><div class="field"><label>Follow-up required, owner and date</label><textarea name="sgFollow"></textarea></div><div class="grid"><div class="field"><label>Report completed by</label><input name="sgCompleted" type="text"/></div><div class="field"><label>Date completed</label><input name="sgCompletedDate" type="date"/></div></div><div class="email-box"><strong>After completing this report:</strong> export the Safeguarding tab as a PDF and email it securely to <strong>sam@acsis.co.uk</strong>. Keep disclosure to those who need the information to protect the person or others.</div></div></div></section>
 </section><section class="panel" id="offboarding"><div class="notice"><strong>Simple auditable record.</strong> Complete this when a coaching engagement closes, pauses or transfers. Client records should be retained securely for 7 years in line with ACSIS policy.</div><section><div class="sec-head"><h2>Client and engagement details</h2><span class="tag">Key business record</span></div><div class="card"><div class="card-body"><div class="grid three"><div class="field first"><label>Client name</label><input name="obClient" type="text"/></div><div class="field first"><label>Email</label><input name="obEmail" type="email"/></div><div class="field first"><label>Telephone</label><input name="obPhone" type="tel"/></div></div><div class="grid three"><div class="field"><label>Coach</label><input name="obCoach" type="text"/></div><div class="field"><label>Engagement start date</label><input name="obStart" type="date"/></div><div class="field"><label>Engagement end date</label><input name="obEnd" type="date"/></div></div><div class="field"><label>Reason for offboarding</label><select name="obReason"><option></option><option>Coaching completed as planned</option><option>Client chose to end</option><option>Client paused</option><option>Not suitable for coaching</option><option>Referred or signposted elsewhere</option><option>No further contact</option><option>Other</option></select></div></div></div></section><section><div class="sec-head"><h2>Session summary</h2><span class="tag">Add one short line for each session</span></div><table class="session-log-table"><thead><tr><th style="width:18%">Session</th><th style="width:20%">Date</th><th>Short summary of what was covered</th><th class="no-print" style="width:6%"></th></tr></thead><tbody id="offboardSessions"></tbody></table><div class="actions-footer no-print"><button class="btn-add" id="addOffboardSession" type="button"><span class="plus">+</span>Add another session</button></div></section><section><div class="sec-head"><h2>Closure and next steps</h2><span class="tag">What happens now</span></div><div class="card"><div class="card-body"><div class="field first"><label>Overall progress or outcomes</label><textarea name="obOutcome"></textarea></div><div class="field"><label>What is to happen next?</label><textarea name="obNext"></textarea></div><div class="grid"><div class="field"><label>Safeguarding concerns during the engagement?</label><select name="obSafeguarding"><option></option><option>No</option><option>Yes</option></select></div><div class="field"><label>Safeguarding Lead aware?</label><select name="obLeadAware"><option></option><option>Not applicable</option><option>Yes</option><option>No</option></select></div></div><div class="field"><label>Safeguarding reference or brief note</label><textarea name="obSafeguardingNote" placeholder="Do not duplicate sensitive detail. Refer to the separate safeguarding report where possible."></textarea></div><div class="field"><label>Records checked and stored securely</label><select name="obStored"><option></option><option>Yes</option><option>No</option></select></div><div class="record-note">ACSIS policy requires client records to be retained securely for 7 years. Access should be limited to those who need it for safeguarding, supervision, service delivery, legal or audit purposes.</div><div class="email-box"><strong>After completion:</strong> export this tab as a PDF and email it securely to <strong>sam@acsis.co.uk</strong> and <strong>contact@acsis.co.uk</strong>.</div></div></div></section></section><footer class="handbook-footer"><span class="footer-brand"><img alt="ACSIS" src="../coaching-tools/assets/acsis-mark.png"/>ACSIS · Confidential when completed</span><span>Clarity · Courage · Connection · Sustainable coaching</span></footer>
 </main>
+<script src="vendor/html2pdf.bundle.min.js"></script>
 <script>
 const RUNSHEET=[
 {mins:"0 to 3 mins",title:"Welcome and rapport",items:["Warm greeting, light check-in","Checked they are somewhere quiet and able to talk","Explained my role: I will not be giving advice or telling you what to do"],say:"“Hi [Name], thanks for joining me today. How are you arriving into this space right now?”"},
@@ -1496,20 +1499,206 @@ document.addEventListener('click',e=>{if(e.target.closest('.tab,.flow-choice,#ad
 window.addEventListener('load',()=>{const raw=savedDraft();if(!raw){say('Nothing saved yet on this device');return}try{restoreData(JSON.parse(raw));draftCleared=false;say('Saved draft restored from this device')}catch(e){say('The saved draft could not be restored')}});
 window.addEventListener('pagehide',()=>persistDraft(null));
 function resetPrint(){panels.forEach(p=>p.classList.remove('print-me','print-all'))}
+function setPdfExportBusy(busy){
+  document.getElementById('printPage').disabled=busy;
+  document.getElementById('printAll').disabled=busy;
+}
+function collectPrintCss(doc=document){
+  let css='';
+  [...doc.styleSheets].forEach(sheet=>{
+    try{
+      [...sheet.cssRules].forEach(rule=>{
+        if(rule.type===doc.defaultView.CSSRule.MEDIA_RULE&&/\bprint\b/i.test(rule.conditionText||rule.media?.mediaText||'')){
+          css+=[...rule.cssRules].map(child=>child.cssText).join('\n')+'\n';
+        }
+      });
+    }catch(error){}
+  });
+  return css;
+}
+function waitForFramePdfRenderer(frame){
+  if(frame.contentWindow?.html2pdf)return Promise.resolve();
+  return new Promise((resolve,reject)=>{
+    const doc=frame.contentDocument;
+    if(!doc)return reject(new Error('The exercise document is unavailable'));
+    const existing=doc.querySelector('script[data-acsis-pdf-renderer]');
+    const timer=setTimeout(()=>reject(new Error('The local PDF renderer took too long to load')),15000);
+    const finish=()=>{clearTimeout(timer);frame.contentWindow?.html2pdf?resolve():reject(new Error('The local PDF renderer did not load'))};
+    if(existing){existing.addEventListener('load',finish,{once:true});existing.addEventListener('error',finish,{once:true});return}
+    const script=doc.createElement('script');
+    script.src=new URL('vendor/html2pdf.bundle.min.js',location.href).href;
+    script.dataset.acsisPdfRenderer='true';
+    script.addEventListener('load',finish,{once:true});
+    script.addEventListener('error',finish,{once:true});
+    doc.head.appendChild(script);
+  });
+}
+async function captureEmbeddedToolPrintFrames(){
+  const images=[];
+  const frames=[...document.querySelectorAll('.embedded-tool-print-frame')];
+  for(const frame of frames){
+    await waitForEmbeddedToolFrame(frame);
+    await waitForFramePdfRenderer(frame);
+    const doc=frame.contentDocument;
+    const printCss=collectPrintCss(doc);
+    const worker=frame.contentWindow.html2pdf().set({
+      image:{type:'jpeg',quality:.96},
+      html2canvas:{
+        scale:1.35,
+        useCORS:true,
+        backgroundColor:'#fff',
+        logging:false,
+        onclone(clonedDoc){
+          const style=clonedDoc.createElement('style');
+          style.textContent=printCss+'\nhtml,body{margin:0!important;background:#fff!important;overflow:visible!important}.tool-toolbar,.no-print{display:none!important}';
+          clonedDoc.head.appendChild(style);
+        }
+      },
+      jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+    }).from(doc.body,'element').toCanvas();
+    const canvas=await worker.get('canvas');
+    if(!canvas?.width||!canvas?.height)throw new Error('An exercise page could not be rendered');
+    images.push({
+      data:canvas.toDataURL('image/jpeg',.96),
+      width:canvas.width,
+      height:canvas.height
+    });
+  }
+  return images;
+}
+async function capturePracticalToolPages(){
+  const images=[];
+  const printCss=collectPrintCss();
+  const modules=[...document.querySelectorAll('.practical-module.enabled')];
+  for(const module of modules){
+    const worker=window.html2pdf().set({
+      image:{type:'jpeg',quality:.96},
+      html2canvas:{
+        scale:1.45,
+        useCORS:true,
+        backgroundColor:'#fff',
+        logging:false,
+        onclone(clonedDoc){
+          const style=clonedDoc.createElement('style');
+          style.textContent=printCss+'\nhtml,body{margin:0!important;background:#fff!important;overflow:visible!important}.practical-module.enabled{display:block!important;width:100%!important}.output-section{break-inside:auto!important;page-break-inside:auto!important}';
+          clonedDoc.head.appendChild(style);
+        }
+      },
+      jsPDF:{unit:'mm',format:'a4',orientation:'portrait'}
+    }).from(module,'element').toCanvas();
+    const canvas=await worker.get('canvas');
+    if(!canvas?.width||!canvas?.height)throw new Error('A practical tool could not be rendered');
+    images.push({
+      data:canvas.toDataURL('image/jpeg',.96),
+      width:canvas.width,
+      height:canvas.height
+    });
+  }
+  return images;
+}
+function buildPdfDownloadStage(scope){
+  document.getElementById('pdfDownloadStage')?.remove();
+  const stage=document.createElement('div');
+  stage.id='pdfDownloadStage';
+  stage.className='pdf-download-stage';
+  stage.appendChild(document.querySelector('.band').cloneNode(true));
+  const main=document.querySelector('main.wrap').cloneNode(true);
+  main.querySelectorAll('.panel').forEach(panel=>{
+    panel.classList.remove('active','print-me','print-all');
+    if(scope==='all')panel.classList.add('print-all');
+    else if(panel.id===active)panel.classList.add('print-me');
+  });
+  main.querySelectorAll('.embedded-tool-print-pages').forEach(pages=>pages.remove());
+  main.querySelectorAll('.practical-module.enabled').forEach(module=>module.remove());
+  stage.appendChild(main);
+  document.body.appendChild(stage);
+  return stage;
+}
+function appendToolPages(pdf,toolImages){
+  const pageWidth=pdf.internal.pageSize.getWidth();
+  const pageHeight=pdf.internal.pageSize.getHeight();
+  const insetX=13;
+  const insetY=15;
+  const availableWidth=pageWidth-(insetX*2);
+  const availableHeight=pageHeight-(insetY*2);
+  toolImages.forEach(image=>{
+    if(!image?.data||!image.width||!image.height)return;
+    pdf.addPage('a4','portrait');
+    const scale=Math.min(availableWidth/image.width,availableHeight/image.height);
+    const width=image.width*scale;
+    const height=image.height*scale;
+    const x=insetX+((availableWidth-width)/2);
+    const y=insetY+((availableHeight-height)/2);
+    pdf.addImage(image.data,'JPEG',x,y,width,height,undefined,'FAST');
+  });
+}
+function pdfFilename(scope){
+  const label=scope==='all'?'ACSIS-Coaches-Handbook':`ACSIS-${active.replace(/(^|-)([a-z])/g,(_,space,letter)=>`${space}${letter.toUpperCase()}`)}`;
+  const date=new Date().toISOString().slice(0,10);
+  return `${label}-${date}.pdf`;
+}
 async function exportHandbookPdf(scope){
   resetPrint();
   if(scope==='all')panels.forEach(panel=>panel.classList.add('print-all'));
   else document.getElementById(active).classList.add('print-me');
   persistDraft(null);
+  setPdfExportBusy(true);
   try{
-    say('Preparing the complete PDF…');
+    if(typeof window.html2pdf!=='function')throw new Error('The local PDF renderer is unavailable');
+    say('Preparing your PDF download…');
     await prepareEmbeddedToolPrintPages();
-    window.print();
+    document.querySelectorAll('textarea').forEach(grow);
+    preparePrintFields();
+    prepareEmbeddedToolPrint();
+    const practicalImages=await capturePracticalToolPages();
+    const toolImages=await captureEmbeddedToolPrintFrames();
+    const stage=buildPdfDownloadStage(scope);
+    const printCss=collectPrintCss();
+    const hasTools=toolImages.length>0;
+    const filename=pdfFilename(scope);
+    const worker=window.html2pdf().set({
+      margin:[15,13,15,13],
+      filename,
+      image:{type:'jpeg',quality:.96},
+      enableLinks:false,
+      pagebreak:{
+        mode:['css','legacy'],
+        avoid:['.practical-module','.output-section','.card','.guide-block']
+      },
+      html2canvas:{
+        scale:1.45,
+        useCORS:true,
+        backgroundColor:'#fff',
+        logging:false,
+        onclone(clonedDoc){
+          if(hasTools)clonedDoc.body.classList.add('printing-embedded-tools');
+          const style=clonedDoc.createElement('style');
+          style.textContent=printCss+`\n
+            #pdfDownloadStage{display:block!important;position:static!important;left:auto!important;top:auto!important;width:184mm!important;visibility:visible!important;pointer-events:auto!important;background:#fff!important}
+            #pdfDownloadStage main.wrap{max-width:none!important;width:100%!important;padding:0!important}
+            #pdfDownloadStage .practical-module{break-inside:avoid!important;page-break-inside:avoid!important}
+          `;
+          clonedDoc.head.appendChild(style);
+        }
+      },
+      jsPDF:{unit:'mm',format:'a4',orientation:'portrait',compress:true}
+    }).from(stage,'element').toPdf();
+    const pdf=await worker.get('pdf');
+    appendToolPages(pdf,practicalImages);
+    appendToolPages(pdf,toolImages);
+    pdf.save(filename);
+    say('PDF downloaded to this device');
   }catch(error){
-    console.error('Could not prepare the embedded exercise pages for printing',error);
+    console.error('Could not create the handbook PDF download',error);
     say('The PDF could not be prepared. Please try again.');
   }finally{
-    setTimeout(()=>{resetPrint();cleanupEmbeddedToolPrintPages()},500);
+    setPdfExportBusy(false);
+    resetPrint();
+    cleanupPrintFields();
+    cleanupEmbeddedToolPrint();
+    cleanupEmbeddedToolPrintPages();
+    document.body.classList.remove('printing-embedded-tools');
+    document.getElementById('pdfDownloadStage')?.remove();
   }
 }
 document.getElementById('printPage').onclick=()=>exportHandbookPdf('tab');
@@ -1749,7 +1938,7 @@ document.documentElement.classList.toggle('is-embedded',new URLSearchParams(loca
       : Math.max(...[...document.body.children].map(element=>element.getBoundingClientRect().bottom+window.scrollY),0));
     if(!height||Math.abs(height-lastHeight)<2)return;
     lastHeight=height;
-    window.parent.postMessage({type:'acsis-handbook-height',height,build:'2026-09-29-v24-multipage-pdf'},targetOrigin);
+    window.parent.postMessage({type:'acsis-handbook-height',height,build:'2026-09-29-v25-direct-pdf-download'},targetOrigin);
   }
   function queueHeightReport(){
     if(pendingFrame)return;

@@ -1,4 +1,4 @@
-const ACSIS_HANDBOOK_URL = 'https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1&v=24';
+const ACSIS_HANDBOOK_URL = 'https://mpbconsulting2025.github.io/ACSISLC/coaches-handbook/?embed=1&v=25';
 class AcsisCoachesHandbook extends HTMLElement {
   constructor() {
     super();
