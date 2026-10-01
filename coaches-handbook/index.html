@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="description" content="ACSIS Coaches Handbook with browser-only private saving and PDF export"/>
 <meta name="referrer" content="no-referrer"/>
-<meta name="acsis-build" content="2026-09-29-v25-direct-pdf-download"/>
+<meta name="acsis-build" content="2026-10-01-v26-wix-pdf-download"/>
 <link rel="icon" href="data:,"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"/>
 <title>ACSIS Coaches Handbook</title>
@@ -1747,7 +1747,14 @@ function waitForEmbeddedToolFrame(frame){
     }catch(error){clearTimeout(timer);reject(error)}
   });
 }
-function nextPaint(win=window){return new Promise(resolve=>win.requestAnimationFrame(()=>win.requestAnimationFrame(resolve)))}
+function nextPaint(win=window){
+  return new Promise(resolve=>{
+    let settled=false,timer;
+    const finish=()=>{if(settled)return;settled=true;clearTimeout(timer);resolve()};
+    timer=setTimeout(finish,350);
+    try{win.requestAnimationFrame(()=>win.requestAnimationFrame(finish))}catch(error){finish()}
+  });
+}
 function setEmbeddedControlValue(control,value,checked){
   if(control.type==='checkbox'||control.type==='radio'){
     const setter=Object.getOwnPropertyDescriptor(control.ownerDocument.defaultView.HTMLInputElement.prototype,'checked')?.set;
