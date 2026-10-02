@@ -41,7 +41,7 @@ function verifyHandbook(cards) {
   const handbook = fs.readFileSync(handbookPath, 'utf8');
   const support = fs.readFileSync(supportPath, 'utf8');
 
-  requireText(handbook, '2026-09-29-v25-direct-pdf-download', 'The V25 build marker is missing');
+  requireText(handbook, '2026-10-02-v27-pdf-layout-repair', 'The V27 build marker is missing');
   requireText(handbook, 'assets/acsis-logo-03.png', 'The supplied ACSIS wordmark is missing');
   requireText(handbook, '../coaching-tools/assets/acsis-logo.png', 'The full-colour PDF logo is missing');
   requireText(handbook, '<textarea name="outcomeNotes"', 'Outcome notes must use an expanding textarea');
@@ -64,4 +64,4 @@ function verifyHandbook(cards) {
 
 const cards = buildCatalogue();
 verifyHandbook(cards);
-console.log(`Verified the V25 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);
+console.log(`Verified the V27 coaches handbook and rebuilt its ${cards.length}-tool catalogue.`);
