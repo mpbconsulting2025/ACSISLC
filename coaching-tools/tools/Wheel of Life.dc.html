@@ -175,6 +175,11 @@ class Component extends DCLogic {
     this.suggested=['Career','Money','Health','Family & Friends','Relationships','Personal Growth','Fun & Leisure','Home & Environment'];
     let saved={};
     try{ saved=JSON.parse(localStorage.getItem(this.key)||'{}') }catch(e){}
+    const obsoleteTestReflection='This final reflection must remain fully visible at the bottom of the exported Wheel of Life exercise page, including every word in this deliberately longer test response.';
+    if(typeof saved.coach==='string'&&saved.coach.trim()===obsoleteTestReflection){
+      saved.coach='';
+      try{ localStorage.setItem(this.key,JSON.stringify(saved)) }catch(e){}
+    }
     if(!Array.isArray(saved.areas)){
       let legacy={};
       try{ legacy=JSON.parse(localStorage.getItem('acsis-wheel-of-life')||'{}') }catch(e){}
