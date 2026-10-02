@@ -32,6 +32,8 @@ const assert = (condition, message) => {
 };
 
 await page.goto(`${baseUrl}/coaches-handbook/?embed=1`, { waitUntil: 'networkidle' });
+assert(await page.locator('.brand-logo-screen').isVisible(), 'screen ACSIS logo is not visible');
+assert(!(await page.locator('.brand-logo-print').isVisible()), 'print ACSIS logo is incorrectly visible on screen');
 assert(await page.getByText('Private by design.').count() === 0, 'removed privacy notice is still present');
 await page.getByRole('button', { name: /Session Output/ }).click();
 assert(await page.locator('#sharedToolCatalogue .shared-tool-card').count() === 31, 'handbook does not show 31 shared tools');
@@ -54,10 +56,15 @@ await embeddedTool.waitFor({ state: 'visible' });
 const woopFrame = page.frames().find((frame) => frame.url().includes('/coaching-tools/tools/WOOP.dc.html'));
 assert(woopFrame, 'WOOP did not open inside the handbook');
 await woopFrame.getByLabel('Wish').fill('Build a repeatable weekly wellbeing routine.');
+const obsoleteWheelTest = 'This final reflection must remain fully visible at the bottom of the exported Wheel of Life exercise page, including every word in this deliberately longer test response.';
+await page.evaluate((testValue) => {
+  localStorage.setItem('acsis-wheel-of-life-v5', JSON.stringify({ coach: testValue }));
+}, obsoleteWheelTest);
 await page.getByRole('button', { name: /^Wheel of Life / }).click();
 await page.locator('.embedded-tool-card[data-tool-id="tools/Wheel%20of%20Life.dc.html"] iframe').waitFor({ state: 'visible' });
 const wheelFrame = page.frames().find((frame) => frame.url().includes('/coaching-tools/tools/Wheel%20of%20Life.dc.html'));
 assert(wheelFrame, 'Wheel of Life did not open inside the handbook');
+assert((await wheelFrame.getByLabel('Notes you want to share with your coach for the next session').inputValue()) === '', 'obsolete Wheel of Life test response is still present');
 const wheelEndMarker = 'Complete final Wheel of Life response that must remain visible at the bottom of the PDF.';
 await wheelFrame.getByLabel('Small change to raise satisfaction').fill(wheelEndMarker);
 await page.waitForTimeout(700);
@@ -120,6 +127,8 @@ for (let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber += 1) {
 }
 const finalPageText = pdfPageTexts.at(-1);
 const completePdfText = pdfPageTexts.join(' ');
+assert(completePdfText.includes('Clarity, Courage and Connection'), '3C wording is missing from the PDF');
+assert(!completePdfText.includes('This final reflection must remain fully visible'), 'obsolete Wheel of Life test response is present in the PDF');
 assert(completePdfText.includes('WOOP') && completePdfText.includes('weekly wellbeing'), 'selected WOOP worksheet content is missing from the PDF');
 assert(finalPageText.includes(wheelEndMarker), 'the bottom of the multi-page Wheel of Life worksheet is missing from the final PDF page');
 assert(!/https?:\/\//i.test(completePdfText), 'browser page URL is present in the handbook PDF');
@@ -170,6 +179,15 @@ await embedPage.waitForTimeout(900);
 const exerciseEmbedHeight = await customElement.evaluate((element) => parseInt(getComputedStyle(element).height, 10));
 assert(exerciseEmbedHeight > outputEmbedHeight, 'Wix wrapper did not expand for an opened coaching exercise');
 assert(await customElement.evaluate((element) => !element.shadowRoot.querySelector('iframe').hasAttribute('srcdoc')), 'Wix wrapper unexpectedly stores handbook content');
+const wixDownloadPromise = embedPage.waitForEvent('download', { timeout: 120000 });
+await embeddedHandbookFrame.getByRole('button', { name: 'Export this tab as PDF' }).click();
+const wixDownload = await wixDownloadPromise;
+const wixDownloadPath = `${pdfDir}/acsis-handbook-wix-embed-download.pdf`;
+await wixDownload.saveAs(wixDownloadPath);
+assert(fs.statSync(wixDownloadPath).size > 50000, 'Wix embed PDF download is unexpectedly small');
+const wixPdf = await getDocument({ data: new Uint8Array(fs.readFileSync(wixDownloadPath)), disableWorker: true }).promise;
+assert(wixPdf.numPages >= 2, `Wix embed session output PDF should include the selected exercise, found ${wixPdf.numPages} page`);
+assert(await embeddedHandbookFrame.getByText('PDF downloaded to this device').count() === 1, 'Wix embed export did not confirm the download');
 
 const toolboxPage = await context.newPage();
 toolboxPage.on('console', (message) => {
@@ -211,10 +229,12 @@ console.log(JSON.stringify({
   pdfPages: pdf.numPages,
   responsiveWidths: [390, 768, 1280],
   wixResponsiveHeights: [initialEmbedHeight, outputEmbedHeight, exerciseEmbedHeight],
+  wixDownloadPages: wixPdf.numPages,
   externalRequests,
   errors,
   pdf: `${pdfDir}/acsis-handbook-output.pdf`,
-  directDownloadPdf: directDownloadPath
+  directDownloadPdf: directDownloadPath,
+  wixDownloadPdf: wixDownloadPath
 }, null, 2));
 
 await browser.close();
