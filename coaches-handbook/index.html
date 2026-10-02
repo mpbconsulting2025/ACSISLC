@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="description" content="ACSIS Coaches Handbook with browser-only private saving and PDF export"/>
 <meta name="referrer" content="no-referrer"/>
-<meta name="acsis-build" content="2026-10-01-v26-wix-pdf-download"/>
+<meta name="acsis-build" content="2026-10-02-v27-pdf-layout-repair"/>
 <link rel="icon" href="data:,"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"/>
 <title>ACSIS Coaches Handbook</title>
@@ -1078,11 +1078,12 @@ input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-ca
 .is-embedded .band{padding-top:18px}
 .main-logo-tile .brand-logo-print{display:none!important}
 .main-logo-tile{display:flex!important;align-items:center!important;justify-content:center!important;height:112px!important;padding:8px!important;background:transparent!important;border:0!important;box-shadow:none!important;overflow:hidden!important}
-.main-logo-tile .brand-logo{display:block!important;width:auto!important;height:92px!important;max-width:100%!important;max-height:92px!important;object-fit:contain!important;object-position:center!important;border:0!important;border-radius:0!important}
+.main-logo-tile .brand-logo-screen{display:block!important;width:auto!important;height:92px!important;max-width:100%!important;max-height:92px!important;object-fit:contain!important;object-position:center!important;border:0!important;border-radius:0!important}
 .brand-logos{gap:8px!important}
 .partner-logos{margin-top:0!important}
 @media(max-width:720px){.shared-tool-grid{grid-template-columns:1fr}.privacy-chip{order:-1}.toolbar .wrap{align-items:flex-start}}
 @media print{
+  .brand-copy strong{color:var(--navy)!important}
   .main-logo-tile{display:flex!important;width:188pt!important;height:54pt!important;padding:4pt!important;background:#fff!important;border-radius:4pt!important;overflow:hidden!important}
   .main-logo-tile .brand-logo{width:auto!important;height:44pt!important;max-width:100%!important;max-height:44pt!important;object-fit:contain!important}
   .main-logo-tile .brand-logo-screen{display:none!important}
@@ -1628,7 +1629,7 @@ function appendToolPages(pdf,toolImages){
     const width=image.width*scale;
     const height=image.height*scale;
     const x=insetX+((availableWidth-width)/2);
-    const y=insetY+((availableHeight-height)/2);
+    const y=insetY;
     pdf.addImage(image.data,'JPEG',x,y,width,height,undefined,'FAST');
   });
 }
@@ -1945,7 +1946,7 @@ document.documentElement.classList.toggle('is-embedded',new URLSearchParams(loca
       : Math.max(...[...document.body.children].map(element=>element.getBoundingClientRect().bottom+window.scrollY),0));
     if(!height||Math.abs(height-lastHeight)<2)return;
     lastHeight=height;
-    window.parent.postMessage({type:'acsis-handbook-height',height,build:'2026-09-29-v25-direct-pdf-download'},targetOrigin);
+    window.parent.postMessage({type:'acsis-handbook-height',height,build:'2026-10-02-v27-pdf-layout-repair'},targetOrigin);
   }
   function queueHeightReport(){
     if(pendingFrame)return;
