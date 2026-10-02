@@ -6,7 +6,7 @@
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta name="description" content="ACSIS Coaches Handbook with browser-only private saving and PDF export"/>
 <meta name="referrer" content="no-referrer"/>
-<meta name="acsis-build" content="2026-10-02-v27-pdf-layout-repair"/>
+<meta name="acsis-build" content="2026-10-02-v28-logo-aspect-ratio"/>
 <link rel="icon" href="data:,"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'"/>
 <title>ACSIS Coaches Handbook</title>
@@ -895,14 +895,14 @@ input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-ca
     object-position:center!important;
   }
   .partner-logos{
-    display:grid!important;
-    grid-template-columns:43pt minmax(0,1fr)!important;
+    display:flex!important;
     align-items:center!important;
+    justify-content:flex-start!important;
     flex:0 0 auto!important;
     width:188pt!important;
-    height:36pt!important;
+    height:auto!important;
     min-height:0!important;
-    gap:2pt!important;
+    gap:6pt!important;
     margin:0!important;
     padding:0!important;
     border:0!important;
@@ -913,8 +913,7 @@ input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-ca
   }
   .partner-logos img{
     display:block!important;
-    height:36pt!important;
-    max-height:36pt!important;
+    flex:0 0 auto!important;
     margin:0!important;
     padding:0!important;
     border:0!important;
@@ -922,16 +921,20 @@ input[type=date]::-webkit-calendar-picker-indicator,input[type=time]::-webkit-ca
     border-radius:0!important;
     box-shadow:none!important;
     background:transparent!important;
-    object-fit:contain!important;
+    object-fit:fill!important;
     object-position:center!important;
   }
   .partner-logos img[alt="PIVS"]{
-    width:43pt!important;
-    min-width:43pt!important;
+    width:29.25pt!important;
+    min-width:29.25pt!important;
+    height:36pt!important;
+    max-height:36pt!important;
   }
   .partner-logos img[alt="Armed Forces Covenant"]{
-    width:100%!important;
-    min-width:0!important;
+    width:120pt!important;
+    min-width:120pt!important;
+    height:36pt!important;
+    max-height:36pt!important;
   }
   .contour{display:none!important}
 }
@@ -1946,7 +1949,7 @@ document.documentElement.classList.toggle('is-embedded',new URLSearchParams(loca
       : Math.max(...[...document.body.children].map(element=>element.getBoundingClientRect().bottom+window.scrollY),0));
     if(!height||Math.abs(height-lastHeight)<2)return;
     lastHeight=height;
-    window.parent.postMessage({type:'acsis-handbook-height',height,build:'2026-10-02-v27-pdf-layout-repair'},targetOrigin);
+    window.parent.postMessage({type:'acsis-handbook-height',height,build:'2026-10-02-v28-logo-aspect-ratio'},targetOrigin);
   }
   function queueHeightReport(){
     if(pendingFrame)return;
