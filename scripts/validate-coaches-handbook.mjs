@@ -16,7 +16,7 @@ const assert = (condition, message) => {
 
 assert((toolbox.match(/class="tool-card"/g) || []).length === 31, 'toolbox has 31 tool cards');
 assert((catalogue.match(/"href":/g) || []).length === 31, 'shared catalogue has 31 tool links');
-assert(handbook.includes('2026-10-02-v27-pdf-layout-repair'), 'handbook has the V27 repair build marker');
+assert(handbook.includes('2026-10-02-v28-logo-aspect-ratio'), 'handbook has the V28 logo aspect-ratio build marker');
 assert(handbook.includes('assets/acsis-logo-03.png'), 'handbook uses the supplied ACSIS PNG-03 wordmark');
 assert(!handbook.includes('Private by design.'), 'requested privacy banner text is removed');
 assert(handbook.includes("connect-src 'none'"), 'handbook blocks all data connections');
@@ -38,7 +38,9 @@ assert(handbook.includes('prepareEmbeddedToolPrint()'), 'embedded tool footer UR
 assert(handbook.includes('PDF downloaded to this device'), 'handbook confirms the direct PDF download');
 assert(handbook.includes('vendor/html2pdf.bundle.min.js'), 'handbook uses the local PDF renderer');
 assert(fs.existsSync(path.join(root, 'coaches-handbook', 'vendor', 'html2pdf.bundle.min.js')), 'local PDF renderer exists');
-assert(wixEmbed.includes('coaches-handbook/?embed=1&v=27'), 'Wix wrapper uses the current handbook cache version');
+assert(wixEmbed.includes('coaches-handbook/?embed=1&v=28'), 'Wix wrapper uses the current handbook cache version');
+assert(handbook.includes('width:29.25pt!important'), 'print CSS preserves the portrait PIVS logo ratio');
+assert(handbook.includes('width:120pt!important'), 'print CSS preserves the Armed Forces Covenant logo ratio');
 assert(wixEmbed.includes("event.data?.type !== 'acsis-handbook-height'"), 'Wix wrapper listens only for handbook height messages');
 assert(!wixEmbed.includes('localStorage'), 'Wix wrapper does not access client browser storage');
 assert(support.includes('zoom:.8!important'), 'embedded worksheet print scale is present');

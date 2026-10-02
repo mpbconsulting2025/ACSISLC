@@ -34,6 +34,19 @@ const assert = (condition, message) => {
 await page.goto(`${baseUrl}/coaches-handbook/?embed=1`, { waitUntil: 'networkidle' });
 assert(await page.locator('.brand-logo-screen').isVisible(), 'screen ACSIS logo is not visible');
 assert(!(await page.locator('.brand-logo-print').isVisible()), 'print ACSIS logo is incorrectly visible on screen');
+await page.emulateMedia({ media: 'print' });
+const partnerLogoRatios = await page.locator('.partner-logos img').evaluateAll((images) => images.map((image) => {
+  const bounds = image.getBoundingClientRect();
+  return {
+    alt: image.alt,
+    rendered: bounds.width / bounds.height,
+    natural: image.naturalWidth / image.naturalHeight
+  };
+}));
+for (const logo of partnerLogoRatios) {
+  assert(Number.isFinite(logo.rendered) && Math.abs(logo.rendered - logo.natural) < 0.03, `${logo.alt} is distorted in print (${logo.rendered} instead of ${logo.natural})`);
+}
+await page.emulateMedia({ media: 'screen' });
 assert(await page.getByText('Private by design.').count() === 0, 'removed privacy notice is still present');
 await page.getByRole('button', { name: /Session Output/ }).click();
 assert(await page.locator('#sharedToolCatalogue .shared-tool-card').count() === 31, 'handbook does not show 31 shared tools');
